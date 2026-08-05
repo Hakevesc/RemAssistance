@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REM Assistance | Build a Remote Team You Can Actually Rely On</title>
+<meta name="description" content="Build dedicated remote teams at up to 80% lower hiring costs with REM Assistance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0B1D2B;
+  --primary: #00A8E8;
+  --primary-dark: #0088C6;
+  --primary-light: #E6F7FC;
+  --white: #ffffff;
+  --light: #F0F7FA;
+  --text: #0f172a;
+  --muted: #64748b;
+  --radius-sm: 14px;
+  --radius-md: 22px;
+  --radius-lg: 32px;
+  --radius-pill: 60px;
+  --shadow: 0 25px 60px rgba(0,0,0,0.22);
+  --shadow-sm: 0 12px 35px rgba(0,0,0,0.12);
+  --shadow-pill: 0 4px 14px rgba(0,168,232,0.18);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; }
+
+.container {
+  width: min(1400px, 96%);
+  margin: auto;
+}
+
+/* Header & Nav */
+.header {
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: transparent;
+}
+
+.navbar {
+  background: var(--white);
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 32px;
+  box-shadow: var(--shadow-sm);
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 15px;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.btn {
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-pill);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1.5px solid var(--text);
+}
+
+.btn-secondary:hover {
+  background: var(--text);
+  color: var(--white);
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--primary);
+}
+
+/* Hero - fills viewport comfortably */
+.hero {
+  padding: 0 0 40px;
+  height: calc(100vh - 84px);
+  min-height: 580px;
+  display: flex;
+  align-items: stretch;
+}
+
+.hero-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  width: 100%;
+}
+
+.hero-left {
+  padding: 50px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+h1 {
+  font-size: 48px;
+  line-height: 1.1;
+  color: var(--text);
+  font-weight: 800;
+  letter-spacing: -1.2px;
+}
+
+.underline {
+  text-decoration: underline;
+  text-decoration-color: var(--primary);
+  text-decoration-thickness: 4px;
+  text-underline-offset: 6px;
+}
+
+.lead {
+  font-size: 18px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.sub {
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 14px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+/* Trust Pills */
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.trust-pill {
+  background: var(--primary-light);
+  border: 1.5px solid rgba(0, 168, 232, 0.12);
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.trust-pill:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-pill);
+}
+
+.trust-pill .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  font-size: 13px;
+  flex-shrink: 0;
+  font-weight: 800;
+}
+
+/* Hero Right / Video */
+.hero-right {
+  position: relative;
+  background: #07121a;
+  height: 100%;
+  min-height: 0;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 40px;
+  background: linear-gradient(to top, rgba(11,29,43,0.92) 0%, rgba(11,29,43,0.3) 60%, transparent 100%);
+  color: var(--white);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.rating {
+  font-size: 20px;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  color: #FFD700;
+}
+
+.video-overlay h4 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.video-overlay p {
+  opacity: 0.9;
+  font-size: 15px;
+  max-width: 380px;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .hero-left { padding: 40px 40px; }
+  h1 { font-size: 42px; }
+}
+
+@media (max-width: 960px) {
+  .hero {
+    height: auto;
+    min-height: auto;
+    padding: 16px 0 40px;
+  }
+  .hero-card {
+    grid-template-columns: 1fr;
+  }
+  .hero-left {
+    padding: 48px 36px;
+    gap: 16px;
+  }
+  h1 { font-size: 40px; }
+  .hero-right { min-height: 380px; }
+  .video-wrapper { min-height: 380px; }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 90px;
+    left: 2%;
+    right: 2%;
+    background: var(--white);
+    padding: 24px;
+    border-radius: var(--radius-md);
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    gap: 16px;
+  }
+  .nav-links.show { display: flex; }
+  .menu-toggle { display: block; }
+  .trust-grid { grid-template-columns: 1fr; }
+  .video-overlay { padding: 32px 24px; }
+  .video-overlay h4 { font-size: 20px; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 32px; }
+  .hero-left { padding: 32px 24px; }
+  .navbar { padding: 12px 20px; }
+  .btn { padding: 12px 22px; font-size: 14px; }
+  .hero-buttons { flex-direction: column; }
+  .trust-pill { font-size: 13px; padding: 12px 14px; }
+}
+</style>
+<base target="_blank">
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="#" class="logo">
+        <img src="images/rem-logo.svg" alt="REM Assistance">
+      </a>
+      <ul class="nav-links">
+        <li><a href="#">Services</a></li>
+        <li><a href="#">How It Works</a></li>
+        <li><a href="#">Industries</a></li>
+        <li><a href="#">Testimonials</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="#" class="btn btn-primary">Build My Team</a>
+        <button class="menu-toggle" aria-label="Open menu">☰</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-card">
+        <div class="hero-left">
+          <span class="eyebrow">Dedicated Remote Professionals</span>
+          <h1>
+            Build a Remote Team You Can <span class="underline">Actually Rely On</span>.
+          </h1>
+          <p class="lead">
+            REM builds dedicated professionals at up to <span class="underline">80% less</span> than traditional U.S. hiring costs—handling everything from sourcing and onboarding to ongoing management.
+          </p>
+          <p class="sub">
+            Stop running your business at half capacity. Start taking on more opportunities with confidence.
+          </p>
+          <div class="hero-buttons">
+            <a href="#" class="btn btn-primary">Build My Team</a>
+            <a href="#" class="btn btn-secondary">See How It Works</a>
+          </div>
+          <div class="trust-grid">
+            <div class="trust-pill">
+              <span class="icon">✓</span>
+              U.S. Time Zone Coverage
+            </div>
+            <div class="trust-pill">
+              <span class="icon">✓</span>
+              Neutral English Accent
+            </div>
+            <div class="trust-pill">
+              <span class="icon">✓</span>
+              Dedicated Teams
+            </div>
+            <div class="trust-pill">
+              <span class="icon">✓</span>
+              Up to 80% Cost Savings
+            </div>
+          </div>
+        </div>
+        <div class="hero-right">
+          <div class="video-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/u1dVeHu0pTI?rel=0&modestbranding=1&playsinline=1" 
+              title="REM Assistance - Outsourcing Company Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowfullscreen>
+            </iframe>
+            <div class="video-overlay">
+              <div class="rating">★★★★★</div>
+              <h4>Trusted by Growing U.S. Businesses</h4>
+              <p>See how REM helped companies scale without increasing hiring costs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  const menu = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.nav-links');
+  menu.onclick = () => {
+    nav.classList.toggle('show');
+  };
+</script>
+
+</body>
+</html>
