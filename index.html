@@ -1616,16 +1616,10 @@ h1 {
     });
     render('Frontend Developer');
   })();
-
-  const roCert = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting){ e.target.classList.add('in'); roCert.unobserve(e.target); }
-  }), {threshold:.15});
-  document.querySelectorAll('.cert-section [data-reveal]').forEach(el => roCert.observe(el));
 </script>
 
 <section class="cert-section">
   <div class="container">
-    <div class="banner" data-reveal>
       <div class="banner-bg">
 
         <!-- LEFT : copy -->
