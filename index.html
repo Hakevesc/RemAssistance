@@ -860,193 +860,92 @@ h1 {
   }
 }
 
-/* Calculator Widget */
-.section-calculator {
-  padding: 100px 0;
-  background: var(--white);
-}
-
-.widget-root {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 40px 36px;
-  max-width: 900px;
-  margin: 0 auto;
-  border: 1px solid rgba(10, 22, 40, 0.06);
-  position: relative;
-  overflow: hidden;
-  font-family: 'Sora', system-ui, sans-serif;
-}
-
-.widget-root::before {
-  content: '';
-  position: absolute;
-  top: -80px; right: -80px;
-  width: 320px; height: 320px;
-  background: radial-gradient(circle, rgba(30, 58, 138, 0.06) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.calc-header { margin-bottom: 28px; }
-.calc-header h2 { font-size: 24px; font-weight: 700; margin: 0 0 8px 0; color: #0A1628; }
-.calc-header p { font-size: 14px; color: #64748B; margin: 0; }
-
-.calc-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 28px; }
-
-.role-label {
-  font-size: 11px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 1px; color: #94A3B8; margin-bottom: 8px;
-}
-.role-select { position: relative; margin-bottom: 20px; }
-.role-select input {
-  width: 100%; padding: 14px 44px 14px 16px; border-radius: 12px;
-  border: 1.5px solid rgba(30, 58, 138, 0.12); background: #F8FAFC;
-  color: #0A1628; font-size: 15px; font-weight: 600; outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s; cursor: pointer; font-family: inherit;
-}
-.role-select input:focus {
-  border-color: #1E3A8A; box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
-}
-.role-select .chevron {
-  position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
-  color: #94A3B8; pointer-events: none; font-size: 11px;
-}
-.role-dropdown {
-  position: absolute; top: calc(100% + 6px); left: 0; right: 0;
-  background: #fff; border: 1px solid rgba(30, 58, 138, 0.1);
-  border-radius: 12px; padding: 6px; z-index: 10; display: none;
-  max-height: 240px; overflow-y: auto;
-  box-shadow: 0 10px 40px rgba(10, 22, 40, 0.1);
-}
-.role-dropdown.active { display: block; }
-.role-option {
-  padding: 10px 14px; border-radius: 8px; cursor: pointer;
-  font-size: 14px; color: #475569; transition: background 0.15s, color 0.15s;
-}
-.role-option:hover, .role-option.selected {
-  background: rgba(30, 58, 138, 0.08); color: #1E3A8A; font-weight: 600;
-}
-
-.savings-highlight {
-  background: #1E3A8A; border-radius: 14px; padding: 24px 22px; color: #fff;
-}
-.savings-highlight .label {
-  font-size: 13px; font-weight: 600; margin-bottom: 4px;
-  opacity: 0.7; text-transform: uppercase; letter-spacing: 0.5px;
-}
-.savings-highlight .amount {
-  font-size: 40px; font-weight: 800; line-height: 1; letter-spacing: -1px;
-}
-.savings-highlight .amount span { font-size: 26px; }
-.savings-bar { margin-top: 14px; height: 6px; background: rgba(255,255,255,0.15); border-radius: 3px; overflow: hidden; }
-.savings-bar-fill { height: 100%; background: #60A5FA; border-radius: 3px; transition: width 0.6s cubic-bezier(0.4,0,0.2,1); }
-.tier-list { margin-top: 16px; }
-.tier-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-.tier-row:last-child { border-bottom: none; }
-.tier-name { font-size: 13px; font-weight: 500; opacity: 0.85; }
-.tier-pct { font-size: 16px; font-weight: 700; }
-
-.right-col { display: flex; flex-direction: column; gap: 20px; }
-
-.salary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-
-.salary-card {
-  background: #fff; border: 1px solid rgba(30, 58, 138, 0.08);
-  border-radius: 12px; padding: 16px;
-}
-.salary-card h4 {
-  font-size: 13px; font-weight: 700; margin: 0 0 12px 0;
-  color: #0A1628; text-transform: uppercase; letter-spacing: 0.5px;
-}
-.salary-row { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid rgba(30, 58, 138, 0.06); font-size: 12.5px; }
-.salary-row:last-child { border-bottom: none; }
-.salary-row .loc { color: #94A3B8; }
-.salary-row .val { font-weight: 700; color: #0A1628; }
-.salary-row .val.highlight { color: #1E3A8A; }
-
-.cta-btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  padding: 14px 28px; background: #1E3A8A; border: none; border-radius: 10px;
-  color: #fff; font-size: 14px; font-weight: 600; cursor: pointer;
-  transition: all 0.2s; font-family: inherit; width: 100%;
-}
-.cta-btn:hover { background: #172554; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(30, 58, 138, 0.25); }
-
-/* Case Study + Calculator Section */
-.calc-case-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: stretch;
-}
-
-.case-study {
-  background: var(--bg);
-  border-radius: var(--radius-lg);
-  padding: 40px 36px;
-  color: var(--white);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.case-study::before {
-  content: '';
-  position: absolute;
-  top: -80px; right: -80px;
-  width: 320px; height: 320px;
-  background: radial-gradient(circle, rgba(0,168,232,0.15) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.case-study h2 {
-  font-size: 32px;
-  font-weight: 800;
-  color: var(--white);
-  margin-bottom: 20px;
-  line-height: 1.2;
-  letter-spacing: -0.5px;
-}
-
-.case-study p {
-  font-size: 15px;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.85);
-}
-
-.case-stats {
-  display: flex;
-  gap: 20px;
-  margin-top: 28px;
-}
-
-.case-stat {
-  flex: 1;
-  background: rgba(255,255,255,0.08);
-  border-radius: var(--radius-sm);
-  padding: 20px 16px;
-  text-align: center;
-}
-
-.case-stat .value {
-  font-size: 32px;
-  font-weight: 800;
-  color: var(--primary);
-  line-height: 1;
-}
-
-.case-stat .label {
-  font-size: 13px;
-  color: rgba(255,255,255,0.7);
-  margin-top: 6px;
-}
-
-@media (max-width: 720px) {
-  .calc-grid { grid-template-columns: 1fr; }
-  .salary-grid { grid-template-columns: 1fr; }
-}
+/* New Calculator Design */
+.section-calculator{position:relative;background:var(--calc-ink);color:var(--calc-text);overflow:hidden;font-family:var(--calc-body)}
+.section-calculator::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(233,242,236,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(233,242,236,.05) 1px,transparent 1px);background-size:46px 46px;-webkit-mask-image:radial-gradient(ellipse at 68% 35%,#000 25%,transparent 78%);mask-image:radial-gradient(ellipse at 68% 35%,#000 25%,transparent 78%)}
+.glow{position:absolute;top:50%;right:-12%;width:640px;height:640px;transform:translateY(-50%);background:radial-gradient(circle,rgba(124,242,156,.15),transparent 62%);pointer-events:none}
+.container{max-width:1400px;margin-inline:auto;padding-inline:clamp(1.25rem,4vw,3rem);position:relative;z-index:1}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,6.5rem);align-items:center;padding:clamp(4rem,7vw,6rem) 0 clamp(5rem,9vw,8rem)}
+.ticker{border-block:1px solid rgba(233,242,236,.12);overflow:hidden;position:relative;z-index:1}
+.ticker-track{display:flex;width:max-content;animation:tick 30s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker-track span{display:inline-flex;align-items:center;gap:.6rem;padding:.6rem 1.5rem;white-space:nowrap;font:500 .7rem/1 var(--calc-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--calc-muted)}
+.ticker-track b{color:var(--calc-moss);font-weight:600}
+.ticker-track i{font-style:normal;color:rgba(124,242,156,.5);font-size:.55rem}
+@keyframes tick{to{transform:translateX(-50%)}}
+[data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+[data-reveal].in{opacity:1;transform:none}
+.case{position:relative}
+.case-ghost{position:absolute;top:-4.5rem;left:-2.5rem;z-index:0;font-family:var(--calc-display);font-weight:800;font-size:clamp(9rem,17vw,15rem);line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(124,242,156,.09);user-select:none;pointer-events:none}
+.case-inner{position:relative;z-index:1}
+.case h2{font-family:var(--calc-display);font-weight:800;font-size:clamp(2.5rem,4.8vw,4.1rem);line-height:1.03;letter-spacing:-.025em}
+.case h2 .hl{color:var(--calc-moss);background:linear-gradient(transparent 66%,rgba(124,242,156,.22) 0);padding:0 .1em}
+.case p{margin-top:1.4rem;max-width:56ch;color:#b9cec3;font-size:1.05rem;line-height:1.7}
+.case-stats{display:flex;gap:clamp(1.6rem,3vw,3rem);margin-top:2.6rem;padding-top:2rem;border-top:1px solid rgba(233,242,236,.14)}
+.case-stat + .case-stat{padding-left:clamp(1.6rem,3vw,3rem);border-left:1px solid rgba(233,242,236,.14)}
+.stat-num{font-family:var(--calc-display);font-weight:800;font-size:2.1rem;letter-spacing:-.02em;color:var(--calc-text);font-variant-numeric:tabular-nums;transition:color .3s}
+.case-stat:hover .stat-num{color:var(--calc-moss)}
+.case-stat.hero .stat-num{font-size:clamp(2.8rem,4.2vw,3.7rem);color:var(--calc-moss)}
+.stat-label{margin-top:.45rem;font:500 .68rem var(--calc-mono);letter-spacing:.16em;text-transform:uppercase;color:#8fae9f}
+.case-link{display:inline-flex;align-items:center;gap:.55rem;margin-top:2.4rem;color:var(--calc-moss);font-weight:600;font-size:1rem;text-decoration:none;position:relative;padding-bottom:.3rem}
+.case-link::after{content:"";position:absolute;left:0;bottom:0;height:1.5px;width:100%;background:var(--calc-moss);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.case-link:hover::after{transform:scaleX(1)}
+.case-link svg{transition:transform .3s}
+.case-link:hover svg{transform:translateX(5px)}
+.calc{position:relative;background:var(--calc-paper);color:#0c221d;border-radius:20px;padding:clamp(1.8rem,3vw,2.6rem);box-shadow:0 40px 80px -30px rgba(0,0,0,.55);transform:rotate(.6deg);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.calc:hover{transform:rotate(0)}
+.calc::before{content:"";position:absolute;top:-13px;left:50%;transform:translateX(-50%) rotate(-2deg);width:120px;height:28px;background:rgba(124,242,156,.55);border-radius:2px}
+.calc h2{font-family:var(--calc-display);font-weight:800;letter-spacing:-.02em;font-size:clamp(1.8rem,2.8vw,2.4rem)}
+.role-label{margin:1.8rem 0 .55rem;font:600 .66rem var(--calc-mono);letter-spacing:.18em;text-transform:uppercase;color:#6b8477}
+.role-select{position:relative}
+.role-btn{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;background:#fff;border:1.5px solid rgba(12,34,29,.16);border-radius:12px;padding:1rem 1.15rem;font:600 1.05rem var(--calc-body);color:#0c221d;cursor:pointer;transition:border-color .25s,box-shadow .25s}
+.role-btn:hover{border-color:rgba(12,34,29,.4)}
+.role-select.open .role-btn{border-color:#0c221d;box-shadow:0 0 0 3px rgba(124,242,156,.4)}
+.role-btn .chev{transition:transform .3s}
+.role-select.open .chev{transform:rotate(180deg)}
+.role-list{position:absolute;top:calc(100% + 8px);left:0;right:0;z-index:30;background:#fff;border:1px solid rgba(12,34,29,.12);border-radius:14px;box-shadow:0 24px 48px -14px rgba(12,34,29,.35);padding:.4rem;max-height:284px;overflow:auto;opacity:0;transform:translateY(-6px) scale(.985);pointer-events:none;transition:.25s ease}
+.role-select.open .role-list{opacity:1;transform:none;pointer-events:auto}
+.role-option{display:flex;align-items:center;padding:.7rem .85rem;border-radius:9px;font-weight:500;font-size:1rem;cursor:pointer;transition:background .15s}
+.role-option:hover,.role-option.active{background:#edf5ec}
+.role-option .sub{margin-left:auto;margin-right:.65rem;font:500 .58rem var(--calc-mono);letter-spacing:.12em;color:#8aa394;border:1px solid rgba(12,34,29,.14);padding:.18rem .45rem;border-radius:5px}
+.role-option.selected{font-weight:700}
+.role-option.selected::after{content:"✓";color:var(--calc-green-deep);font-weight:700}
+.savings{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:1.9rem;padding-top:1.6rem;border-top:1px dashed rgba(12,34,29,.22)}
+.sav-label{font:600 .66rem var(--calc-mono);letter-spacing:.2em;text-transform:uppercase;color:#6b8477}
+.sav-amount{display:inline-block;font-family:var(--calc-display);font-weight:800;line-height:1;font-size:clamp(3.2rem,5vw,4.2rem);letter-spacing:-.03em;color:var(--calc-green-deep);font-variant-numeric:tabular-nums;margin-top:.4rem}
+.sav-amount.bump{animation:bump .5s ease}
+@keyframes bump{35%{transform:scale(1.07)}}
+.sav-sub{margin-top:.5rem;font:500 .66rem var(--calc-mono);letter-spacing:.1em;color:#77907f}
+.dial{position:relative;width:104px;height:104px;flex:none}
+.dial svg{transform:rotate(-90deg)}
+.dial circle{fill:none;stroke-width:8;stroke-linecap:round}
+.dial-track{stroke:rgba(12,34,29,.12)}
+.dial-fill{stroke:var(--calc-green);stroke-dasharray:213.6}
+.dial-num{position:absolute;inset:0;display:grid;place-content:center;font:600 1.25rem var(--calc-mono);color:#0c221d}
+.dial-cap{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:.45rem;font:500 .56rem var(--calc-mono);letter-spacing:.14em;text-transform:uppercase;color:#77907f;white-space:nowrap}
+.costs{display:grid;gap:1.05rem;margin-top:2.1rem}
+.cost-head{display:flex;justify-content:space-between;margin-bottom:.45rem;font:500 .68rem var(--calc-mono);letter-spacing:.14em;text-transform:uppercase;color:#57705f}
+.cost-head b{color:#0c221d;font-weight:600}
+.cost-track{height:13px;border-radius:999px;background:rgba(12,34,29,.08);overflow:hidden}
+.cost-fill{display:block;height:100%;border-radius:999px;transition:width .8s cubic-bezier(.2,.7,.2,1)}
+.cost-fill.us{background:#0c221d;width:100%}
+.cost-fill.off{background:linear-gradient(90deg,var(--calc-green),var(--calc-moss))}
+.tiers{margin-top:1.8rem;padding-top:1.4rem;border-top:1px dashed rgba(12,34,29,.22);display:grid;gap:.85rem}
+.tier-row{display:grid;grid-template-columns:110px 1fr 52px;align-items:center;gap:1rem}
+.tier-name{display:flex;align-items:center;gap:.45rem;font-weight:600;font-size:.9rem}
+.tier-row.best .tier-name::after{content:"BEST";font:600 .52rem var(--calc-mono);letter-spacing:.1em;background:var(--calc-green-deep);color:#dfffe9;padding:.16rem .4rem;border-radius:4px}
+.tier-meter{height:9px;border-radius:99px;background:rgba(12,34,29,.08);overflow:hidden}
+.tier-fill{display:block;height:100%;border-radius:99px;background:#9db8ac;transition:width .8s cubic-bezier(.2,.7,.2,1),background .3s}
+.tier-row.best .tier-fill{background:var(--calc-green)}
+.tier-pct{font:600 .9rem var(--calc-mono);text-align:right;color:#0c221d}
+.calc-cta{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;width:100%;margin-top:1.9rem;background:#0c221d;color:var(--calc-paper);font:600 1.02rem var(--calc-body);padding:1.1rem 1.4rem;border:0;border-radius:12px;cursor:pointer;transition:.3s}
+.calc-cta:hover{background:var(--calc-green-deep);transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(14,92,63,.55)}
+.calc-cta svg{transition:transform .3s}
+.calc-cta:hover svg{transform:translateX(4px)}
+.calc-cta:focus-visible,.role-btn:focus-visible,.role-option:focus-visible{outline:3px solid rgba(23,165,107,.5);outline-offset:2px}
+@media (max-width:1020px){.calc-grid{grid-template-columns:1fr;gap:4.5rem}.calc{transform:none}.case-ghost{font-size:8rem;top:-2.5rem;left:-1rem}}
+@media (max-width:560px){.case-stats{flex-wrap:wrap;gap:1.2rem}.tier-row{grid-template-columns:90px 1fr 46px}.savings{flex-wrap:wrap}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}[data-reveal]{opacity:1;transform:none}}
 
 @media (max-width: 1100px) {
   .footer-links-grid {
@@ -1445,64 +1344,98 @@ h1 {
     </div>
   </section>
 
-  <section class="section-calculator">
+  <section class="section-calculator" id="savings">
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Save up to <b>80%</b> on hiring <i>◆</i></span>
+        <span>US $140K → offshore <b>$53K</b> <i>◆</i></span>
+        <span>Pre-vetted senior talent <i>◆</i></span>
+        <span><b>2-week</b> paid trial <i>◆</i></span>
+        <span>No long-term lock-in <i>◆</i></span>
+        <span>Timezone-aligned teams <i>◆</i></span>
+      </div>
+    </div>
+    <div class="glow" aria-hidden="true"></div>
     <div class="container">
-      <div class="calc-case-grid">
-        <!-- Left: Calculator -->
-        <div class="widget-root">
-          <div class="calc-header">
-            <h2>How much you can save</h2>
-            <p>Select a role to see estimated offshore savings and salary comparisons.</p>
+      <div class="calc-grid">
+        <article class="case">
+          <div class="case-ghost" aria-hidden="true">80%</div>
+          <div class="case-inner">
+            <h2 data-reveal>Cut your costs<br>up to <span class="hl">80%</span></h2>
+            <p data-reveal data-delay="80">REM partnered with Locate &amp; Move to improve lead generation and inbound call handling for apartment seekers. By introducing an AI-assisted qualification system and refining workflows, we increased qualified leads by 42% and cut response time by 60% in 3 months — driving more conversions while reducing support overhead.</p>
+            <div class="case-stats" data-reveal data-delay="160">
+              <div class="case-stat hero">
+                <div class="stat-num" data-count="42" data-prefix="+" data-suffix="%">+42%</div>
+                <div class="stat-label">Qualified leads</div>
+              </div>
+              <div class="case-stat">
+                <div class="stat-num" data-count="60" data-prefix="−" data-suffix="%">−60%</div>
+                <div class="stat-label">Response time</div>
+              </div>
+              <div class="case-stat">
+                <div class="stat-num">3 mo</div>
+                <div class="stat-label">Timeframe</div>
+              </div>
+            </div>
+            <a class="case-link" href="#" data-reveal data-delay="240">Read the full story
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+            </a>
           </div>
-
-          <div class="role-label">Select Role</div>
+        </article>
+        <aside class="calc" data-reveal data-delay="120">
+          <h2>How much you can save</h2>
+          <div class="role-label">Select role</div>
           <div class="role-select" id="roleSelect">
-            <input type="text" id="roleInput" value="Frontend Developer" readonly />
-            <span class="chevron">▼</span>
-            <div class="role-dropdown" id="roleDropdown">
-              <div class="role-option selected" data-role="Frontend Developer">Frontend Developer</div>
-              <div class="role-option" data-role="Backend Developer">Backend Developer</div>
-              <div class="role-option" data-role="Full Stack Developer">Full Stack Developer</div>
-              <div class="role-option" data-role="DevOps Engineer">DevOps Engineer</div>
-              <div class="role-option" data-role="UI/UX Designer">UI/UX Designer</div>
-              <div class="role-option" data-role="QA Engineer">QA Engineer</div>
-              <div class="role-option" data-role="Data Analyst">Data Analyst</div>
-              <div class="role-option" data-role="Customer Support">Customer Support</div>
-              <div class="role-option" data-role="Sales Representative">Sales Representative</div>
+            <button type="button" class="role-btn" id="roleBtn" aria-haspopup="listbox" aria-expanded="false">
+              <span id="roleValue">Frontend Developer</span>
+              <svg class="chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="role-list" id="roleList" role="listbox" aria-label="Role">
+              <div class="role-option selected" role="option" aria-selected="true" data-role="Frontend Developer" tabindex="-1">Frontend Developer<span class="sub">ENG</span></div>
+              <div class="role-option" role="option" aria-selected="false" data-role="Backend Developer" tabindex="-1">Backend Developer<span class="sub">ENG</span></div>
+              <div class="role-option" role="option" aria-selected="false" data-role="Full Stack Developer" tabindex="-1">Full Stack Developer<span class="sub">ENG</span></div>
+              <div class="role-option" role="option" aria-selected="false" data-role="DevOps Engineer" tabindex="-1">DevOps Engineer<span class="sub">OPS</span></div>
+              <div class="role-option" role="option" aria-selected="false" data-role="UI/UX Designer" tabindex="-1">UI/UX Designer<span class="sub">DESIGN</span></div>
+              <div class="role-option" role="option" aria-selected="false" data-role="QA Engineer" tabindex="-1">QA Engineer<span class="sub">ENG</span></div>
+              <div class="role-option" role="option" aria-selected="false" data-role="Data Analyst" tabindex="-1">Data Analyst<span class="sub">DATA</span></div>
+              <div class="role-option" role="option" aria-selected="false" data-role="Customer Support" tabindex="-1">Customer Support<span class="sub">GTM</span></div>
+              <div class="role-option" role="option" aria-selected="false" data-role="Sales Representative" tabindex="-1">Sales Representative<span class="sub">GTM</span></div>
             </div>
           </div>
-
-          <div class="savings-highlight">
-            <div class="label">Save up to</div>
-            <div class="amount" id="savingsAmount">$<span>87</span>K</div>
-            <div class="savings-bar"><div class="savings-bar-fill" id="savingsBar" style="width: 72%"></div></div>
-            <div class="tier-list">
-              <div class="tier-row"><span class="tier-name">Junior</span><span class="tier-pct" id="juniorPct">62%</span></div>
-              <div class="tier-row"><span class="tier-name">Mid-level</span><span class="tier-pct" id="midPct">67%</span></div>
-              <div class="tier-row"><span class="tier-name">Senior</span><span class="tier-pct" id="seniorPct">58%</span></div>
+          <div class="savings">
+            <div>
+              <div class="sav-label">Save up to</div>
+              <div class="sav-amount" id="savAmount">$<span id="savNum">0</span>K</div>
+              <div class="sav-sub">per hire · per year</div>
+            </div>
+            <div class="dial">
+              <svg viewBox="0 0 80 80" width="104" height="104">
+                <circle class="dial-track" cx="40" cy="40" r="34"/>
+                <circle class="dial-fill" id="dialFill" cx="40" cy="40" r="34" stroke-dashoffset="213.6"/>
+              </svg>
+              <div class="dial-num"><span id="dialPct">0</span>%</div>
+              <div class="dial-cap">peak saving</div>
             </div>
           </div>
-        </div>
-
-        <!-- Right: Case Study -->
-        <div class="case-study">
-          <h2>Cut your costs up to 80%</h2>
-          <p>REM partnered with Locate & Move to improve lead generation and inbound call handling for apartment seekers. By introducing an AI-assisted qualification system and refining workflows, we increased qualified leads by 42% and cut response time by 60% in 3 months—driving more conversions while reducing support overhead.</p>
-          <div class="case-stats">
-            <div class="case-stat">
-              <div class="value">+42%</div>
-              <div class="label">Qualified Leads</div>
+          <div class="costs">
+            <div>
+              <div class="cost-head"><span>US onshore</span><b id="usCost">$140K</b></div>
+              <div class="cost-track"><span class="cost-fill us"></span></div>
             </div>
-            <div class="case-stat">
-              <div class="value">-60%</div>
-              <div class="label">Response Time</div>
-            </div>
-            <div class="case-stat">
-              <div class="value">3 mo</div>
-              <div class="label">Timeframe</div>
+            <div>
+              <div class="cost-head"><span>With REM offshore</span><b id="offCost">$53K</b></div>
+              <div class="cost-track"><span class="cost-fill off" id="offBar" style="width:0%"></span></div>
             </div>
           </div>
-        </div>
+          <div class="tiers" id="tiers">
+            <div class="tier-row"><span class="tier-name">Junior</span><span class="tier-meter"><span class="tier-fill" style="width:0%"></span></span><span class="tier-pct">0%</span></div>
+            <div class="tier-row"><span class="tier-name">Mid-level</span><span class="tier-meter"><span class="tier-fill" style="width:0%"></span></span><span class="tier-pct">0%</span></div>
+            <div class="tier-row"><span class="tier-name">Senior</span><span class="tier-meter"><span class="tier-fill" style="width:0%"></span></span><span class="tier-pct">0%</span></div>
+          </div>
+          <button class="calc-cta" type="button">Get a tailored quote
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+          </button>
+        </aside>
       </div>
     </div>
   </section>
@@ -1530,87 +1463,115 @@ h1 {
 
   cards.forEach(card => observer.observe(card));
 
-  // Calculator Widget
-  (function() {
-    const roleData = {
-      'Frontend Developer': {
-        savings: 87, barWidth: 72,
-        junior: 62, mid: 67, senior: 58,
-        salaries: { junior: { us: 87.6, latam: 33, sa: 28.8 }, mid: { us: 120, latam: 39.6, sa: 36 }, senior: { us: 150, latam: 63, sa: 46.8 } }
-      },
-      'Backend Developer': {
-        savings: 92, barWidth: 76,
-        junior: 65, mid: 70, senior: 62,
-        salaries: { junior: { us: 92, latam: 34, sa: 30 }, mid: { us: 130, latam: 42, sa: 38 }, senior: { us: 165, latam: 68, sa: 52 } }
-      },
-      'Full Stack Developer': {
-        savings: 85, barWidth: 68,
-        junior: 58, mid: 64, senior: 55,
-        salaries: { junior: { us: 85, latam: 35, sa: 32 }, mid: { us: 125, latam: 45, sa: 42 }, senior: { us: 160, latam: 70, sa: 58 } }
-      },
-      'DevOps Engineer': {
-        savings: 78, barWidth: 62,
-        junior: 52, mid: 60, senior: 50,
-        salaries: { junior: { us: 95, latam: 40, sa: 38 }, mid: { us: 140, latam: 55, sa: 50 }, senior: { us: 180, latam: 82, sa: 72 } }
-      },
-      'UI/UX Designer': {
-        savings: 75, barWidth: 60,
-        junior: 50, mid: 58, senior: 48,
-        salaries: { junior: { us: 72, latam: 32, sa: 30 }, mid: { us: 105, latam: 42, sa: 40 }, senior: { us: 140, latam: 62, sa: 55 } }
-      },
-      'QA Engineer': {
-        savings: 80, barWidth: 65,
-        junior: 55, mid: 62, senior: 52,
-        salaries: { junior: { us: 70, latam: 28, sa: 26 }, mid: { us: 100, latam: 38, sa: 35 }, senior: { us: 130, latam: 55, sa: 48 } }
-      },
-      'Data Analyst': {
-        savings: 72, barWidth: 58,
-        junior: 48, mid: 55, senior: 45,
-        salaries: { junior: { us: 78, latam: 35, sa: 32 }, mid: { us: 110, latam: 48, sa: 45 }, senior: { us: 145, latam: 68, sa: 62 } }
-      },
-      'Customer Support': {
-        savings: 70, barWidth: 55,
-        junior: 60, mid: 65, senior: 55,
-        salaries: { junior: { us: 45, latam: 18, sa: 16 }, mid: { us: 60, latam: 24, sa: 22 }, senior: { us: 80, latam: 32, sa: 30 } }
-      },
-      'Sales Representative': {
-        savings: 68, barWidth: 54,
-        junior: 55, mid: 60, senior: 50,
-        salaries: { junior: { us: 55, latam: 22, sa: 20 }, mid: { us: 80, latam: 32, sa: 30 }, senior: { us: 110, latam: 45, sa: 42 } }
-      }
+  // New Calculator Widget
+  (function(){
+    const ROLES = {
+      "Frontend Developer":   {us:140, off:53, t:[62,67,58]},
+      "Backend Developer":    {us:150, off:58, t:[60,66,57]},
+      "Full Stack Developer": {us:155, off:60, t:[61,65,56]},
+      "DevOps Engineer":      {us:165, off:66, t:[58,63,55]},
+      "UI/UX Designer":       {us:125, off:49, t:[63,61,54]},
+      "QA Engineer":          {us:115, off:40, t:[68,65,60]},
+      "Data Analyst":         {us:120, off:46, t:[64,62,57]},
+      "Customer Support":     {us:68,  off:19, t:[74,72,66]},
+      "Sales Representative": {us:85,  off:27, t:[70,68,62]}
     };
-
-    const roleInput = document.getElementById('roleInput');
-    const roleDropdown = document.getElementById('roleDropdown');
-    const savingsAmount = document.getElementById('savingsAmount');
-    const savingsBar = document.getElementById('savingsBar');
-    const juniorPct = document.getElementById('juniorPct');
-    const midPct = document.getElementById('midPct');
-    const seniorPct = document.getElementById('seniorPct');
-
-    function updateUI(role) {
-      const d = roleData[role];
-      if (!d) return;
-      savingsAmount.innerHTML = '$<span>' + d.savings + '</span>K';
-      savingsBar.style.width = d.barWidth + '%';
-      juniorPct.textContent = d.junior + '%';
-      midPct.textContent = d.mid + '%';
-      seniorPct.textContent = d.senior + '%';
+    const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const $ = s => document.querySelector(s);
+    function tween(from, to, cb, dur = 700){
+      if (REDUCED || from === to){ cb(to); return; }
+      const t0 = performance.now();
+      (function step(now){
+        const p = Math.min(1, (now - t0) / dur);
+        cb(from + (to - from) * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(step);
+      })(t0);
     }
-
-    roleInput.addEventListener('click', function(e) { e.stopPropagation(); roleDropdown.classList.toggle('active'); });
-    document.querySelectorAll('.role-option').forEach(function(opt) {
-      opt.addEventListener('click', function(e) {
-        e.stopPropagation();
-        document.querySelectorAll('.role-option').forEach(o => o.classList.remove('selected'));
-        this.classList.add('selected');
-        roleInput.value = this.dataset.role;
-        roleDropdown.classList.remove('active');
-        updateUI(this.dataset.role);
-      });
+    const track = $('.ticker-track');
+    if (track) track.innerHTML += track.innerHTML;
+    const ro = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); }
+    }), {threshold:.15});
+    document.querySelectorAll('[data-reveal]').forEach(el => {
+      el.style.transitionDelay = (el.dataset.delay || 0) + 'ms';
+      ro.observe(el);
     });
-    document.addEventListener('click', function() { roleDropdown.classList.remove('active'); });
-    roleDropdown.addEventListener('click', function(e) { e.stopPropagation(); });
+    const so = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target, pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
+      tween(0, +el.dataset.count, v => el.textContent = pre + Math.round(v) + suf, 950);
+      so.unobserve(el);
+    }), {threshold:.6});
+    document.querySelectorAll('.stat-num[data-count]').forEach(el => so.observe(el));
+    const savNum = $('#savNum'), savAmount = $('#savAmount'),
+          dialFill = $('#dialFill'), dialPct = $('#dialPct'),
+          usCost = $('#usCost'), offCost = $('#offCost'), offBar = $('#offBar'),
+          tierRows = [...document.querySelectorAll('.tier-row')],
+          tierFills = tierRows.map(r => r.querySelector('.tier-fill')),
+          tierPcts  = tierRows.map(r => r.querySelector('.tier-pct'));
+    const C = 213.6;
+    const state = {sav:0, peak:0, pcts:[0,0,0]};
+    function render(role){
+      const d = ROLES[role], sav = d.us - d.off, peak = Math.max(...d.t);
+      tween(state.sav, sav,  v => savNum.textContent = Math.round(v));
+      tween(state.peak, peak, v => {
+        dialPct.textContent = Math.round(v);
+        dialFill.style.strokeDashoffset = C * (1 - v / 100);
+      });
+      usCost.textContent  = '$' + d.us + 'K';
+      offCost.textContent = '$' + d.off + 'K';
+      offBar.style.width  = (d.off / d.us * 100).toFixed(1) + '%';
+      d.t.forEach((p, i) => {
+        tween(state.pcts[i], p, v => tierPcts[i].textContent = Math.round(v) + '%');
+        tierFills[i].style.width = p + '%';
+      });
+      const best = d.t.indexOf(peak);
+      tierRows.forEach((r, i) => r.classList.toggle('best', i === best));
+      Object.assign(state, {sav, peak, pcts:[...d.t]});
+      savAmount.classList.remove('bump'); void savAmount.offsetWidth;
+      savAmount.classList.add('bump');
+    }
+    const sel = $('#roleSelect'), btn = $('#roleBtn'),
+          valueEl = $('#roleValue'), opts = [...document.querySelectorAll('.role-option')];
+    let open = false, active = -1;
+    function setOpen(v){
+      open = v;
+      sel.classList.toggle('open', v);
+      btn.setAttribute('aria-expanded', v);
+      if (v){ setActive(opts.findIndex(o => o.classList.contains('selected'))); }
+      else  { active = -1; opts.forEach(o => o.classList.remove('active')); }
+    }
+    function setActive(i){
+      active = i;
+      opts.forEach((o, k) => o.classList.toggle('active', k === i));
+      if (opts[i]) opts[i].scrollIntoView({block:'nearest'});
+    }
+    function select(role){
+      opts.forEach(o => {
+        const on = o.dataset.role === role;
+        o.classList.toggle('selected', on);
+        o.setAttribute('aria-selected', on);
+      });
+      valueEl.textContent = role;
+      setOpen(false);
+      render(role);
+    }
+    btn.addEventListener('click', () => setOpen(!open));
+    opts.forEach(o => o.addEventListener('click', () => select(o.dataset.role)));
+    document.addEventListener('click', e => { if (!sel.contains(e.target)) setOpen(false); });
+    sel.addEventListener('keydown', e => {
+      if (e.key === 'Escape'){ setOpen(false); btn.focus(); return; }
+      if (!open && ['ArrowDown','Enter',' '].includes(e.key)){
+        e.preventDefault(); setOpen(true); return;
+      }
+      if (!open) return;
+      if (e.key === 'ArrowDown'){ e.preventDefault(); setActive(Math.min(active + 1, opts.length - 1)); }
+      else if (e.key === 'ArrowUp'){ e.preventDefault(); setActive(Math.max(active - 1, 0)); }
+      else if (e.key === 'Home'){ e.preventDefault(); setActive(0); }
+      else if (e.key === 'End'){ e.preventDefault(); setActive(opts.length - 1); }
+      else if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); if (active > -1) select(opts[active].dataset.role); }
+    });
+    render('Frontend Developer');
   })();
 </script>
 
