@@ -152,11 +152,11 @@ img { display: block; max-width: 100%; }
 }
 
 .hero-left {
-  padding: 32px 44px;
+  padding: 64px 44px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 18px;
+  gap: 28px;
 }
 
 .eyebrow {
@@ -635,7 +635,7 @@ h1 {
   .trustpilot-section {
     gap: 16px;
   }
-  .hero-left { padding: 32px 40px; }
+  .hero-left { padding: 48px 40px; }
   h1 { font-size: 42px; }
   .professional-cards_list {
     grid-template-columns: repeat(2, 1fr);
@@ -659,8 +659,8 @@ h1 {
     grid-template-columns: 1fr;
   }
   .hero-left {
-    padding: 32px 36px;
-    gap: 16px;
+    padding: 48px 36px;
+    gap: 24px;
   }
   h1 { font-size: 40px; }
   .hero-right { min-height: 380px; }
@@ -722,7 +722,7 @@ h1 {
 
 @media (max-width: 480px) {
   h1 { font-size: 32px; }
-  .hero-left { padding: 32px 24px; }
+  .hero-left { padding: 48px 24px; }
   .navbar { padding: 12px 20px; }
   .btn { padding: 12px 22px; font-size: 14px; }
   .hero-buttons { flex-direction: column; }
@@ -832,7 +832,7 @@ h1 {
 }
 
 .footer-watermark-text {
-  font-size: 160px;
+  font-size: 20px;
   font-weight: 900;
   color: rgba(255, 255, 255, 0.05);
   white-space: nowrap;
@@ -1088,6 +1088,16 @@ h1 {
   }
   .savings-highlight .amount span {
     font-size: 22px;
+  }
+  .case-study {
+    padding: 32px 24px;
+  }
+  .case-study h2 {
+    font-size: 26px;
+  }
+  .case-stats {
+    flex-direction: column;
+    gap: 12px;
   }
 }
 
@@ -1428,68 +1438,60 @@ h1 {
 
   <section class="section-calculator">
     <div class="container">
-      <div class="widget-root">
-        <div class="calc-header">
-          <h2>How much you can save</h2>
-          <p>Select a role to see estimated offshore savings and salary comparisons.</p>
-        </div>
+      <div class="calc-case-grid">
+        <!-- Left: Calculator -->
+        <div class="widget-root">
+          <div class="calc-header">
+            <h2>How much you can save</h2>
+            <p>Select a role to see estimated offshore savings and salary comparisons.</p>
+          </div>
 
-        <div class="calc-grid">
-          <div class="left-col">
-            <div>
-              <div class="role-label">Select Role</div>
-              <div class="role-select" id="roleSelect">
-                <input type="text" id="roleInput" value="Frontend Developer" readonly />
-                <span class="chevron">▼</span>
-                <div class="role-dropdown" id="roleDropdown">
-                  <div class="role-option selected" data-role="Frontend Developer">Frontend Developer</div>
-                  <div class="role-option" data-role="Backend Developer">Backend Developer</div>
-                  <div class="role-option" data-role="Full Stack Developer">Full Stack Developer</div>
-                  <div class="role-option" data-role="DevOps Engineer">DevOps Engineer</div>
-                  <div class="role-option" data-role="UI/UX Designer">UI/UX Designer</div>
-                  <div class="role-option" data-role="QA Engineer">QA Engineer</div>
-                  <div class="role-option" data-role="Data Analyst">Data Analyst</div>
-                  <div class="role-option" data-role="Customer Support">Customer Support</div>
-                  <div class="role-option" data-role="Sales Representative">Sales Representative</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="savings-highlight">
-              <div class="label">Save up to</div>
-              <div class="amount" id="savingsAmount">$<span>87</span>K</div>
-              <div class="savings-bar"><div class="savings-bar-fill" id="savingsBar" style="width: 72%"></div></div>
-              <div class="tier-list">
-                <div class="tier-row"><span class="tier-name">Junior</span><span class="tier-pct" id="juniorPct">62%</span></div>
-                <div class="tier-row"><span class="tier-name">Mid-level</span><span class="tier-pct" id="midPct">67%</span></div>
-                <div class="tier-row"><span class="tier-name">Senior</span><span class="tier-pct" id="seniorPct">58%</span></div>
-              </div>
+          <div class="role-label">Select Role</div>
+          <div class="role-select" id="roleSelect">
+            <input type="text" id="roleInput" value="Frontend Developer" readonly />
+            <span class="chevron">▼</span>
+            <div class="role-dropdown" id="roleDropdown">
+              <div class="role-option selected" data-role="Frontend Developer">Frontend Developer</div>
+              <div class="role-option" data-role="Backend Developer">Backend Developer</div>
+              <div class="role-option" data-role="Full Stack Developer">Full Stack Developer</div>
+              <div class="role-option" data-role="DevOps Engineer">DevOps Engineer</div>
+              <div class="role-option" data-role="UI/UX Designer">UI/UX Designer</div>
+              <div class="role-option" data-role="QA Engineer">QA Engineer</div>
+              <div class="role-option" data-role="Data Analyst">Data Analyst</div>
+              <div class="role-option" data-role="Customer Support">Customer Support</div>
+              <div class="role-option" data-role="Sales Representative">Sales Representative</div>
             </div>
           </div>
 
-          <div class="right-col">
-            <div class="salary-grid" id="salaryGrid">
-              <div class="salary-card">
-                <h4>Junior</h4>
-                <div class="salary-row"><span class="loc">US</span><span class="val">$87.6K</span></div>
-                <div class="salary-row"><span class="loc">LatAM</span><span class="val highlight">$33K</span></div>
-                <div class="salary-row"><span class="loc">South Africa</span><span class="val highlight">$28.8K</span></div>
-              </div>
-              <div class="salary-card">
-                <h4>Mid-level</h4>
-                <div class="salary-row"><span class="loc">US</span><span class="val">$120K</span></div>
-                <div class="salary-row"><span class="loc">LatAM</span><span class="val highlight">$39.6K</span></div>
-                <div class="salary-row"><span class="loc">South Africa</span><span class="val highlight">$36K</span></div>
-              </div>
-              <div class="salary-card">
-                <h4>Senior</h4>
-                <div class="salary-row"><span class="loc">US</span><span class="val">$150K</span></div>
-                <div class="salary-row"><span class="loc">LatAM</span><span class="val highlight">$63K</span></div>
-                <div class="salary-row"><span class="loc">South Africa</span><span class="val highlight">$46.8K</span></div>
-              </div>
+          <div class="savings-highlight">
+            <div class="label">Save up to</div>
+            <div class="amount" id="savingsAmount">$<span>87</span>K</div>
+            <div class="savings-bar"><div class="savings-bar-fill" id="savingsBar" style="width: 72%"></div></div>
+            <div class="tier-list">
+              <div class="tier-row"><span class="tier-name">Junior</span><span class="tier-pct" id="juniorPct">62%</span></div>
+              <div class="tier-row"><span class="tier-name">Mid-level</span><span class="tier-pct" id="midPct">67%</span></div>
+              <div class="tier-row"><span class="tier-name">Senior</span><span class="tier-pct" id="seniorPct">58%</span></div>
             </div>
+          </div>
+        </div>
 
-            <button class="cta-btn">Start Hiring Now →</button>
+        <!-- Right: Case Study -->
+        <div class="case-study">
+          <h2>Cut your costs up to 80%</h2>
+          <p>REM partnered with Locate & Move to improve lead generation and inbound call handling for apartment seekers. By introducing an AI-assisted qualification system and refining workflows, we increased qualified leads by 42% and cut response time by 60% in 3 months—driving more conversions while reducing support overhead.</p>
+          <div class="case-stats">
+            <div class="case-stat">
+              <div class="value">+42%</div>
+              <div class="label">Qualified Leads</div>
+            </div>
+            <div class="case-stat">
+              <div class="value">-60%</div>
+              <div class="label">Response Time</div>
+            </div>
+            <div class="case-stat">
+              <div class="value">3 mo</div>
+              <div class="label">Timeframe</div>
+            </div>
           </div>
         </div>
       </div>
@@ -1576,11 +1578,6 @@ h1 {
     const juniorPct = document.getElementById('juniorPct');
     const midPct = document.getElementById('midPct');
     const seniorPct = document.getElementById('seniorPct');
-    const salaryGrid = document.getElementById('salaryGrid');
-
-    function formatK(val) {
-      return val >= 1000 ? (val/1000).toFixed(1) + 'K' : val + 'K';
-    }
 
     function updateUI(role) {
       const d = roleData[role];
@@ -1590,22 +1587,6 @@ h1 {
       juniorPct.textContent = d.junior + '%';
       midPct.textContent = d.mid + '%';
       seniorPct.textContent = d.senior + '%';
-      salaryGrid.innerHTML = `
-        <div class="salary-card"><h4>Junior</h4>
-          <div class="salary-row"><span class="loc">US</span><span class="val">$${formatK(d.salaries.junior.us)}</span></div>
-          <div class="salary-row"><span class="loc">LatAM</span><span class="val highlight">$${formatK(d.salaries.junior.latam)}</span></div>
-          <div class="salary-row"><span class="loc">South Africa</span><span class="val highlight">$${formatK(d.salaries.junior.sa)}</span></div>
-        </div>
-        <div class="salary-card"><h4>Mid-level</h4>
-          <div class="salary-row"><span class="loc">US</span><span class="val">$${formatK(d.salaries.mid.us)}</span></div>
-          <div class="salary-row"><span class="loc">LatAM</span><span class="val highlight">$${formatK(d.salaries.mid.latam)}</span></div>
-          <div class="salary-row"><span class="loc">South Africa</span><span class="val highlight">$${formatK(d.salaries.mid.sa)}</span></div>
-        </div>
-        <div class="salary-card"><h4>Senior</h4>
-          <div class="salary-row"><span class="loc">US</span><span class="val">$${formatK(d.salaries.senior.us)}</span></div>
-          <div class="salary-row"><span class="loc">LatAM</span><span class="val highlight">$${formatK(d.salaries.senior.latam)}</span></div>
-          <div class="salary-row"><span class="loc">South Africa</span><span class="val highlight">$${formatK(d.salaries.senior.sa)}</span></div>
-        </div>`;
     }
 
     roleInput.addEventListener('click', function(e) { e.stopPropagation(); roleDropdown.classList.toggle('active'); });
