@@ -786,8 +786,25 @@ h1 {
 .nb-section::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(233,242,236,.05) 1.3px,transparent 1.4px);background-size:13px 13px;-webkit-mask-image:radial-gradient(ellipse at 68% 35%,#000 25%,transparent 78%);mask-image:radial-gradient(ellipse at 68% 35%,#000 25%,transparent 78%)}
 .nb-glow{position:absolute;top:50%;right:-12%;width:640px;height:640px;transform:translateY(-50%);background:radial-gradient(circle,rgba(76,111,255,.15),transparent 62%);pointer-events:none}
 .nb-wrap{max-width:1400px;margin-inline:auto;padding-inline:clamp(1.25rem,4vw,3rem);position:relative;z-index:1}
-.nb-calc-wrap{display:flex;justify-content:center;padding:clamp(4rem,7vw,6rem) 0 clamp(5rem,9vw,8rem)}
-.nb-calc{position:relative;background:#fff;color:var(--cert-navy);border-radius:20px;padding:clamp(1.8rem,3vw,2.6rem);box-shadow:0 40px 80px -30px rgba(0,0,0,.55);transform:rotate(.6deg);transition:transform .5s cubic-bezier(.2,.7,.2,1);width:100%;max-width:1100px;display:flex;flex-direction:column;font-family:var(--cert-font)}
+.nb-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,6.5rem);align-items:stretch;padding:clamp(4rem,7vw,6rem) 0 clamp(5rem,9vw,8rem)}
+.nb-case{position:relative;display:flex;flex-direction:column;justify-content:center}
+.nb-case-ghost{position:absolute;top:-4.5rem;left:-2.5rem;z-index:0;font-family:var(--cert-font);font-weight:800;font-size:clamp(9rem,17vw,15rem);line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(76,111,255,.09);user-select:none;pointer-events:none}
+.nb-case-inner{position:relative;z-index:1}
+.nb-case h2{font-family:var(--cert-font);font-weight:700;font-size:clamp(2.5rem,4.8vw,4.1rem);line-height:1.03;letter-spacing:-.025em;color:#fff}
+.nb-case h2 .nb-hl{color:var(--cert-blue-bright);background:linear-gradient(transparent 66%,rgba(76,111,255,.22) 0);padding:0 .1em}
+.nb-case p{margin-top:1.4rem;max-width:56ch;color:#B9C6F2;font-size:1.05rem;line-height:1.7;font-family:var(--cert-font)}
+.nb-stats{display:flex;gap:clamp(1.6rem,3vw,3rem);margin-top:2.6rem;padding-top:2rem;border-top:1px solid rgba(233,242,236,.14)}
+.nb-stat + .nb-stat{padding-left:clamp(1.6rem,3vw,3rem);border-left:1px solid rgba(233,242,236,.14)}
+.nb-stat-num{font-family:var(--cert-font);font-weight:700;font-size:2.1rem;letter-spacing:-.02em;color:#fff;font-variant-numeric:tabular-nums;transition:color .3s}
+.nb-stat:hover .nb-stat-num{color:var(--cert-blue-bright)}
+.nb-stat.hero .nb-stat-num{font-size:clamp(2.8rem,4.2vw,3.7rem);color:var(--cert-blue-bright)}
+.nb-stat-label{margin-top:.45rem;font:500 .68rem var(--cert-font);letter-spacing:.16em;text-transform:uppercase;color:#B9C6F2}
+.nb-case-link{display:inline-flex;align-items:center;gap:.55rem;margin-top:2.4rem;color:var(--cert-blue-bright);font-weight:600;font-size:1rem;text-decoration:none;position:relative;padding-bottom:.3rem;font-family:var(--cert-font)}
+.nb-case-link::after{content:"";position:absolute;left:0;bottom:0;height:1.5px;width:100%;background:var(--cert-blue-bright);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.nb-case-link:hover::after{transform:scaleX(1)}
+.nb-case-link svg{transition:transform .3s}
+.nb-case-link:hover svg{transform:translateX(5px)}
+.nb-calc{position:relative;background:#fff;color:var(--cert-navy);border-radius:20px;padding:clamp(1.8rem,3vw,2.6rem);box-shadow:0 40px 80px -30px rgba(0,0,0,.55);transform:rotate(.6deg);transition:transform .5s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column;font-family:var(--cert-font)}
 .nb-calc:hover{transform:rotate(0)}
 .nb-calc::before{content:"";position:absolute;top:-13px;left:50%;transform:translateX(-50%) rotate(-2deg);width:120px;height:28px;background:var(--cert-blue-bright);border-radius:2px}
 .nb-calc h2{font-family:var(--cert-font);font-weight:700;letter-spacing:-.02em;font-size:clamp(1.8rem,2.8vw,2.4rem);color:var(--cert-navy)}
@@ -838,7 +855,7 @@ h1 {
 .nb-cta svg{transition:transform .3s}
 .nb-cta:hover svg{transform:translateX(4px)}
 .nb-cta:focus-visible,.nb-role-btn:focus-visible,.nb-role-option:focus-visible{outline:3px solid rgba(76,111,255,.5);outline-offset:2px}
-@media (max-width:1020px){.nb-calc-wrap{padding:clamp(2rem,4vw,3rem) 0}.nb-calc{transform:none}.nb-case-ghost{font-size:8rem;top:-2.5rem;left:-1rem}}
+@media (max-width:1020px){.nb-grid{grid-template-columns:1fr;gap:4.5rem}.nb-calc{transform:none}.nb-case-ghost{font-size:8rem;top:-2.5rem;left:-1rem}}
 @media (max-width:560px){.nb-stats{flex-wrap:wrap;gap:1.2rem}.nb-tier-row{grid-template-columns:90px 1fr 46px}.nb-savings{flex-wrap:wrap}}
 
 /* Footer */
@@ -1387,7 +1404,31 @@ h1 {
 <section class="nb-section" id="nb-savings">
   <div class="nb-glow" aria-hidden="true"></div>
   <div class="nb-wrap">
-    <div class="nb-calc-wrap">
+    <div class="nb-grid">
+      <article class="nb-case">
+        <div class="nb-case-ghost" aria-hidden="true">80%</div>
+        <div class="nb-case-inner">
+          <h2 data-reveal>Cut your costs<br>up to <span class="nb-hl">80%</span></h2>
+          <p data-reveal data-delay="80">REM partnered with Locate &amp; Move to improve lead generation and inbound call handling for apartment seekers. By introducing an AI-assisted qualification system and refining workflows, we increased qualified leads by 42% and cut response time by 60% in 3 months — driving more conversions while reducing support overhead.</p>
+          <div class="nb-stats" data-reveal data-delay="160">
+            <div class="nb-stat hero">
+              <div class="nb-stat-num" data-count="42" data-prefix="+" data-suffix="%">+42%</div>
+              <div class="nb-stat-label">Qualified leads</div>
+            </div>
+            <div class="nb-stat">
+              <div class="nb-stat-num" data-count="60" data-prefix="−" data-suffix="%">−60%</div>
+              <div class="nb-stat-label">Response time</div>
+            </div>
+            <div class="nb-stat">
+              <div class="nb-stat-num">3 mo</div>
+              <div class="nb-stat-label">Timeframe</div>
+            </div>
+          </div>
+          <a class="nb-case-link" href="#" data-reveal data-delay="240">Read the full story
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
       <aside class="nb-calc" data-reveal data-delay="120">
         <h2>How much you can save</h2>
         <div class="nb-role-label">Select role</div>
@@ -1590,6 +1631,13 @@ h1 {
     el.style.transitionDelay = (el.dataset.delay || 0) + 'ms';
     ro.observe(el);
   });
+  const so = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target, pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
+    tween(0, +el.dataset.count, v => el.textContent = pre + Math.round(v) + suf, 950);
+    so.unobserve(el);
+  }), {threshold:.6});
+  section.querySelectorAll('.nb-stat-num[data-count]').forEach(el => so.observe(el));
   const savNum = $('#nbSavNum'), savAmount = $('#nbSavAmount'),
         dialFill = $('#nbDialFill'), dialPct = $('#nbDialPct'),
         usCost = $('#nbUsCost'), offCost = $('#nbOffCost'), offBar = $('#nbOffBar'),
