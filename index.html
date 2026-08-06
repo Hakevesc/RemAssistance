@@ -855,7 +855,6 @@ h1 {
   padding: 100px 0;
   background: var(--white);
 }
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap');
 
 .widget-root {
   background: #ffffff;
@@ -878,56 +877,6 @@ h1 {
   pointer-events: none;
 }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
-  margin-bottom: 48px;
-}
-
-.hero-left h1 {
-  font-size: 38px; font-weight: 800; line-height: 1.1;
-  margin: 0 0 16px 0; color: #0A1628; letter-spacing: -0.8px;
-}
-.hero-left h1 span { color: #1E3A8A; }
-
-.hero-left p {
-  font-size: 15px; color: #64748B; margin: 0 0 20px 0; line-height: 1.7;
-}
-.hero-left p strong { color: #0A1628; }
-
-.learn-more-btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 12px 28px; background: transparent;
-  border: 1.5px solid #1E3A8A; border-radius: 10px;
-  color: #1E3A8A; font-size: 14px; font-weight: 600;
-  cursor: pointer; transition: all 0.2s; font-family: inherit;
-}
-.learn-more-btn:hover { background: #1E3A8A; color: #fff; }
-
-.hero-card {
-  background: #F8FAFC; border: 1px solid rgba(30, 58, 138, 0.08);
-  border-radius: 16px; padding: 28px; position: relative;
-}
-.hero-card .badge {
-  display: inline-block; padding: 4px 12px; border-radius: 20px;
-  background: rgba(30, 58, 138, 0.08); color: #1E3A8A;
-  font-size: 11px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.5px; margin-bottom: 16px;
-}
-.hero-card h3 { font-size: 20px; font-weight: 700; margin: 0 0 12px 0; color: #0A1628; }
-.hero-card p { font-size: 13.5px; line-height: 1.7; color: #64748B; margin: 0 0 20px 0; }
-
-.stats-row { display: flex; gap: 20px; flex-wrap: wrap; }
-.stat-item { text-align: center; }
-.stat-value { font-size: 28px; font-weight: 800; color: #1E3A8A; line-height: 1; }
-.stat-label { font-size: 11px; color: #94A3B8; margin-top: 4px; font-weight: 500; }
-
-.calc-section {
-  border-top: 1px solid rgba(30, 58, 138, 0.08);
-  padding-top: 40px; margin-bottom: 48px;
-}
 .calc-header { margin-bottom: 28px; }
 .calc-header h2 { font-size: 24px; font-weight: 700; margin: 0 0 8px 0; color: #0A1628; }
 .calc-header p { font-size: 14px; color: #64748B; margin: 0; }
@@ -989,19 +938,6 @@ h1 {
 
 .right-col { display: flex; flex-direction: column; gap: 20px; }
 
-.recommendation {
-  background: #F8FAFC; border: 1px solid rgba(30, 58, 138, 0.08);
-  border-radius: 14px; padding: 22px;
-}
-.recommendation .tag {
-  display: inline-block; padding: 3px 10px; border-radius: 6px;
-  font-size: 11px; font-weight: 700; margin-bottom: 10px;
-  text-transform: uppercase; letter-spacing: 0.5px;
-}
-.recommendation .tag.recommended { background: rgba(30, 58, 138, 0.08); color: #1E3A8A; }
-.recommendation h3 { font-size: 17px; font-weight: 700; margin: 0 0 10px 0; color: #0A1628; }
-.recommendation p { font-size: 13.5px; line-height: 1.7; color: #64748B; margin: 0; }
-
 .salary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 
 .salary-card {
@@ -1026,32 +962,15 @@ h1 {
 }
 .cta-btn:hover { background: #172554; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(30, 58, 138, 0.25); }
 
-.features-section {
-  border-top: 1px solid rgba(30, 58, 138, 0.08); padding-top: 40px;
-}
-.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-
-.feature-item { padding: 8px 0; }
-.feature-icon {
-  width: 44px; height: 44px; border-radius: 12px;
-  background: rgba(30, 58, 138, 0.06); display: flex;
-  align-items: center; justify-content: center;
-  margin-bottom: 14px; color: #1E3A8A; font-size: 18px;
-}
-.feature-item h4 { font-size: 16px; font-weight: 700; margin: 0 0 8px 0; color: #0A1628; }
-.feature-item p { font-size: 13.5px; line-height: 1.7; color: #64748B; margin: 0; }
-
-.footer-note {
-  margin-top: 32px; padding-top: 18px;
-  border-top: 1px solid rgba(30, 58, 138, 0.06);
-  font-size: 11px; color: #94A3B8; line-height: 1.6;
-}
-
 @media (max-width: 720px) {
-  .hero-grid { grid-template-columns: 1fr; }
   .calc-grid { grid-template-columns: 1fr; }
   .salary-grid { grid-template-columns: 1fr; }
-  .features-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+@media (max-width: 720px) {
+  .calc-grid { grid-template-columns: 1fr; }
+  .salary-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 1100px) {
@@ -1123,26 +1042,17 @@ h1 {
   .widget-root {
     padding: 20px 16px;
   }
-  .hero-left h1 {
-    font-size: 26px;
-  }
-  .hero-card {
-    padding: 18px;
-  }
-  .stat-value {
+  .calc-header h2 {
     font-size: 20px;
   }
   .savings-highlight {
     padding: 20px 18px;
   }
   .savings-highlight .amount {
-    font-size: 28px;
+    font-size: 32px;
   }
   .savings-highlight .amount span {
-    font-size: 20px;
-  }
-  .calc-header h2 {
-    font-size: 18px;
+    font-size: 22px;
   }
 }
 </style>
@@ -1454,120 +1364,68 @@ h1 {
   <section class="section-calculator">
     <div class="container">
       <div class="widget-root">
-        <div class="hero-grid">
-          <div class="hero-left">
-            <h1>Cut your costs<br>up to <span>80%</span></h1>
-            <p><strong>REM partnered with Locate & Move</strong> to improve lead generation and inbound call handling for apartment seekers. By introducing an <strong>AI-assisted qualification system</strong> and refining workflows, we increased qualified leads by <strong>42%</strong> and cut response time by <strong>60% in 3 months</strong>—driving more conversions while reducing support overhead.</p>
-            <button class="learn-more-btn">Learn More</button>
-          </div>
-          <div class="hero-right">
-            <div class="hero-card">
-              <div class="badge">Case Study</div>
-              <h3>Locate & Move</h3>
-              <p>AI-assisted qualification + refined workflows delivered measurable results in just 90 days.</p>
-              <div class="stats-row">
-                <div class="stat-item"><div class="stat-value">+42%</div><div class="stat-label">Qualified Leads</div></div>
-                <div class="stat-item"><div class="stat-value">-60%</div><div class="stat-label">Response Time</div></div>
-                <div class="stat-item"><div class="stat-value">3mo</div><div class="stat-label">To Results</div></div>
-              </div>
-            </div>
-          </div>
+        <div class="calc-header">
+          <h2>How much you can save</h2>
+          <p>Select a role to see estimated offshore savings and salary comparisons.</p>
         </div>
 
-        <div class="calc-section">
-          <div class="calc-header">
-            <h2>How much you can save</h2>
-            <p>Quickly understand exactly how much money you can save by hiring offshore. Select a role to explore the benefits.</p>
+        <div class="calc-grid">
+          <div class="left-col">
+            <div>
+              <div class="role-label">Select Role</div>
+              <div class="role-select" id="roleSelect">
+                <input type="text" id="roleInput" value="Frontend Developer" readonly />
+                <span class="chevron">▼</span>
+                <div class="role-dropdown" id="roleDropdown">
+                  <div class="role-option selected" data-role="Frontend Developer">Frontend Developer</div>
+                  <div class="role-option" data-role="Backend Developer">Backend Developer</div>
+                  <div class="role-option" data-role="Full Stack Developer">Full Stack Developer</div>
+                  <div class="role-option" data-role="DevOps Engineer">DevOps Engineer</div>
+                  <div class="role-option" data-role="UI/UX Designer">UI/UX Designer</div>
+                  <div class="role-option" data-role="QA Engineer">QA Engineer</div>
+                  <div class="role-option" data-role="Data Analyst">Data Analyst</div>
+                  <div class="role-option" data-role="Customer Support">Customer Support</div>
+                  <div class="role-option" data-role="Sales Representative">Sales Representative</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="savings-highlight">
+              <div class="label">Save up to</div>
+              <div class="amount" id="savingsAmount">$<span>87</span>K</div>
+              <div class="savings-bar"><div class="savings-bar-fill" id="savingsBar" style="width: 72%"></div></div>
+              <div class="tier-list">
+                <div class="tier-row"><span class="tier-name">Junior</span><span class="tier-pct" id="juniorPct">62%</span></div>
+                <div class="tier-row"><span class="tier-name">Mid-level</span><span class="tier-pct" id="midPct">67%</span></div>
+                <div class="tier-row"><span class="tier-name">Senior</span><span class="tier-pct" id="seniorPct">58%</span></div>
+              </div>
+            </div>
           </div>
 
-          <div class="calc-grid">
-            <div class="left-col">
-              <div>
-                <div class="role-label">Select Role</div>
-                <div class="role-select" id="roleSelect">
-                  <input type="text" id="roleInput" value="Frontend Developer" readonly />
-                  <span class="chevron">▼</span>
-                  <div class="role-dropdown" id="roleDropdown">
-                    <div class="role-option selected" data-role="Frontend Developer">Frontend Developer</div>
-                    <div class="role-option" data-role="Backend Developer">Backend Developer</div>
-                    <div class="role-option" data-role="Full Stack Developer">Full Stack Developer</div>
-                    <div class="role-option" data-role="DevOps Engineer">DevOps Engineer</div>
-                    <div class="role-option" data-role="UI/UX Designer">UI/UX Designer</div>
-                    <div class="role-option" data-role="QA Engineer">QA Engineer</div>
-                    <div class="role-option" data-role="Data Analyst">Data Analyst</div>
-                    <div class="role-option" data-role="Customer Support">Customer Support</div>
-                    <div class="role-option" data-role="Sales Representative">Sales Representative</div>
-                  </div>
-                </div>
+          <div class="right-col">
+            <div class="salary-grid" id="salaryGrid">
+              <div class="salary-card">
+                <h4>Junior</h4>
+                <div class="salary-row"><span class="loc">US</span><span class="val">$87.6K</span></div>
+                <div class="salary-row"><span class="loc">LatAM</span><span class="val highlight">$33K</span></div>
+                <div class="salary-row"><span class="loc">South Africa</span><span class="val highlight">$28.8K</span></div>
               </div>
-
-              <div class="savings-highlight">
-                <div class="label">Save up to</div>
-                <div class="amount" id="savingsAmount">$<span>87</span>K</div>
-                <div class="savings-bar"><div class="savings-bar-fill" id="savingsBar" style="width: 72%"></div></div>
-                <div class="tier-list">
-                  <div class="tier-row"><span class="tier-name">Junior</span><span class="tier-pct" id="juniorPct">62%</span></div>
-                  <div class="tier-row"><span class="tier-name">Mid-level</span><span class="tier-pct" id="midPct">67%</span></div>
-                  <div class="tier-row"><span class="tier-name">Senior</span><span class="tier-pct" id="seniorPct">58%</span></div>
-                </div>
+              <div class="salary-card">
+                <h4>Mid-level</h4>
+                <div class="salary-row"><span class="loc">US</span><span class="val">$120K</span></div>
+                <div class="salary-row"><span class="loc">LatAM</span><span class="val highlight">$39.6K</span></div>
+                <div class="salary-row"><span class="loc">South Africa</span><span class="val highlight">$36K</span></div>
+              </div>
+              <div class="salary-card">
+                <h4>Senior</h4>
+                <div class="salary-row"><span class="loc">US</span><span class="val">$150K</span></div>
+                <div class="salary-row"><span class="loc">LatAM</span><span class="val highlight">$63K</span></div>
+                <div class="salary-row"><span class="loc">South Africa</span><span class="val highlight">$46.8K</span></div>
               </div>
             </div>
 
-            <div class="right-col">
-              <div class="recommendation">
-                <div class="tag recommended">Recommended Region</div>
-                <h3 id="regionTitle">We recommend LATAM for this role</h3>
-                <p id="regionDesc">LATAM has a strong tech ecosystem with universities offering specialized programs in web development and software engineering. A skilled talent pool experienced in React, Vue.js, and Angular for modern UI development. Salaries are 57–63% lower than in the U.S., making hiring cost-effective. With high English proficiency, expertise in JavaScript, HTML, and CSS, and time zone alignment with North America, collaboration is seamless.</p>
-              </div>
-
-              <div class="salary-grid" id="salaryGrid">
-                <div class="salary-card">
-                  <h4>Junior</h4>
-                  <div class="salary-row"><span class="loc">US</span><span class="val">$87.6K</span></div>
-                  <div class="salary-row"><span class="loc">LatAM</span><span class="val highlight">$33K</span></div>
-                  <div class="salary-row"><span class="loc">South Africa</span><span class="val highlight">$28.8K</span></div>
-                </div>
-                <div class="salary-card">
-                  <h4>Mid-level</h4>
-                  <div class="salary-row"><span class="loc">US</span><span class="val">$120K</span></div>
-                  <div class="salary-row"><span class="loc">LatAM</span><span class="val highlight">$39.6K</span></div>
-                  <div class="salary-row"><span class="loc">South Africa</span><span class="val highlight">$36K</span></div>
-                </div>
-                <div class="salary-card">
-                  <h4>Senior</h4>
-                  <div class="salary-row"><span class="loc">US</span><span class="val">$150K</span></div>
-                  <div class="salary-row"><span class="loc">LatAM</span><span class="val highlight">$63K</span></div>
-                  <div class="salary-row"><span class="loc">South Africa</span><span class="val highlight">$46.8K</span></div>
-                </div>
-              </div>
-
-              <button class="cta-btn">Start Hiring Now →</button>
-            </div>
+            <button class="cta-btn">Start Hiring Now →</button>
           </div>
-        </div>
-
-        <div class="features-section">
-          <div class="features-grid">
-            <div class="feature-item">
-              <div class="feature-icon">🚀</div>
-              <h4>User Friendly</h4>
-              <p>No jargon, no hoops to jump through. Just a clear path to getting started.</p>
-            </div>
-            <div class="feature-item">
-              <div class="feature-icon">🛡️</div>
-              <h4>Best Support</h4>
-              <p>24/7 Expert Support: Because your business doesn't stop, neither do we!</p>
-            </div>
-            <div class="feature-item">
-              <div class="feature-icon">🤝</div>
-              <h4>Seamless Extension</h4>
-              <p>Our team takes the time to understand your unique brand voice and internal values, ensuring our culture aligns perfectly with yours for a truly unified partnership.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="footer-note">
-          *Salary figures are estimates based on industry data and may vary. This tool is for informational purposes only and not a binding salary guide. Actual savings depend on role requirements, experience level, and engagement terms.
         </div>
       </div>
     </div>
@@ -1602,64 +1460,46 @@ h1 {
       'Frontend Developer': {
         savings: 87, barWidth: 72,
         junior: 62, mid: 67, senior: 58,
-        region: 'LATAM',
-        desc: 'LATAM has a strong tech ecosystem with universities offering specialized programs in web development and software engineering. A skilled talent pool experienced in React, Vue.js, and Angular for modern UI development. Salaries are 57–63% lower than in the U.S., making hiring cost-effective. With high English proficiency, expertise in JavaScript, HTML, and CSS, and time zone alignment with North America, collaboration is seamless.',
         salaries: { junior: { us: 87.6, latam: 33, sa: 28.8 }, mid: { us: 120, latam: 39.6, sa: 36 }, senior: { us: 150, latam: 63, sa: 46.8 } }
       },
       'Backend Developer': {
         savings: 92, barWidth: 76,
         junior: 65, mid: 70, senior: 62,
-        region: 'South Africa',
-        desc: 'South Africa offers a deep pool of backend engineers with strong foundations in Python, Java, Node.js, and Go. With world-class universities and a thriving startup scene, developers here bring solid architecture and API design skills. Time zone overlap with Europe and competitive rates make it ideal for backend roles.',
         salaries: { junior: { us: 92, latam: 34, sa: 30 }, mid: { us: 130, latam: 42, sa: 38 }, senior: { us: 165, latam: 68, sa: 52 } }
       },
       'Full Stack Developer': {
         savings: 85, barWidth: 68,
         junior: 58, mid: 64, senior: 55,
-        region: 'LATAM',
-        desc: 'Full stack developers in LATAM combine frontend finesse with backend reliability. Proficient across the MERN and MEAN stacks, they deliver end-to-end solutions efficiently. The region\'s cultural affinity with U.S. business practices and strong communication skills ensure smooth agile workflows.',
         salaries: { junior: { us: 85, latam: 35, sa: 32 }, mid: { us: 125, latam: 45, sa: 42 }, senior: { us: 160, latam: 70, sa: 58 } }
       },
       'DevOps Engineer': {
         savings: 78, barWidth: 62,
         junior: 52, mid: 60, senior: 50,
-        region: 'South Africa',
-        desc: 'South African DevOps engineers bring strong cloud infrastructure expertise across AWS, Azure, and GCP. With certifications and hands-on experience in CI/CD, Kubernetes, and Terraform, they build resilient systems. The talent pool is deep and rates are highly competitive for specialized infrastructure roles.',
         salaries: { junior: { us: 95, latam: 40, sa: 38 }, mid: { us: 140, latam: 55, sa: 50 }, senior: { us: 180, latam: 82, sa: 72 } }
       },
       'UI/UX Designer': {
         savings: 75, barWidth: 60,
         junior: 50, mid: 58, senior: 48,
-        region: 'LATAM',
-        desc: 'LATAM designers are known for creative excellence and cultural fluency with North American markets. Strong portfolios in Figma, Adobe XD, and design systems. Their aesthetic sensibility combined with UX research skills makes them ideal for product teams seeking visually compelling, user-centered design.',
         salaries: { junior: { us: 72, latam: 32, sa: 30 }, mid: { us: 105, latam: 42, sa: 40 }, senior: { us: 140, latam: 62, sa: 55 } }
       },
       'QA Engineer': {
         savings: 80, barWidth: 65,
         junior: 55, mid: 62, senior: 52,
-        region: 'South Africa',
-        desc: 'South African QA engineers bring meticulous attention to detail with expertise in automated testing frameworks like Selenium, Cypress, and Playwright. Strong ISTQB certification culture ensures process discipline. Ideal for teams needing reliable quality gates without the U.S. price tag.',
         salaries: { junior: { us: 70, latam: 28, sa: 26 }, mid: { us: 100, latam: 38, sa: 35 }, senior: { us: 130, latam: 55, sa: 48 } }
       },
       'Data Analyst': {
         savings: 72, barWidth: 58,
         junior: 48, mid: 55, senior: 45,
-        region: 'LATAM',
-        desc: 'LATAM data analysts combine strong statistical foundations with business acumen. Proficient in SQL, Python, Tableau, and Power BI, they turn raw data into actionable insights. Growing data science programs at regional universities ensure a steady pipeline of analytically sharp talent.',
         salaries: { junior: { us: 78, latam: 35, sa: 32 }, mid: { us: 110, latam: 48, sa: 45 }, senior: { us: 145, latam: 68, sa: 62 } }
       },
       'Customer Support': {
         savings: 70, barWidth: 55,
         junior: 60, mid: 65, senior: 55,
-        region: 'South Africa',
-        desc: 'South Africa\'s customer support talent is renowned for neutral English accents and empathetic communication. With experience across SaaS, fintech, and e-commerce, support reps here deliver U.S.-quality service at a fraction of the cost. 24/7 coverage is easily achievable with the time zone.',
         salaries: { junior: { us: 45, latam: 18, sa: 16 }, mid: { us: 60, latam: 24, sa: 22 }, senior: { us: 80, latam: 32, sa: 30 } }
       },
       'Sales Representative': {
         savings: 68, barWidth: 54,
         junior: 55, mid: 60, senior: 50,
-        region: 'LATAM',
-        desc: 'LATAM sales reps bring cultural alignment with U.S. and Latin American markets, plus strong bilingual capabilities. Experienced in B2B SaaS sales, lead qualification, and CRM management. Their consultative selling approach and relationship-building skills drive pipeline growth efficiently.',
         salaries: { junior: { us: 55, latam: 22, sa: 20 }, mid: { us: 80, latam: 32, sa: 30 }, senior: { us: 110, latam: 45, sa: 42 } }
       }
     };
@@ -1671,8 +1511,6 @@ h1 {
     const juniorPct = document.getElementById('juniorPct');
     const midPct = document.getElementById('midPct');
     const seniorPct = document.getElementById('seniorPct');
-    const regionTitle = document.getElementById('regionTitle');
-    const regionDesc = document.getElementById('regionDesc');
     const salaryGrid = document.getElementById('salaryGrid');
 
     function formatK(val) {
@@ -1687,8 +1525,6 @@ h1 {
       juniorPct.textContent = d.junior + '%';
       midPct.textContent = d.mid + '%';
       seniorPct.textContent = d.senior + '%';
-      regionTitle.textContent = 'We recommend ' + d.region + ' for this role';
-      regionDesc.textContent = d.desc;
       salaryGrid.innerHTML = `
         <div class="salary-card"><h4>Junior</h4>
           <div class="salary-row"><span class="loc">US</span><span class="val">$${formatK(d.salaries.junior.us)}</span></div>
