@@ -7,7 +7,7 @@
 <meta name="description" content="Build dedicated remote teams at up to 80% lower hiring costs with REM Assistance.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #0B1D2B;
@@ -781,6 +781,66 @@ h1 {
 @media (max-width:520px){.badge-card{width:130px;left:4%}.badge-seal{width:165px}.seal-9001{width:140px;margin-left:-26px}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}[data-reveal]{opacity:1;transform:none}}
 
+/* ---- Replacement: Savings Calculator (navy/blue theme) ---- */
+.nb-section{position:relative;background:var(--cert-navy-deep);color:#E9EEF8;overflow:hidden}
+.nb-section::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(233,242,236,.05) 1.3px,transparent 1.4px);background-size:13px 13px;-webkit-mask-image:radial-gradient(ellipse at 68% 35%,#000 25%,transparent 78%);mask-image:radial-gradient(ellipse at 68% 35%,#000 25%,transparent 78%)}
+.nb-glow{position:absolute;top:50%;right:-12%;width:640px;height:640px;transform:translateY(-50%);background:radial-gradient(circle,rgba(76,111,255,.15),transparent 62%);pointer-events:none}
+.nb-wrap{max-width:1400px;margin-inline:auto;padding-inline:clamp(1.25rem,4vw,3rem);position:relative;z-index:1}
+.nb-calc-wrap{display:flex;justify-content:center;padding:clamp(4rem,7vw,6rem) 0 clamp(5rem,9vw,8rem)}
+.nb-calc{position:relative;background:#fff;color:var(--cert-navy);border-radius:20px;padding:clamp(1.8rem,3vw,2.6rem);box-shadow:0 40px 80px -30px rgba(0,0,0,.55);transform:rotate(.6deg);transition:transform .5s cubic-bezier(.2,.7,.2,1);width:100%;max-width:1100px;display:flex;flex-direction:column;font-family:var(--cert-font)}
+.nb-calc:hover{transform:rotate(0)}
+.nb-calc::before{content:"";position:absolute;top:-13px;left:50%;transform:translateX(-50%) rotate(-2deg);width:120px;height:28px;background:var(--cert-blue-bright);border-radius:2px}
+.nb-calc h2{font-family:var(--cert-font);font-weight:700;letter-spacing:-.02em;font-size:clamp(1.8rem,2.8vw,2.4rem);color:var(--cert-navy)}
+.nb-role-label{margin:1.8rem 0 .55rem;font:600 .66rem var(--cert-font);letter-spacing:.18em;text-transform:uppercase;color:var(--cert-muted)}
+.nb-role-select{position:relative}
+.nb-role-btn{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;background:#fff;border:1.5px solid rgba(14,27,61,.16);border-radius:12px;padding:1rem 1.15rem;font:600 1.05rem var(--cert-font);color:var(--cert-navy);cursor:pointer;transition:border-color .25s,box-shadow .25s}
+.nb-role-btn:hover{border-color:rgba(14,27,61,.4)}
+.nb-role-select.open .nb-role-btn{border-color:var(--cert-navy);box-shadow:0 0 0 3px rgba(76,111,255,.4)}
+.nb-role-btn .nb-chev{transition:transform .3s;color:var(--cert-blue)}
+.nb-role-select.open .nb-chev{transform:rotate(180deg)}
+.nb-role-list{position:absolute;top:calc(100% + 8px);left:0;right:0;z-index:30;background:#fff;border:1px solid rgba(14,27,61,.12);border-radius:14px;box-shadow:0 24px 48px -14px rgba(14,27,61,.35);padding:.4rem;max-height:284px;overflow:auto;opacity:0;transform:translateY(-6px) scale(.985);pointer-events:none;transition:.25s ease}
+.nb-role-select.open .nb-role-list{opacity:1;transform:none;pointer-events:auto}
+.nb-role-option{display:flex;align-items:center;padding:.7rem .85rem;border-radius:9px;font-weight:500;font-size:1rem;cursor:pointer;transition:background .15s;color:var(--cert-navy)}
+.nb-role-option:hover,.nb-role-option.active{background:rgba(46,82,229,.08)}
+.nb-role-option .nb-sub{margin-left:auto;margin-right:.65rem;font:500 .58rem var(--cert-font);letter-spacing:.12em;color:var(--cert-muted);border:1px solid rgba(14,27,61,.14);padding:.18rem .45rem;border-radius:5px}
+.nb-role-option.selected{font-weight:700}
+.nb-role-option.selected::after{content:"✓";color:var(--cert-blue);font-weight:700}
+.nb-savings{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:1.9rem;padding-top:1.6rem;border-top:1px dashed rgba(14,27,61,.22);flex:1}
+.nb-sav-label{font:600 .66rem var(--cert-font);letter-spacing:.2em;text-transform:uppercase;color:var(--cert-muted)}
+.nb-sav-amount{display:inline-block;font-family:var(--cert-font);font-weight:800;line-height:1;font-size:clamp(3.2rem,5vw,4.2rem);letter-spacing:-.03em;color:var(--cert-navy);font-variant-numeric:tabular-nums;margin-top:.4rem}
+.nb-sav-amount.nb-bump{animation:nb-bump .5s ease}
+@keyframes nb-bump{35%{transform:scale(1.07)}}
+.nb-sav-sub{margin-top:.5rem;font:500 .66rem var(--cert-font);letter-spacing:.1em;color:var(--cert-muted)}
+.nb-dial{position:relative;width:104px;height:104px;flex:none}
+.nb-dial svg{transform:rotate(-90deg)}
+.nb-dial circle{fill:none;stroke-width:8;stroke-linecap:round}
+.nb-dial-track{stroke:rgba(14,27,61,.12)}
+.nb-dial-fill{stroke:var(--cert-blue);stroke-dasharray:213.6}
+.nb-dial-num{position:absolute;inset:0;display:grid;place-content:center;font:600 1.25rem var(--cert-font);color:var(--cert-navy)}
+.nb-dial-cap{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:.45rem;font:500 .56rem var(--cert-font);letter-spacing:.14em;text-transform:uppercase;color:var(--cert-muted);white-space:nowrap}
+.nb-costs{display:grid;gap:1.05rem;margin-top:2.1rem}
+.nb-cost-head{display:flex;justify-content:space-between;margin-bottom:.45rem;font:500 .68rem var(--cert-font);letter-spacing:.14em;text-transform:uppercase;color:var(--cert-muted)}
+.nb-cost-head b{color:var(--cert-navy);font-weight:600}
+.nb-cost-track{height:13px;border-radius:999px;background:rgba(14,27,61,.08);overflow:hidden}
+.nb-cost-fill{display:block;height:100%;border-radius:999px;transition:width .8s cubic-bezier(.2,.7,.2,1)}
+.nb-cost-fill.us{background:var(--cert-navy);width:100%}
+.nb-cost-fill.off{background:linear-gradient(90deg,var(--cert-blue),var(--cert-blue-bright))}
+.nb-tiers{margin-top:1.8rem;padding-top:1.4rem;border-top:1px dashed rgba(14,27,61,.22);display:grid;gap:.85rem}
+.nb-tier-row{display:grid;grid-template-columns:110px 1fr 52px;align-items:center;gap:1rem}
+.nb-tier-name{display:flex;align-items:center;gap:.45rem;font-weight:600;font-size:.9rem;color:var(--cert-navy)}
+.nb-tier-row.best .nb-tier-name::after{content:"BEST";font:600 .52rem var(--cert-font);letter-spacing:.1em;background:var(--cert-blue);color:#fff;padding:.16rem .4rem;border-radius:4px}
+.nb-tier-meter{height:9px;border-radius:99px;background:rgba(14,27,61,.08);overflow:hidden}
+.nb-tier-fill{display:block;height:100%;border-radius:99px;background:#A8B3D1;transition:width .8s cubic-bezier(.2,.7,.2,1),background .3s}
+.nb-tier-row.best .nb-tier-fill{background:var(--cert-blue)}
+.nb-tier-pct{font:600 .9rem var(--cert-font);text-align:right;color:var(--cert-navy)}
+.nb-cta{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;width:100%;margin-top:1.9rem;background:var(--cert-blue);color:#fff;font:600 1.02rem var(--cert-font);padding:1.1rem 1.4rem;border:0;border-radius:12px;cursor:pointer;transition:.3s}
+.nb-cta:hover{background:var(--cert-navy);transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(14,27,61,.55)}
+.nb-cta svg{transition:transform .3s}
+.nb-cta:hover svg{transform:translateX(4px)}
+.nb-cta:focus-visible,.nb-role-btn:focus-visible,.nb-role-option:focus-visible{outline:3px solid rgba(76,111,255,.5);outline-offset:2px}
+@media (max-width:1020px){.nb-calc-wrap{padding:clamp(2rem,4vw,3rem) 0}.nb-calc{transform:none}.nb-case-ghost{font-size:8rem;top:-2.5rem;left:-1rem}}
+@media (max-width:560px){.nb-stats{flex-wrap:wrap;gap:1.2rem}.nb-tier-row{grid-template-columns:90px 1fr 46px}.nb-savings{flex-wrap:wrap}}
+
 /* Footer */
 .footer {
   background: var(--bg);
@@ -901,94 +961,6 @@ h1 {
     font-size: 13px;
     color: rgba(255, 255, 255, 0.6);
   }
-}
-
-/* New Calculator Design */
-.section-calculator{position:relative;background:var(--calc-ink);color:var(--calc-text);overflow:hidden;font-family:var(--calc-body)}
-.section-calculator::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(233,242,236,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(233,242,236,.05) 1px,transparent 1px);background-size:46px 46px;-webkit-mask-image:radial-gradient(ellipse at 68% 35%,#000 25%,transparent 78%);mask-image:radial-gradient(ellipse at 68% 35%,#000 25%,transparent 78%)}
-.glow{position:absolute;top:50%;right:-12%;width:640px;height:640px;transform:translateY(-50%);background:radial-gradient(circle,rgba(124,242,156,.15),transparent 62%);pointer-events:none}
-.container{max-width:1400px;margin-inline:auto;padding-inline:clamp(1.25rem,4vw,3rem);position:relative;z-index:1}
-.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,6.5rem);align-items:center;padding:clamp(4rem,7vw,6rem) 0 clamp(5rem,9vw,8rem)}
-.ticker{border-block:1px solid rgba(233,242,236,.12);overflow:hidden;position:relative;z-index:1}
-.ticker-track{display:flex;width:max-content;animation:tick 30s linear infinite}
-.ticker:hover .ticker-track{animation-play-state:paused}
-.ticker-track span{display:inline-flex;align-items:center;gap:.6rem;padding:.6rem 1.5rem;white-space:nowrap;font:500 .7rem/1 var(--calc-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--calc-muted)}
-.ticker-track b{color:var(--calc-moss);font-weight:600}
-.ticker-track i{font-style:normal;color:rgba(124,242,156,.5);font-size:.55rem}
-@keyframes tick{to{transform:translateX(-50%)}}
-[data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
-[data-reveal].in{opacity:1;transform:none}
-.case{position:relative}
-.case-ghost{position:absolute;top:-4.5rem;left:-2.5rem;z-index:0;font-family:var(--calc-display);font-weight:800;font-size:clamp(9rem,17vw,15rem);line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(124,242,156,.09);user-select:none;pointer-events:none}
-.case-inner{position:relative;z-index:1}
-.case h2{font-family:var(--calc-display);font-weight:800;font-size:clamp(2.5rem,4.8vw,4.1rem);line-height:1.03;letter-spacing:-.025em}
-.case h2 .hl{color:var(--calc-moss);background:linear-gradient(transparent 66%,rgba(124,242,156,.22) 0);padding:0 .1em}
-.case p{margin-top:1.4rem;max-width:56ch;color:#b9cec3;font-size:1.05rem;line-height:1.7}
-.case-stats{display:flex;gap:clamp(1.6rem,3vw,3rem);margin-top:2.6rem;padding-top:2rem;border-top:1px solid rgba(233,242,236,.14)}
-.case-stat + .case-stat{padding-left:clamp(1.6rem,3vw,3rem);border-left:1px solid rgba(233,242,236,.14)}
-.stat-num{font-family:var(--calc-display);font-weight:800;font-size:2.1rem;letter-spacing:-.02em;color:var(--calc-text);font-variant-numeric:tabular-nums;transition:color .3s}
-.case-stat:hover .stat-num{color:var(--calc-moss)}
-.case-stat.hero .stat-num{font-size:clamp(2.8rem,4.2vw,3.7rem);color:var(--calc-moss)}
-.stat-label{margin-top:.45rem;font:500 .68rem var(--calc-mono);letter-spacing:.16em;text-transform:uppercase;color:#8fae9f}
-.case-link{display:inline-flex;align-items:center;gap:.55rem;margin-top:2.4rem;color:var(--calc-moss);font-weight:600;font-size:1rem;text-decoration:none;position:relative;padding-bottom:.3rem}
-.case-link::after{content:"";position:absolute;left:0;bottom:0;height:1.5px;width:100%;background:var(--calc-moss);transform:scaleX(0);transform-origin:left;transition:transform .35s}
-.case-link:hover::after{transform:scaleX(1)}
-.case-link svg{transition:transform .3s}
-.case-link:hover svg{transform:translateX(5px)}
-.calc{position:relative;background:var(--calc-paper);color:#0c221d;border-radius:20px;padding:clamp(1.8rem,3vw,2.6rem);box-shadow:0 40px 80px -30px rgba(0,0,0,.55);transform:rotate(.6deg);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
-.calc:hover{transform:rotate(0)}
-.calc::before{content:"";position:absolute;top:-13px;left:50%;transform:translateX(-50%) rotate(-2deg);width:120px;height:28px;background:rgba(124,242,156,.55);border-radius:2px}
-.calc h2{font-family:var(--calc-display);font-weight:800;letter-spacing:-.02em;font-size:clamp(1.8rem,2.8vw,2.4rem)}
-.role-label{margin:1.8rem 0 .55rem;font:600 .66rem var(--calc-mono);letter-spacing:.18em;text-transform:uppercase;color:#6b8477}
-.role-select{position:relative}
-.role-btn{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;background:#fff;border:1.5px solid rgba(12,34,29,.16);border-radius:12px;padding:1rem 1.15rem;font:600 1.05rem var(--calc-body);color:#0c221d;cursor:pointer;transition:border-color .25s,box-shadow .25s}
-.role-btn:hover{border-color:rgba(12,34,29,.4)}
-.role-select.open .role-btn{border-color:#0c221d;box-shadow:0 0 0 3px rgba(124,242,156,.4)}
-.role-btn .chev{transition:transform .3s}
-.role-select.open .chev{transform:rotate(180deg)}
-.role-list{position:absolute;top:calc(100% + 8px);left:0;right:0;z-index:30;background:#fff;border:1px solid rgba(12,34,29,.12);border-radius:14px;box-shadow:0 24px 48px -14px rgba(12,34,29,.35);padding:.4rem;max-height:284px;overflow:auto;opacity:0;transform:translateY(-6px) scale(.985);pointer-events:none;transition:.25s ease}
-.role-select.open .role-list{opacity:1;transform:none;pointer-events:auto}
-.role-option{display:flex;align-items:center;padding:.7rem .85rem;border-radius:9px;font-weight:500;font-size:1rem;cursor:pointer;transition:background .15s}
-.role-option:hover,.role-option.active{background:#edf5ec}
-.role-option .sub{margin-left:auto;margin-right:.65rem;font:500 .58rem var(--calc-mono);letter-spacing:.12em;color:#8aa394;border:1px solid rgba(12,34,29,.14);padding:.18rem .45rem;border-radius:5px}
-.role-option.selected{font-weight:700}
-.role-option.selected::after{content:"✓";color:var(--calc-green-deep);font-weight:700}
-.savings{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:1.9rem;padding-top:1.6rem;border-top:1px dashed rgba(12,34,29,.22)}
-.sav-label{font:600 .66rem var(--calc-mono);letter-spacing:.2em;text-transform:uppercase;color:#6b8477}
-.sav-amount{display:inline-block;font-family:var(--calc-display);font-weight:800;line-height:1;font-size:clamp(3.2rem,5vw,4.2rem);letter-spacing:-.03em;color:var(--calc-green-deep);font-variant-numeric:tabular-nums;margin-top:.4rem}
-.sav-amount.bump{animation:bump .5s ease}
-@keyframes bump{35%{transform:scale(1.07)}}
-.sav-sub{margin-top:.5rem;font:500 .66rem var(--calc-mono);letter-spacing:.1em;color:#77907f}
-.dial{position:relative;width:104px;height:104px;flex:none}
-.dial svg{transform:rotate(-90deg)}
-.dial circle{fill:none;stroke-width:8;stroke-linecap:round}
-.dial-track{stroke:rgba(12,34,29,.12)}
-.dial-fill{stroke:var(--calc-green);stroke-dasharray:213.6}
-.dial-num{position:absolute;inset:0;display:grid;place-content:center;font:600 1.25rem var(--calc-mono);color:#0c221d}
-.dial-cap{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:.45rem;font:500 .56rem var(--calc-mono);letter-spacing:.14em;text-transform:uppercase;color:#77907f;white-space:nowrap}
-.costs{display:grid;gap:1.05rem;margin-top:2.1rem}
-.cost-head{display:flex;justify-content:space-between;margin-bottom:.45rem;font:500 .68rem var(--calc-mono);letter-spacing:.14em;text-transform:uppercase;color:#57705f}
-.cost-head b{color:#0c221d;font-weight:600}
-.cost-track{height:13px;border-radius:999px;background:rgba(12,34,29,.08);overflow:hidden}
-.cost-fill{display:block;height:100%;border-radius:999px;transition:width .8s cubic-bezier(.2,.7,.2,1)}
-.cost-fill.us{background:#0c221d;width:100%}
-.cost-fill.off{background:linear-gradient(90deg,var(--calc-green),var(--calc-moss))}
-.tiers{margin-top:1.8rem;padding-top:1.4rem;border-top:1px dashed rgba(12,34,29,.22);display:grid;gap:.85rem}
-.tier-row{display:grid;grid-template-columns:110px 1fr 52px;align-items:center;gap:1rem}
-.tier-name{display:flex;align-items:center;gap:.45rem;font-weight:600;font-size:.9rem}
-.tier-row.best .tier-name::after{content:"BEST";font:600 .52rem var(--calc-mono);letter-spacing:.1em;background:var(--calc-green-deep);color:#dfffe9;padding:.16rem .4rem;border-radius:4px}
-.tier-meter{height:9px;border-radius:99px;background:rgba(12,34,29,.08);overflow:hidden}
-.tier-fill{display:block;height:100%;border-radius:99px;background:#9db8ac;transition:width .8s cubic-bezier(.2,.7,.2,1),background .3s}
-.tier-row.best .tier-fill{background:var(--calc-green)}
-.tier-pct{font:600 .9rem var(--calc-mono);text-align:right;color:#0c221d}
-.calc-cta{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;width:100%;margin-top:1.9rem;background:#0c221d;color:var(--calc-paper);font:600 1.02rem var(--calc-body);padding:1.1rem 1.4rem;border:0;border-radius:12px;cursor:pointer;transition:.3s}
-.calc-cta:hover{background:var(--calc-green-deep);transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(14,92,63,.55)}
-.calc-cta svg{transition:transform .3s}
-.calc-cta:hover svg{transform:translateX(4px)}
-.calc-cta:focus-visible,.role-btn:focus-visible,.role-option:focus-visible{outline:3px solid rgba(23,165,107,.5);outline-offset:2px}
-@media (max-width:1020px){.calc-grid{grid-template-columns:1fr;gap:4.5rem}.calc{transform:none}.case-ghost{font-size:8rem;top:-2.5rem;left:-1rem}}
-@media (max-width:560px){.case-stats{flex-wrap:wrap;gap:1.2rem}.tier-row{grid-template-columns:90px 1fr 46px}.savings{flex-wrap:wrap}}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}[data-reveal]{opacity:1;transform:none}}
 
 @media (max-width: 1100px) {
   .footer-links-grid {
@@ -1387,101 +1359,6 @@ h1 {
     </div>
   </section>
 
-  <section class="section-calculator" id="savings">
-    <div class="ticker" aria-hidden="true">
-      <div class="ticker-track">
-        <span>Save up to <b>80%</b> on hiring <i>◆</i></span>
-        <span>US $140K → offshore <b>$53K</b> <i>◆</i></span>
-        <span>Pre-vetted senior talent <i>◆</i></span>
-        <span><b>2-week</b> paid trial <i>◆</i></span>
-        <span>No long-term lock-in <i>◆</i></span>
-        <span>Timezone-aligned teams <i>◆</i></span>
-      </div>
-    </div>
-    <div class="glow" aria-hidden="true"></div>
-    <div class="container">
-      <div class="calc-grid">
-        <article class="case">
-          <div class="case-ghost" aria-hidden="true">80%</div>
-          <div class="case-inner">
-            <h2 data-reveal>Cut your costs<br>up to <span class="hl">80%</span></h2>
-            <p data-reveal data-delay="80">REM partnered with Locate &amp; Move to improve lead generation and inbound call handling for apartment seekers. By introducing an AI-assisted qualification system and refining workflows, we increased qualified leads by 42% and cut response time by 60% in 3 months — driving more conversions while reducing support overhead.</p>
-            <div class="case-stats" data-reveal data-delay="160">
-              <div class="case-stat hero">
-                <div class="stat-num" data-count="42" data-prefix="+" data-suffix="%">+42%</div>
-                <div class="stat-label">Qualified leads</div>
-              </div>
-              <div class="case-stat">
-                <div class="stat-num" data-count="60" data-prefix="−" data-suffix="%">−60%</div>
-                <div class="stat-label">Response time</div>
-              </div>
-              <div class="case-stat">
-                <div class="stat-num">3 mo</div>
-                <div class="stat-label">Timeframe</div>
-              </div>
-            </div>
-            <a class="case-link" href="#" data-reveal data-delay="240">Read the full story
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
-            </a>
-          </div>
-        </article>
-        <aside class="calc" data-reveal data-delay="120">
-          <h2>How much you can save</h2>
-          <div class="role-label">Select role</div>
-          <div class="role-select" id="roleSelect">
-            <button type="button" class="role-btn" id="roleBtn" aria-haspopup="listbox" aria-expanded="false">
-              <span id="roleValue">Frontend Developer</span>
-              <svg class="chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
-            </button>
-            <div class="role-list" id="roleList" role="listbox" aria-label="Role">
-              <div class="role-option selected" role="option" aria-selected="true" data-role="Frontend Developer" tabindex="-1">Frontend Developer<span class="sub">ENG</span></div>
-              <div class="role-option" role="option" aria-selected="false" data-role="Backend Developer" tabindex="-1">Backend Developer<span class="sub">ENG</span></div>
-              <div class="role-option" role="option" aria-selected="false" data-role="Full Stack Developer" tabindex="-1">Full Stack Developer<span class="sub">ENG</span></div>
-              <div class="role-option" role="option" aria-selected="false" data-role="DevOps Engineer" tabindex="-1">DevOps Engineer<span class="sub">OPS</span></div>
-              <div class="role-option" role="option" aria-selected="false" data-role="UI/UX Designer" tabindex="-1">UI/UX Designer<span class="sub">DESIGN</span></div>
-              <div class="role-option" role="option" aria-selected="false" data-role="QA Engineer" tabindex="-1">QA Engineer<span class="sub">ENG</span></div>
-              <div class="role-option" role="option" aria-selected="false" data-role="Data Analyst" tabindex="-1">Data Analyst<span class="sub">DATA</span></div>
-              <div class="role-option" role="option" aria-selected="false" data-role="Customer Support" tabindex="-1">Customer Support<span class="sub">GTM</span></div>
-              <div class="role-option" role="option" aria-selected="false" data-role="Sales Representative" tabindex="-1">Sales Representative<span class="sub">GTM</span></div>
-            </div>
-          </div>
-          <div class="savings">
-            <div>
-              <div class="sav-label">Save up to</div>
-              <div class="sav-amount" id="savAmount">$<span id="savNum">0</span>K</div>
-              <div class="sav-sub">per hire · per year</div>
-            </div>
-            <div class="dial">
-              <svg viewBox="0 0 80 80" width="104" height="104">
-                <circle class="dial-track" cx="40" cy="40" r="34"/>
-                <circle class="dial-fill" id="dialFill" cx="40" cy="40" r="34" stroke-dashoffset="213.6"/>
-              </svg>
-              <div class="dial-num"><span id="dialPct">0</span>%</div>
-              <div class="dial-cap">peak saving</div>
-            </div>
-          </div>
-          <div class="costs">
-            <div>
-              <div class="cost-head"><span>US onshore</span><b id="usCost">$140K</b></div>
-              <div class="cost-track"><span class="cost-fill us"></span></div>
-            </div>
-            <div>
-              <div class="cost-head"><span>With REM offshore</span><b id="offCost">$53K</b></div>
-              <div class="cost-track"><span class="cost-fill off" id="offBar" style="width:0%"></span></div>
-            </div>
-          </div>
-          <div class="tiers" id="tiers">
-            <div class="tier-row"><span class="tier-name">Junior</span><span class="tier-meter"><span class="tier-fill" style="width:0%"></span></span><span class="tier-pct">0%</span></div>
-            <div class="tier-row"><span class="tier-name">Mid-level</span><span class="tier-meter"><span class="tier-fill" style="width:0%"></span></span><span class="tier-pct">0%</span></div>
-            <div class="tier-row"><span class="tier-name">Senior</span><span class="tier-meter"><span class="tier-fill" style="width:0%"></span></span><span class="tier-pct">0%</span></div>
-          </div>
-          <button class="calc-cta" type="button">Get a tailored quote
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
-          </button>
-        </aside>
-      </div>
-    </div>
-  </section>
 </main>
 
 <script>
@@ -1505,227 +1382,66 @@ h1 {
   }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
 
   cards.forEach(card => observer.observe(card));
-
-  // New Calculator Widget
-  (function(){
-    const ROLES = {
-      "Frontend Developer":   {us:140, off:53, t:[62,67,58]},
-      "Backend Developer":    {us:150, off:58, t:[60,66,57]},
-      "Full Stack Developer": {us:155, off:60, t:[61,65,56]},
-      "DevOps Engineer":      {us:165, off:66, t:[58,63,55]},
-      "UI/UX Designer":       {us:125, off:49, t:[63,61,54]},
-      "QA Engineer":          {us:115, off:40, t:[68,65,60]},
-      "Data Analyst":         {us:120, off:46, t:[64,62,57]},
-      "Customer Support":     {us:68,  off:19, t:[74,72,66]},
-      "Sales Representative": {us:85,  off:27, t:[70,68,62]}
-    };
-    const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const $ = s => document.querySelector(s);
-    function tween(from, to, cb, dur = 700){
-      if (REDUCED || from === to){ cb(to); return; }
-      const t0 = performance.now();
-      (function step(now){
-        const p = Math.min(1, (now - t0) / dur);
-        cb(from + (to - from) * (1 - Math.pow(1 - p, 3)));
-        if (p < 1) requestAnimationFrame(step);
-      })(t0);
-    }
-    const track = $('.ticker-track');
-    if (track) track.innerHTML += track.innerHTML;
-    const ro = new IntersectionObserver(es => es.forEach(e => {
-      if (e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); }
-    }), {threshold:.15});
-    document.querySelectorAll('[data-reveal]').forEach(el => {
-      el.style.transitionDelay = (el.dataset.delay || 0) + 'ms';
-      ro.observe(el);
-    });
-    const so = new IntersectionObserver(es => es.forEach(e => {
-      if (!e.isIntersecting) return;
-      const el = e.target, pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
-      tween(0, +el.dataset.count, v => el.textContent = pre + Math.round(v) + suf, 950);
-      so.unobserve(el);
-    }), {threshold:.6});
-    document.querySelectorAll('.stat-num[data-count]').forEach(el => so.observe(el));
-    const savNum = $('#savNum'), savAmount = $('#savAmount'),
-          dialFill = $('#dialFill'), dialPct = $('#dialPct'),
-          usCost = $('#usCost'), offCost = $('#offCost'), offBar = $('#offBar'),
-          tierRows = [...document.querySelectorAll('.tier-row')],
-          tierFills = tierRows.map(r => r.querySelector('.tier-fill')),
-          tierPcts  = tierRows.map(r => r.querySelector('.tier-pct'));
-    const C = 213.6;
-    const state = {sav:0, peak:0, pcts:[0,0,0]};
-    function render(role){
-      const d = ROLES[role], sav = d.us - d.off, peak = Math.max(...d.t);
-      tween(state.sav, sav,  v => savNum.textContent = Math.round(v));
-      tween(state.peak, peak, v => {
-        dialPct.textContent = Math.round(v);
-        dialFill.style.strokeDashoffset = C * (1 - v / 100);
-      });
-      usCost.textContent  = '$' + d.us + 'K';
-      offCost.textContent = '$' + d.off + 'K';
-      offBar.style.width  = (d.off / d.us * 100).toFixed(1) + '%';
-      d.t.forEach((p, i) => {
-        tween(state.pcts[i], p, v => tierPcts[i].textContent = Math.round(v) + '%');
-        tierFills[i].style.width = p + '%';
-      });
-      const best = d.t.indexOf(peak);
-      tierRows.forEach((r, i) => r.classList.toggle('best', i === best));
-      Object.assign(state, {sav, peak, pcts:[...d.t]});
-      savAmount.classList.remove('bump'); void savAmount.offsetWidth;
-      savAmount.classList.add('bump');
-    }
-    const sel = $('#roleSelect'), btn = $('#roleBtn'),
-          valueEl = $('#roleValue'), opts = [...document.querySelectorAll('.role-option')];
-    let open = false, active = -1;
-    function setOpen(v){
-      open = v;
-      sel.classList.toggle('open', v);
-      btn.setAttribute('aria-expanded', v);
-      if (v){ setActive(opts.findIndex(o => o.classList.contains('selected'))); }
-      else  { active = -1; opts.forEach(o => o.classList.remove('active')); }
-    }
-    function setActive(i){
-      active = i;
-      opts.forEach((o, k) => o.classList.toggle('active', k === i));
-      if (opts[i]) opts[i].scrollIntoView({block:'nearest'});
-    }
-    function select(role){
-      opts.forEach(o => {
-        const on = o.dataset.role === role;
-        o.classList.toggle('selected', on);
-        o.setAttribute('aria-selected', on);
-      });
-      valueEl.textContent = role;
-      setOpen(false);
-      render(role);
-    }
-    btn.addEventListener('click', () => setOpen(!open));
-    opts.forEach(o => o.addEventListener('click', () => select(o.dataset.role)));
-    document.addEventListener('click', e => { if (!sel.contains(e.target)) setOpen(false); });
-    sel.addEventListener('keydown', e => {
-      if (e.key === 'Escape'){ setOpen(false); btn.focus(); return; }
-      if (!open && ['ArrowDown','Enter',' '].includes(e.key)){
-        e.preventDefault(); setOpen(true); return;
-      }
-      if (!open) return;
-      if (e.key === 'ArrowDown'){ e.preventDefault(); setActive(Math.min(active + 1, opts.length - 1)); }
-      else if (e.key === 'ArrowUp'){ e.preventDefault(); setActive(Math.max(active - 1, 0)); }
-      else if (e.key === 'Home'){ e.preventDefault(); setActive(0); }
-      else if (e.key === 'End'){ e.preventDefault(); setActive(opts.length - 1); }
-      else if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); if (active > -1) select(opts[active].dataset.role); }
-    });
-    render('Frontend Developer');
-  })();
 </script>
 
-<section class="cert-section">
-  <div class="container">
-      <div class="banner-bg">
-
-        <!-- LEFT : copy -->
-        <div class="panel-left">
-          <span class="eyebrow"><i></i>Certifications</span>
-          <h2>Your peace of mind is our priority</h2>
-          <p>Rem Assist maintains dual ISO certifications — quality and security are embedded into every task we perform, for every partnership.</p>
-          <a class="verify-link" href="#" target="_blank" rel="noopener">Verify Here
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
-          </a>
+<section class="nb-section" id="nb-savings">
+  <div class="nb-glow" aria-hidden="true"></div>
+  <div class="nb-wrap">
+    <div class="nb-calc-wrap">
+      <aside class="nb-calc" data-reveal data-delay="120">
+        <h2>How much you can save</h2>
+        <div class="nb-role-label">Select role</div>
+        <div class="nb-role-select" id="nbRoleSelect">
+          <button type="button" class="nb-role-btn" id="nbRoleBtn" aria-haspopup="listbox" aria-expanded="false">
+            <span id="nbRoleValue">Frontend Developer</span>
+            <svg class="nb-chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="nb-role-list" id="nbRoleList" role="listbox" aria-label="Role">
+            <div class="nb-role-option selected" role="option" aria-selected="true" data-role="Frontend Developer" tabindex="-1">Frontend Developer<span class="nb-sub">ENG</span></div>
+            <div class="nb-role-option" role="option" aria-selected="false" data-role="Backend Developer" tabindex="-1">Backend Developer<span class="nb-sub">ENG</span></div>
+            <div class="nb-role-option" role="option" aria-selected="false" data-role="Full Stack Developer" tabindex="-1">Full Stack Developer<span class="nb-sub">ENG</span></div>
+            <div class="nb-role-option" role="option" aria-selected="false" data-role="DevOps Engineer" tabindex="-1">DevOps Engineer<span class="nb-sub">OPS</span></div>
+            <div class="nb-role-option" role="option" aria-selected="false" data-role="UI/UX Designer" tabindex="-1">UI/UX Designer<span class="nb-sub">DESIGN</span></div>
+            <div class="nb-role-option" role="option" aria-selected="false" data-role="QA Engineer" tabindex="-1">QA Engineer<span class="nb-sub">ENG</span></div>
+            <div class="nb-role-option" role="option" aria-selected="false" data-role="Data Analyst" tabindex="-1">Data Analyst<span class="nb-sub">DATA</span></div>
+            <div class="nb-role-option" role="option" aria-selected="false" data-role="Customer Support" tabindex="-1">Customer Support<span class="nb-sub">GTM</span></div>
+            <div class="nb-role-option" role="option" aria-selected="false" data-role="Sales Representative" tabindex="-1">Sales Representative<span class="nb-sub">GTM</span></div>
+          </div>
         </div>
-
-        <!-- RIGHT : badge zone -->
-        <div class="panel-right">
-
-          <!-- ACERTA card badge -->
-          <div class="badge badge-card">
-            <svg class="bc-top" viewBox="0 0 120 100">
-              <g fill="#F6C445">
-                <circle cx="98" cy="50" r="2.6"/><circle cx="92.9" cy="69" r="2.6"/><circle cx="79" cy="82.9" r="2.6"/>
-                <circle cx="60" cy="88" r="2.6"/><circle cx="41" cy="82.9" r="2.6"/><circle cx="27.1" cy="69" r="2.6"/>
-                <circle cx="22" cy="50" r="2.6"/><circle cx="27.1" cy="31" r="2.6"/><circle cx="41" cy="17.1" r="2.6"/>
-                <circle cx="60" cy="12" r="2.6"/><circle cx="79" cy="17.1" r="2.6"/><circle cx="92.9" cy="31" r="2.6"/>
-              </g>
-              <path d="M52 46v-7a8 8 0 0 1 16 0v7" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
-              <rect x="46" y="46" width="28" height="21" rx="4" fill="#fff"/>
-              <circle cx="60" cy="55" r="3" fill="#2E52E5"/>
+        <div class="nb-savings">
+          <div>
+            <div class="nb-sav-label">Save up to</div>
+            <div class="nb-sav-amount" id="nbSavAmount">$<span id="nbSavNum">0</span>K</div>
+            <div class="nb-sav-sub">per hire · per year</div>
+          </div>
+          <div class="nb-dial">
+            <svg viewBox="0 0 80 80" width="104" height="104">
+              <circle class="nb-dial-track" cx="40" cy="40" r="34"/>
+              <circle class="nb-dial-fill" id="nbDialFill" cx="40" cy="40" r="34" stroke-dashoffset="213.6"/>
             </svg>
-            <div class="bc-bottom"><span>Certified by</span><b>ACERTA</b></div>
+            <div class="nb-dial-num"><span id="nbDialPct">0</span>%</div>
+            <div class="nb-dial-cap">peak saving</div>
           </div>
-
-          <!-- ISO seals, centered -->
-          <div class="seal-group">
-            <div class="seal-slot slot-27001">
-              <div class="badge badge-seal">
-                <svg viewBox="0 0 200 200">
-                  <defs>
-                    <linearGradient id="o1" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0" stop-color="#1B2C5E"/><stop offset="1" stop-color="#0A1430"/>
-                    </linearGradient>
-                    <linearGradient id="i1" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0" stop-color="#4C6FFF"/><stop offset="1" stop-color="#2E52E5"/>
-                    </linearGradient>
-                    <radialGradient id="s1" cx=".3" cy=".25" r=".9">
-                      <stop offset="0" stop-color="#fff" stop-opacity=".25"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/>
-                    </radialGradient>
-                    <path id="t1" d="M 22 100 A 78 78 0 0 1 178 100"/>
-                    <path id="b1" d="M 26 100 A 74 74 0 0 0 174 100"/>
-                  </defs>
-                  <circle cx="100" cy="100" r="96" fill="url(#o1)"/>
-                  <circle cx="100" cy="100" r="96" fill="url(#s1)"/>
-                  <circle cx="100" cy="100" r="96" fill="none" stroke="rgba(255,255,255,.18)"/>
-                  <text font-size="13" font-weight="600" letter-spacing="4" fill="#C9D6FF">
-                    <textPath href="#t1" startOffset="50%" text-anchor="middle">CERTIFIED</textPath>
-                  </text>
-                  <text font-size="13" font-weight="600" letter-spacing="5" fill="#C9D6FF">
-                    <textPath href="#b1" startOffset="50%" text-anchor="middle">ACERTA</textPath>
-                  </text>
-                  <circle cx="100" cy="100" r="62" fill="url(#i1)" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
-                  <g fill="none" stroke="#fff" stroke-width="1.6">
-                    <circle cx="100" cy="76" r="15"/><path d="M85 76h30M100 61c4.6 4.3 7 9.3 7 15s-2.4 10.7-7 15c-4.6-4.3-7-9.3-7-15s2.4-10.7 7-15Z"/>
-                  </g>
-                  <text x="100" y="122" text-anchor="middle" font-size="30" font-weight="800" fill="#fff">ISO</text>
-                  <text x="100" y="145" text-anchor="middle" font-size="17" font-weight="600" letter-spacing="2" fill="#fff">27001</text>
-                </svg>
-              </div>
-            </div>
-
-            <div class="seal-slot slot-9001">
-              <div class="badge badge-seal seal-9001">
-                <svg viewBox="0 0 200 200">
-                  <defs>
-                    <linearGradient id="o2" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0" stop-color="#1B2C5E"/><stop offset="1" stop-color="#0A1430"/>
-                    </linearGradient>
-                    <linearGradient id="i2" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0" stop-color="#4C6FFF"/><stop offset="1" stop-color="#2E52E5"/>
-                    </linearGradient>
-                    <radialGradient id="s2" cx=".3" cy=".25" r=".9">
-                      <stop offset="0" stop-color="#fff" stop-opacity=".25"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/>
-                    </radialGradient>
-                    <path id="t2" d="M 22 100 A 78 78 0 0 1 178 100"/>
-                    <path id="b2" d="M 26 100 A 74 74 0 0 0 174 100"/>
-                  </defs>
-                  <circle cx="100" cy="100" r="96" fill="url(#o2)"/>
-                  <circle cx="100" cy="100" r="96" fill="url(#s2)"/>
-                  <circle cx="100" cy="100" r="96" fill="none" stroke="rgba(255,255,255,.18)"/>
-                  <text font-size="13" font-weight="600" letter-spacing="4" fill="#C9D6FF">
-                    <textPath href="#t2" startOffset="50%" text-anchor="middle">CERTIFIED</textPath>
-                  </text>
-                  <text font-size="13" font-weight="600" letter-spacing="5" fill="#C9D6FF">
-                    <textPath href="#b2" startOffset="50%" text-anchor="middle">ACERTA</textPath>
-                  </text>
-                  <circle cx="100" cy="100" r="62" fill="url(#i2)" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
-                  <g fill="none" stroke="#fff" stroke-width="1.6">
-                    <circle cx="100" cy="76" r="15"/><path d="M85 76h30M100 61c4.6 4.3 7 9.3 7 15s-2.4 10.7-7 15c-4.6-4.3-7-9.3-7-15s2.4-10.7 7-15Z"/>
-                  </g>
-                  <text x="100" y="122" text-anchor="middle" font-size="30" font-weight="800" fill="#fff">ISO</text>
-                  <text x="100" y="145" text-anchor="middle" font-size="17" font-weight="600" letter-spacing="2" fill="#fff">9001</text>
-                </svg>
-              </div>
-            </div>
-          </div>
-
         </div>
-      </div>
+        <div class="nb-costs">
+          <div>
+            <div class="nb-cost-head"><span>US onshore</span><b id="nbUsCost">$140K</b></div>
+            <div class="nb-cost-track"><span class="nb-cost-fill us"></span></div>
+          </div>
+          <div>
+            <div class="nb-cost-head"><span>With REM offshore</span><b id="nbOffCost">$53K</b></div>
+            <div class="nb-cost-track"><span class="nb-cost-fill off" id="nbOffBar" style="width:0%"></span></div>
+          </div>
+        </div>
+        <div class="nb-tiers" id="nbTiers">
+          <div class="nb-tier-row"><span class="nb-tier-name">Junior</span><span class="nb-tier-meter"><span class="nb-tier-fill" style="width:0%"></span></span><span class="nb-tier-pct">0%</span></div>
+          <div class="nb-tier-row"><span class="nb-tier-name">Mid-level</span><span class="nb-tier-meter"><span class="nb-tier-fill" style="width:0%"></span></span><span class="nb-tier-pct">0%</span></div>
+          <div class="nb-tier-row"><span class="nb-tier-name">Senior</span><span class="nb-tier-meter"><span class="nb-tier-fill" style="width:0%"></span></span><span class="nb-tier-pct">0%</span></div>
+        </div>
+        <button class="nb-cta" type="button">Get a tailored quote
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+        </button>
+      </aside>
     </div>
   </div>
 </section>
@@ -1839,6 +1555,112 @@ h1 {
     </div>
   </div>
 </footer>
+
+<script>
+// Navy/Blue Savings Calculator (replacing cert section)
+(function(){
+  const ROLES = {
+    "Frontend Developer":   {us:140, off:53, t:[62,67,58]},
+    "Backend Developer":    {us:150, off:58, t:[60,66,57]},
+    "Full Stack Developer": {us:155, off:60, t:[61,65,56]},
+    "DevOps Engineer":      {us:165, off:66, t:[58,63,55]},
+    "UI/UX Designer":       {us:125, off:49, t:[63,61,54]},
+    "QA Engineer":          {us:115, off:40, t:[68,65,60]},
+    "Data Analyst":         {us:120, off:46, t:[64,62,57]},
+    "Customer Support":     {us:68,  off:19, t:[74,72,66]},
+    "Sales Representative": {us:85,  off:27, t:[70,68,62]}
+  };
+  const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = s => document.querySelector(s);
+  function tween(from, to, cb, dur = 700){
+    if (REDUCED || from === to){ cb(to); return; }
+    const t0 = performance.now();
+    (function step(now){
+      const p = Math.min(1, (now - t0) / dur);
+      cb(from + (to - from) * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(step);
+    })(t0);
+  }
+  const section = document.querySelector('.nb-section');
+  if (!section) return;
+  const ro = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); }
+  }), {threshold:.15});
+  section.querySelectorAll('[data-reveal]').forEach(el => {
+    el.style.transitionDelay = (el.dataset.delay || 0) + 'ms';
+    ro.observe(el);
+  });
+  const savNum = $('#nbSavNum'), savAmount = $('#nbSavAmount'),
+        dialFill = $('#nbDialFill'), dialPct = $('#nbDialPct'),
+        usCost = $('#nbUsCost'), offCost = $('#nbOffCost'), offBar = $('#nbOffBar'),
+        tierRows = [...document.querySelectorAll('.nb-tier-row')],
+        tierFills = tierRows.map(r => r.querySelector('.nb-tier-fill')),
+        tierPcts  = tierRows.map(r => r.querySelector('.nb-tier-pct'));
+  const C = 213.6;
+  const state = {sav:0, peak:0, pcts:[0,0,0]};
+  function render(role){
+    const d = ROLES[role], sav = d.us - d.off, peak = Math.max(...d.t);
+    tween(state.sav, sav,  v => savNum.textContent = Math.round(v));
+    tween(state.peak, peak, v => {
+      dialPct.textContent = Math.round(v);
+      dialFill.style.strokeDashoffset = C * (1 - v / 100);
+    });
+    usCost.textContent  = '$' + d.us + 'K';
+    offCost.textContent = '$' + d.off + 'K';
+    offBar.style.width  = (d.off / d.us * 100).toFixed(1) + '%';
+    d.t.forEach((p, i) => {
+      tween(state.pcts[i], p, v => tierPcts[i].textContent = Math.round(v) + '%');
+      tierFills[i].style.width = p + '%';
+    });
+    const best = d.t.indexOf(peak);
+    tierRows.forEach((r, i) => r.classList.toggle('best', i === best));
+    Object.assign(state, {sav, peak, pcts:[...d.t]});
+    savAmount.classList.remove('nb-bump'); void savAmount.offsetWidth;
+    savAmount.classList.add('nb-bump');
+  }
+  const sel = $('#nbRoleSelect'), btn = $('#nbRoleBtn'),
+        valueEl = $('#nbRoleValue'), opts = [...section.querySelectorAll('.nb-role-option')];
+  let open = false, active = -1;
+  function setOpen(v){
+    open = v;
+    sel.classList.toggle('open', v);
+    btn.setAttribute('aria-expanded', v);
+    if (v){ setActive(opts.findIndex(o => o.classList.contains('selected'))); }
+    else  { active = -1; opts.forEach(o => o.classList.remove('active')); }
+  }
+  function setActive(i){
+    active = i;
+    opts.forEach((o, k) => o.classList.toggle('active', k === i));
+    if (opts[i]) opts[i].scrollIntoView({block:'nearest'});
+  }
+  function select(role){
+    opts.forEach(o => {
+      const on = o.dataset.role === role;
+      o.classList.toggle('selected', on);
+      o.setAttribute('aria-selected', on);
+    });
+    valueEl.textContent = role;
+    setOpen(false);
+    render(role);
+  }
+  btn.addEventListener('click', () => setOpen(!open));
+  opts.forEach(o => o.addEventListener('click', () => select(o.dataset.role)));
+  document.addEventListener('click', e => { if (!sel.contains(e.target)) setOpen(false); });
+  sel.addEventListener('keydown', e => {
+    if (e.key === 'Escape'){ setOpen(false); btn.focus(); return; }
+    if (!open && ['ArrowDown','Enter',' '].includes(e.key)){
+      e.preventDefault(); setOpen(true); return;
+    }
+    if (!open) return;
+    if (e.key === 'ArrowDown'){ e.preventDefault(); setActive(Math.min(active + 1, opts.length - 1)); }
+    else if (e.key === 'ArrowUp'){ e.preventDefault(); setActive(Math.max(active - 1, 0)); }
+    else if (e.key === 'Home'){ e.preventDefault(); setActive(0); }
+    else if (e.key === 'End'){ e.preventDefault(); setActive(opts.length - 1); }
+    else if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); if (active > -1) select(opts[active].dataset.role); }
+  });
+  render('Frontend Developer');
+})();
+</script>
 
 </body>
 </html>
