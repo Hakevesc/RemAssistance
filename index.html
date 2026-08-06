@@ -31,6 +31,10 @@
   --calc-display:"Bricolage Grotesque",sans-serif;
   --calc-body:"Instrument Sans",sans-serif;
   --calc-mono:"IBM Plex Mono",monospace;
+  --cert-navy:#0E1B3D; --cert-navy-deep:#0A1430; --cert-navy-2:#15264F;
+  --cert-blue:#2E52E5; --cert-blue-bright:#4C6FFF; --cert-blue-soft:#C9D6FF;
+  --cert-bg:#F1F2F7; --cert-muted:#5C6584;
+  --cert-font:"Poppins",sans-serif;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -737,6 +741,45 @@ h1 {
   .hero-buttons { flex-direction: column; }
   .trust-pill { font-size: 13px; padding: 12px 14px; }
 }
+
+/* Certifications Section */
+.cert-section{padding:clamp(4rem,8vw,7rem) 0;position:relative;overflow:hidden;background:var(--cert-bg)}
+.banner{position:relative}
+.banner-bg{display:grid;grid-template-columns:1.55fr 1fr;border-radius:28px;overflow:hidden;box-shadow:0 50px 90px -45px rgba(10,20,48,.45)}
+.panel-left{background:linear-gradient(160deg,var(--cert-navy-2),var(--cert-navy-deep) 70%);padding:clamp(2.6rem,5vw,4.8rem);position:relative;overflow:hidden}
+.panel-left::after{content:"";position:absolute;right:0;bottom:0;width:340px;height:280px;background-image:radial-gradient(rgba(255,255,255,.14) 1.3px,transparent 1.4px);background-size:12px 12px;-webkit-mask-image:radial-gradient(ellipse at bottom right,#000 10%,transparent 70%);mask-image:radial-gradient(ellipse at bottom right,#000 10%,transparent 70%)}
+.panel-right{background:linear-gradient(150deg,var(--cert-blue-bright),var(--cert-blue) 75%);position:relative;min-height:460px}
+.panel-right::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.16) 1.3px,transparent 1.4px);background-size:13px 13px;opacity:.5}
+.eyebrow{display:flex;align-items:center;gap:.6rem;color:#B9C6F2;font-weight:500;font-size:.8rem;letter-spacing:.06em}
+.eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--cert-blue-bright);animation:pulse 2.2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(76,111,255,.5)}55%{box-shadow:0 0 0 8px rgba(76,111,255,0)}}
+.banner h2{margin-top:1.2rem;color:#fff;font-weight:700;letter-spacing:-.02em;line-height:1.12;font-size:clamp(2.2rem,4.2vw,3.6rem);max-width:14ch;font-family:var(--cert-font)}
+.banner p{margin-top:1.3rem;color:#B9C6F2;font-size:1rem;line-height:1.75;max-width:46ch;font-family:var(--cert-font)}
+.verify-link{display:inline-flex;align-items:center;gap:.55rem;margin-top:2rem;color:#fff;font-weight:600;font-size:.95rem;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);border-radius:999px;padding:.8rem 1.4rem;transition:.3s;font-family:var(--cert-font)}
+.verify-link:hover{background:var(--cert-blue);border-color:var(--cert-blue);transform:translateY(-2px);box-shadow:0 14px 28px -12px rgba(46,82,229,.7)}
+.verify-link svg{transition:transform .3s}
+.verify-link:hover svg{transform:translateX(4px)}
+.badge{position:relative;filter:drop-shadow(0 22px 28px rgba(10,20,48,.38));transition:transform .45s cubic-bezier(.2,.7,.2,1);animation:bob 6s ease-in-out infinite}
+.badge:hover{animation-play-state:paused;transform:rotate(0deg) scale(1.05)}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -12px}}
+.badge-card{position:absolute;width:170px;left:-90px;top:-34px;transform:rotate(8deg);background:#fff;border-radius:16px;border:6px solid #24409A;overflow:hidden;z-index:3}
+.bc-top{display:block;width:100%;background:linear-gradient(160deg,var(--cert-blue-bright),var(--cert-blue))}
+.bc-bottom{padding:.7rem .5rem .8rem;text-align:center}
+.bc-bottom span{display:block;font-size:.62rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--cert-muted);font-family:var(--cert-font)}
+.bc-bottom b{display:block;margin-top:.15rem;font-size:1.15rem;font-weight:800;letter-spacing:.18em;color:var(--cert-navy);font-family:var(--cert-font)}
+.seal-group{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center}
+.seal-slot{line-height:0}
+.slot-27001{transform:translateY(-22px)}
+.slot-9001{transform:translateY(30px);margin-left:-38px}
+.badge-seal{width:250px;transform:rotate(-6deg)}
+.seal-9001{width:215px;transform:rotate(7deg);animation-delay:1.2s}
+.badge-seal svg{display:block;width:100%;height:auto}
+.badge-seal text{font-family:var(--cert-font)}
+[data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+[data-reveal].in{opacity:1;transform:none}
+@media (max-width:960px){.banner-bg{grid-template-columns:1fr}.panel-right{min-height:400px}.badge-card{left:6%;top:-40px}.badge-seal{width:200px}.seal-9001{width:170px}}
+@media (max-width:520px){.badge-card{width:130px;left:4%}.badge-seal{width:165px}.seal-9001{width:140px;margin-left:-26px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}[data-reveal]{opacity:1;transform:none}}
 
 /* Footer */
 .footer {
@@ -1573,7 +1616,125 @@ h1 {
     });
     render('Frontend Developer');
   })();
+
+  const roCert = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting){ e.target.classList.add('in'); roCert.unobserve(e.target); }
+  }), {threshold:.15});
+  document.querySelectorAll('.cert-section [data-reveal]').forEach(el => roCert.observe(el));
 </script>
+
+<section class="cert-section">
+  <div class="container">
+    <div class="banner" data-reveal>
+      <div class="banner-bg">
+
+        <!-- LEFT : copy -->
+        <div class="panel-left">
+          <span class="eyebrow"><i></i>Certifications</span>
+          <h2>Your peace of mind is our priority</h2>
+          <p>Rem Assist maintains dual ISO certifications — quality and security are embedded into every task we perform, for every partnership.</p>
+          <a class="verify-link" href="#" target="_blank" rel="noopener">Verify Here
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+          </a>
+        </div>
+
+        <!-- RIGHT : badge zone -->
+        <div class="panel-right">
+
+          <!-- ACERTA card badge -->
+          <div class="badge badge-card">
+            <svg class="bc-top" viewBox="0 0 120 100">
+              <g fill="#F6C445">
+                <circle cx="98" cy="50" r="2.6"/><circle cx="92.9" cy="69" r="2.6"/><circle cx="79" cy="82.9" r="2.6"/>
+                <circle cx="60" cy="88" r="2.6"/><circle cx="41" cy="82.9" r="2.6"/><circle cx="27.1" cy="69" r="2.6"/>
+                <circle cx="22" cy="50" r="2.6"/><circle cx="27.1" cy="31" r="2.6"/><circle cx="41" cy="17.1" r="2.6"/>
+                <circle cx="60" cy="12" r="2.6"/><circle cx="79" cy="17.1" r="2.6"/><circle cx="92.9" cy="31" r="2.6"/>
+              </g>
+              <path d="M52 46v-7a8 8 0 0 1 16 0v7" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+              <rect x="46" y="46" width="28" height="21" rx="4" fill="#fff"/>
+              <circle cx="60" cy="55" r="3" fill="#2E52E5"/>
+            </svg>
+            <div class="bc-bottom"><span>Certified</span><b>ACERTA</b></div>
+          </div>
+
+          <!-- ISO seals, centered -->
+          <div class="seal-group">
+            <div class="seal-slot slot-27001">
+              <div class="badge badge-seal">
+                <svg viewBox="0 0 200 200">
+                  <defs>
+                    <linearGradient id="o1" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0" stop-color="#1B2C5E"/><stop offset="1" stop-color="#0A1430"/>
+                    </linearGradient>
+                    <linearGradient id="i1" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0" stop-color="#4C6FFF"/><stop offset="1" stop-color="#2E52E5"/>
+                    </linearGradient>
+                    <radialGradient id="s1" cx=".3" cy=".25" r=".9">
+                      <stop offset="0" stop-color="#fff" stop-opacity=".25"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/>
+                    </radialGradient>
+                    <path id="t1" d="M 22 100 A 78 78 0 0 1 178 100"/>
+                    <path id="b1" d="M 26 100 A 74 74 0 0 0 174 100"/>
+                  </defs>
+                  <circle cx="100" cy="100" r="96" fill="url(#o1)"/>
+                  <circle cx="100" cy="100" r="96" fill="url(#s1)"/>
+                  <circle cx="100" cy="100" r="96" fill="none" stroke="rgba(255,255,255,.18)"/>
+                  <text font-size="13" font-weight="600" letter-spacing="4" fill="#C9D6FF">
+                    <textPath href="#t1" startOffset="50%" text-anchor="middle">CERTIFIED</textPath>
+                  </text>
+                  <text font-size="13" font-weight="600" letter-spacing="5" fill="#C9D6FF">
+                    <textPath href="#b1" startOffset="50%" text-anchor="middle">ACERTA</textPath>
+                  </text>
+                  <circle cx="100" cy="100" r="62" fill="url(#i1)" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
+                  <g fill="none" stroke="#fff" stroke-width="1.6">
+                    <circle cx="100" cy="76" r="15"/><path d="M85 76h30M100 61c4.6 4.3 7 9.3 7 15s-2.4 10.7-7 15c-4.6-4.3-7-9.3-7-15s2.4-10.7 7-15Z"/>
+                  </g>
+                  <text x="100" y="122" text-anchor="middle" font-size="30" font-weight="800" fill="#fff">ISO</text>
+                  <text x="100" y="145" text-anchor="middle" font-size="17" font-weight="600" letter-spacing="2" fill="#fff">27001</text>
+                </svg>
+              </div>
+            </div>
+
+            <div class="seal-slot slot-9001">
+              <div class="badge badge-seal seal-9001">
+                <svg viewBox="0 0 200 200">
+                  <defs>
+                    <linearGradient id="o2" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0" stop-color="#1B2C5E"/><stop offset="1" stop-color="#0A1430"/>
+                    </linearGradient>
+                    <linearGradient id="i2" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0" stop-color="#4C6FFF"/><stop offset="1" stop-color="#2E52E5"/>
+                    </linearGradient>
+                    <radialGradient id="s2" cx=".3" cy=".25" r=".9">
+                      <stop offset="0" stop-color="#fff" stop-opacity=".25"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/>
+                    </radialGradient>
+                    <path id="t2" d="M 22 100 A 78 78 0 0 1 178 100"/>
+                    <path id="b2" d="M 26 100 A 74 74 0 0 0 174 100"/>
+                  </defs>
+                  <circle cx="100" cy="100" r="96" fill="url(#o2)"/>
+                  <circle cx="100" cy="100" r="96" fill="url(#s2)"/>
+                  <circle cx="100" cy="100" r="96" fill="none" stroke="rgba(255,255,255,.18)"/>
+                  <text font-size="13" font-weight="600" letter-spacing="4" fill="#C9D6FF">
+                    <textPath href="#t2" startOffset="50%" text-anchor="middle">CERTIFIED</textPath>
+                  </text>
+                  <text font-size="13" font-weight="600" letter-spacing="5" fill="#C9D6FF">
+                    <textPath href="#b2" startOffset="50%" text-anchor="middle">ACERTA</textPath>
+                  </text>
+                  <circle cx="100" cy="100" r="62" fill="url(#i2)" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
+                  <g fill="none" stroke="#fff" stroke-width="1.6">
+                    <circle cx="100" cy="76" r="15"/><path d="M85 76h30M100 61c4.6 4.3 7 9.3 7 15s-2.4 10.7-7 15c-4.6-4.3-7-9.3-7-15s2.4-10.7 7-15Z"/>
+                  </g>
+                  <text x="100" y="122" text-anchor="middle" font-size="30" font-weight="800" fill="#fff">ISO</text>
+                  <text x="100" y="145" text-anchor="middle" font-size="17" font-weight="600" letter-spacing="2" fill="#fff">9001</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <footer class="footer">
   <div class="container">
