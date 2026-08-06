@@ -151,7 +151,7 @@ img { display: block; max-width: 100%; }
 }
 
 .hero-left {
-  padding: 60px 56px;
+  padding: 32px 44px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -317,7 +317,7 @@ h1 {
 }
 
 .iso-badge {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 10px;
   font-weight: 600;
@@ -325,15 +325,22 @@ h1 {
   color: var(--text);
   background: var(--primary-light);
   border: 1.5px solid rgba(0, 168, 232, 0.12);
-  padding: 10px 16px;
+  padding: 10px 18px;
   border-radius: var(--radius-sm);
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .iso-badge:hover {
   border-color: var(--primary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-pill);
+}
+
+.iso-badge img {
+  height: 28px;
+  width: auto;
+  flex-shrink: 0;
 }
 
 .iso-badge svg {
@@ -428,6 +435,200 @@ h1 {
   flex-shrink: 0;
 }
 
+/* Professional Cards Section */
+.section_professional-cards {
+  padding: 100px 0;
+  background: var(--white);
+  overflow: hidden;
+}
+
+.container-large {
+  width: min(1400px, 96%);
+  margin: auto;
+}
+
+.padding-section-large {
+  padding: 0 20px;
+}
+
+.heading_wrapper {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.heading_size {
+  display: inline-block;
+  width: 100%;
+}
+
+.heading_content-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heading {
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.2;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+}
+
+.heading_paragraph p {
+  font-size: 17px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.spacer-small {
+  height: 16px;
+}
+
+.spacer-xlarge {
+  height: 40px;
+}
+
+.professional-cards_list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.professional-cards_item {
+  position: relative;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 0;
+  transform: translateY(60px);
+  will-change: transform, opacity;
+}
+
+.professional-cards_item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.professional-cards_item:hover {
+  transform: translateY(-8px);
+  background: var(--primary);
+  box-shadow: var(--shadow);
+}
+
+.professional-cards_item.featured {
+  border-color: var(--primary);
+  background: linear-gradient(135deg, var(--white) 0%, var(--primary-light) 100%);
+}
+
+.professional-cards_item.featured:hover {
+  background: var(--primary);
+}
+
+.professional-cards_link {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.professional-cards_item-icon-wrapper {
+  width: 56px;
+  height: 56px;
+  background: var(--primary-light);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
+}
+
+.professional-cards_item:hover .professional-cards_item-icon-wrapper {
+  background: var(--white);
+}
+
+.professional-cards_item-icon-wrapper svg {
+  width: 28px;
+  height: 28px;
+  color: var(--primary);
+  transition: color 0.3s ease;
+}
+
+.professional-cards_item:hover .professional-cards_item-icon-wrapper svg {
+  color: var(--primary);
+}
+
+.professional-cards_content-top {
+  position: relative;
+  z-index: 1;
+}
+
+.professional-cards_title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 20px;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.professional-cards_item:hover .professional-cards_title {
+  color: var(--white);
+}
+
+.professional-cards_candidates-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.professional-cards_candidates-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.professional-cards_candidates-image-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.professional-cards_candidates-image {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--white);
+  margin-left: -10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.professional-cards_candidates-image:first-child {
+  margin-left: 0;
+}
+
+.professional-cards_candidates-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.professional-cards_candidates-wrapper span {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.professional-cards_item:hover .professional-cards_candidates-wrapper span {
+  color: var(--white);
+}
+
 /* Responsive */
 @media (max-width: 1100px) {
   .bottom-bar {
@@ -436,6 +637,11 @@ h1 {
   }
   .trustpilot-section {
     gap: 16px;
+  }
+  .hero-left { padding: 32px 40px; }
+  h1 { font-size: 42px; }
+  .professional-cards_list {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -448,6 +654,20 @@ h1 {
     width: 100%;
     justify-content: space-between;
   }
+  .hero {
+    min-height: auto;
+    padding: 16px 0 40px;
+  }
+  .hero-card {
+    grid-template-columns: 1fr;
+  }
+  .hero-left {
+    padding: 32px 36px;
+    gap: 16px;
+  }
+  h1 { font-size: 40px; }
+  .hero-right { min-height: 380px; }
+  .video-wrapper { min-height: 380px; }
 }
 
 @media (max-width: 768px) {
@@ -462,32 +682,6 @@ h1 {
   .tp-testimonial {
     max-width: 100%;
   }
-}
-
-@media (max-width: 1100px) {
-  .hero-left { padding: 40px 40px; }
-  h1 { font-size: 42px; }
-}
-
-@media (max-width: 960px) {
-  .hero {
-    height: auto;
-    min-height: auto;
-    padding: 16px 0 40px;
-  }
-  .hero-card {
-    grid-template-columns: 1fr;
-  }
-  .hero-left {
-    padding: 48px 36px;
-    gap: 16px;
-  }
-  h1 { font-size: 40px; }
-  .hero-right { min-height: 380px; }
-  .video-wrapper { min-height: 380px; }
-}
-
-@media (max-width: 768px) {
   .nav-links {
     display: none;
     position: absolute;
@@ -506,6 +700,18 @@ h1 {
   .trust-grid { grid-template-columns: 1fr; }
   .video-overlay { padding: 32px 24px; }
   .video-overlay h4 { font-size: 20px; }
+  .section_professional-cards {
+    padding: 60px 0;
+  }
+  .heading {
+    font-size: 32px;
+  }
+  .professional-cards_list {
+    grid-template-columns: 1fr;
+  }
+  .professional-cards_item {
+    padding: 24px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -583,7 +789,7 @@ h1 {
         <div class="hero-right">
           <div class="video-wrapper">
             <iframe 
-              src="https://www.youtube.com/embed/u1dVeHu0pTI?rel=0&modestbranding=1&playsinline=1" 
+              src="https://www.youtube.com/embed/u1dVeHu0pTI?autoplay=1&mute=1&loop=1&playlist=u1dVeHu0pTI&rel=0&modestbranding=1&playsinline=1" 
               title="REM Assistance - Outsourcing Company Video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
               allowfullscreen>
@@ -599,14 +805,14 @@ h1 {
 
       <div class="bottom-bar">
         <div class="iso-badges">
-          <div class="iso-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path><path d="M12 22V12"></path><path d="M8 9.5l4 2 4-2"></path></svg>
+          <a href="#" class="iso-badge">
+            <img src="images/ISO_9001-2015.svg" alt="ISO 9001 Certified">
             ISO 9001 Certified
-          </div>
-          <div class="iso-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 6v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V6l-9-4z"></path><path d="M9 12l2 2 4-4"></path></svg>
+          </a>
+          <a href="#" class="iso-badge">
+            <img src="images/ISO_27001-2022.svg" alt="ISO 27001 Certified">
             ISO 27001 Certified
-          </div>
+          </a>
         </div>
 
         <div class="trustpilot-section">
@@ -631,11 +837,192 @@ h1 {
 
           <div class="tp-divider"></div>
 
-          <svg class="tp-logo" viewBox="0 0 120 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M25.5 15c0-5.8-4.7-10.5-10.5-10.5S4.5 9.2 4.5 15 9.2 25.5 15 25.5 25.5 20.8 25.5 15z" fill="#00B67A"></path>
-            <path d="M15 7l2.5 5 5.5.8-4 3.9.9 5.5L15 19.2l-4.9 2.6.9-5.5-4-3.9 5.5-.8L15 7z" fill="white"></path>
-            <text x="32" y="20" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="white">Trustpilot</text>
-          </svg>
+          <img class="tp-logo" src="images/trustpilot-logo.webp" alt="Trustpilot">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section_professional-cards">
+    <div class="container-large">
+      <div class="padding-section-large">
+        <div class="heading_wrapper">
+          <div class="heading_size">
+            <div class="heading_content-wrapper">
+              <h2 class="heading heading-style-h2">All the Services you need</h2>
+              <div class="spacer-small"></div>
+              <div class="heading_paragraph">
+                <p class="text-color-secondary">We believe in showing full transparency of our expertise and abilities so that prospective clients understand our capabilities and limitations. We provide all of the following services; &amp; consultations are always free of charge!</p>
+              </div>
+            </div>
+          </div>
+          <div class="spacer-xlarge"></div>
+        </div>
+
+        <div class="professional-cards_list">
+
+          <!-- Card 1: Virtual Sales Team -->
+          <div class="professional-cards_item">
+            <a href="#" class="professional-cards_link"></a>
+            <div class="professional-cards_item-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3z"></path><path d="M3 9h18"></path><path d="M9 21V9"></path></svg>
+            </div>
+            <div class="professional-cards_content-top">
+              <h3 class="professional-cards_title">Virtual Sales Team</h3>
+              <div class="professional-cards_candidates-content">
+                <div class="professional-cards_candidates-wrapper">
+                  <div class="professional-cards_candidates-image-wrapper">
+                    <div class="professional-cards_candidates-image">
+                      <img src="https://cdn.prod.website-files.com/69ade450e991424892c6d313/69ffeef661589e7536b2083e_69c36855d0aaddf18bbd2f62_avatars-00021.webp" loading="lazy" alt="Team member">
+                    </div>
+                    <div class="professional-cards_candidates-image">
+                      <img src="https://cdn.prod.website-files.com/69ade450e991424892c6d313/69fff34d6cbe9bd6e373d231_avatars-00038.webp" loading="lazy" alt="Team member">
+                    </div>
+                    <div class="professional-cards_candidates-image">
+                      <img src="https://cdn.prod.website-files.com/69ade450e991424892c6d313/69ffeef661589e7536b2085f_69c36854cd4289b30cef6546_avatars-00010.webp" loading="lazy" alt="Team member">
+                    </div>
+                  </div>
+                  <span>10+ Candidates</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Live Support + Chat Bots -->
+          <div class="professional-cards_item">
+            <a href="#" class="professional-cards_link"></a>
+            <div class="professional-cards_item-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            </div>
+            <div class="professional-cards_content-top">
+              <h3 class="professional-cards_title">Live Support + Chat Bots</h3>
+              <div class="professional-cards_candidates-content">
+                <div class="professional-cards_candidates-wrapper">
+                  <div class="professional-cards_candidates-image-wrapper">
+                    <div class="professional-cards_candidates-image">
+                      <img src="https://cdn.prod.website-files.com/69ade450e991424892c6d313/69ffeef661589e7536b207fb_69c36854c011391468c0fefa_avatars-00012.webp" loading="lazy" alt="Team member">
+                    </div>
+                    <div class="professional-cards_candidates-image">
+                      <img src="https://cdn.prod.website-files.com/69ade450e991424892c6d313/69ffeef661589e7536b20801_69c36854f8a1b94af8bd465a_avatars-00015.webp" loading="lazy" alt="Team member">
+                    </div>
+                    <div class="professional-cards_candidates-image">
+                      <img src="https://cdn.prod.website-files.com/69ade450e991424892c6d313/69ffeef661589e7536b20828_69c36854117a94f195501d49_avatars-00007.webp" loading="lazy" alt="Team member">
+                    </div>
+                  </div>
+                  <span>12+ Candidates</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: IT Staff & IT Help Desk (Featured) -->
+          <div class="professional-cards_item featured">
+            <a href="#" class="professional-cards_link"></a>
+            <div class="professional-cards_item-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><path d="M8 21h8"></path><path d="M12 17v4"></path></svg>
+            </div>
+            <div class="professional-cards_content-top">
+              <h3 class="professional-cards_title">IT Staff &amp; IT Help Desk</h3>
+              <div class="professional-cards_candidates-content">
+                <div class="professional-cards_candidates-wrapper">
+                  <div class="professional-cards_candidates-image-wrapper">
+                    <div class="professional-cards_candidates-image">
+                      <img src="https://cdn.prod.website-files.com/69ade450e991424892c6d313/69ffeef661589e7536b2082b_69c36855481ef4a5aa61f71a_avatars-00030.webp" loading="lazy" alt="Team member">
+                    </div>
+                    <div class="professional-cards_candidates-image">
+                      <img src="https://cdn.prod.website-files.com/69ade450e991424892c6d313/69ffeef661589e7536b20822_69c368548a646ab60a9814d8_avatars-00004.webp" loading="lazy" alt="Team member">
+                    </div>
+                    <div class="professional-cards_candidates-image">
+                      <img src="https://cdn.prod.website-files.com/69ade450e991424892c6d313/69ffeef661589e7536b207fb_69c36854c011391468c0fefa_avatars-00012.webp" loading="lazy" alt="Team member">
+                    </div>
+                  </div>
+                  <span>13+ Candidates</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Multi-Layered Marketing Support -->
+          <div class="professional-cards_item">
+            <a href="#" class="professional-cards_link"></a>
+            <div class="professional-cards_item-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+            </div>
+            <div class="professional-cards_content-top">
+              <h3 class="professional-cards_title">Multi-Layered Marketing Support</h3>
+              <div class="professional-cards_candidates-content">
+                <div class="professional-cards_candidates-wrapper">
+                  <div class="professional-cards_candidates-image-wrapper">
+                    <div class="professional-cards_candidates-image">
+                      <img src="https://cdn.prod.website-files.com/69ade450e991424892c6d313/69ffeef661589e7536b20853_69c368549ad1194a95672f40_avatars-00008.webp" loading="lazy" alt="Team member">
+                    </div>
+                    <div class="professional-cards_candidates-image">
+                      <img src="https://cdn.prod.website-files.com/69ade450e991424892c6d313/69ffeef661589e7536b20813_69c36855734aad988c7bf757_avatars-00027.webp" loading="lazy" alt="Team member">
+                    </div>
+                    <div class="professional-cards_candidates-image">
+                      <img src="https://cdn.prod.website-files.com/69ade450e991424892c6d313/69ffeef661589e7536b2085f_69c36854cd4289b30cef6546_avatars-00010.webp" loading="lazy" alt="Team member">
+                    </div>
+                  </div>
+                  <span>11+ Candidates</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: AI Implementation Assistance -->
+          <div class="professional-cards_item">
+            <a href="#" class="professional-cards_link"></a>
+            <div class="professional-cards_item-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+            </div>
+            <div class="professional-cards_content-top">
+              <h3 class="professional-cards_title">AI Implementation Assistance</h3>
+              <div class="professional-cards_candidates-content">
+                <div class="professional-cards_candidates-wrapper">
+                  <div class="professional-cards_candidates-image-wrapper">
+                    <div class="professional-cards_candidates-image">
+                      <img src="https://cdn.prod.website-files.com/69ade450e991424892c6d313/69ffeef661589e7536b2084d_69c36856b79909a5e8ab2a40_avatars-00031.webp" loading="lazy" alt="Team member">
+                    </div>
+                    <div class="professional-cards_candidates-image">
+                      <img src="https://cdn.prod.website-files.com/69ade450e991424892c6d313/69ffeef661589e7536b20862_69c3685591b090364c104e7c_avatars-00025.webp" loading="lazy" alt="Team member">
+                    </div>
+                    <div class="professional-cards_candidates-image">
+                      <img src="https://cdn.prod.website-files.com/69ade450e991424892c6d313/69ffeef661589e7536b20825_69c3685409857b2dc14c88cd_avatars-00006.webp" loading="lazy" alt="Team member">
+                    </div>
+                  </div>
+                  <span>9+ Candidates</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6: AI Automations + Integrations -->
+          <div class="professional-cards_item">
+            <a href="#" class="professional-cards_link"></a>
+            <div class="professional-cards_item-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+            </div>
+            <div class="professional-cards_content-top">
+              <h3 class="professional-cards_title">AI Automations + Integrations</h3>
+              <div class="professional-cards_candidates-content">
+                <div class="professional-cards_candidates-wrapper">
+                  <div class="professional-cards_candidates-image-wrapper">
+                    <div class="professional-cards_candidates-image">
+                      <img src="https://cdn.prod.website-files.com/69ade450e991424892c6d313/69ffeef661589e7536b20832_69c36855524231cfe3cf548a_avatars-00029.webp" loading="lazy" alt="Team member">
+                    </div>
+                    <div class="professional-cards_candidates-image">
+                      <img src="https://cdn.prod.website-files.com/69ade450e991424892c6d313/69ffeef661589e7536b2084d_69c36856b79909a5e8ab2a40_avatars-00031.webp" loading="lazy" alt="Team member">
+                    </div>
+                    <div class="professional-cards_candidates-image">
+                      <img src="https://cdn.prod.website-files.com/69ade450e991424892c6d313/69ffeef661589e7536b2081c_69c36854cc7ba16b24d92543_avatars-00001.webp" loading="lazy" alt="Team member">
+                    </div>
+                  </div>
+                  <span>13+ Candidates</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -648,6 +1035,21 @@ h1 {
   menu.onclick = () => {
     nav.classList.toggle('show');
   };
+
+  const cards = document.querySelectorAll('.professional-cards_item');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const delay = Array.from(cards).indexOf(entry.target) * 120;
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, delay);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+  cards.forEach(card => observer.observe(card));
 </script>
 
 </body>
