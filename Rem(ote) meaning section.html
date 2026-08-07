@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rem(ote) Assistant — Rem Assist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com/ crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0E1B3D; --navy-deep:#0A1430;
+    --blue:#2E52E5; --blue-bright:#4C6FFF;
+    --bg:#F1F2F7; --muted:#5C6584;
+    --line:rgba(14,27,61,.12);
+    --font:"Poppins",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--bg);font-family:var(--font)}
+  ::selection{background:var(--blue);color:#fff}
+
+  .about-section{position:relative;overflow:hidden;padding:clamp(4.5rem,8vw,7.5rem) 0}
+  .dots{position:absolute;width:520px;height:420px;pointer-events:none;
+    background-image:radial-gradient(rgba(14,27,61,.18) 1.4px,transparent 1.5px);background-size:13px 13px}
+  .dots-tr{top:0;right:0;-webkit-mask-image:radial-gradient(ellipse at top right,#000 12%,transparent 72%);
+    mask-image:radial-gradient(ellipse at top right,#000 12%,transparent 72%)}
+  .dots-bl{bottom:0;left:0;-webkit-mask-image:radial-gradient(ellipse at bottom left,#000 12%,transparent 72%);
+    mask-image:radial-gradient(ellipse at bottom left,#000 12%,transparent 72%)}
+  .container{max-width:1400px;margin-inline:auto;padding-inline:clamp(1.25rem,4vw,3rem);position:relative;z-index:1}
+
+  .about-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(3rem,6vw,6.5rem);align-items:center}
+
+  /* ---------- Media ---------- */
+  .about-media{position:relative}
+  .about-media::before{content:"";position:absolute;inset:0;z-index:0;
+    transform:translate(20px,20px);border:2px solid rgba(46,82,229,.4);border-radius:26px}
+  .media-frame{position:relative;z-index:1;border-radius:26px;overflow:hidden;
+    box-shadow:0 40px 80px -35px rgba(10,20,48,.5);aspect-ratio:4/5}
+  .media-frame img{width:100%;height:100%;object-fit:cover;display:block;
+    animation:kenburns 16s ease-in-out infinite alternate}
+  @keyframes kenburns{from{transform:scale(1) translate(0,0)}to{transform:scale(1.09) translate(-1.5%,1.5%)}}
+  .media-chip{position:absolute;z-index:2;display:flex;align-items:center;gap:.55rem;
+    background:#fff;border-radius:999px;padding:.75rem 1.15rem;
+    font-weight:600;font-size:.85rem;color:var(--navy);
+    box-shadow:0 18px 34px -14px rgba(10,20,48,.35);animation:bob 6s ease-in-out infinite}
+  .media-chip i{width:8px;height:8px;border-radius:50%;background:var(--blue-bright);font-style:normal}
+  .chip-a{bottom:28px;left:-22px}
+  .chip-b{top:28px;right:-18px;animation-delay:1.4s}
+  @keyframes bob{0%,100%{translate:0 0}50%{translate:0 -10px}}
+
+  /* ---------- Orbit ---------- */
+  .about-center{--R:255px;position:relative;min-height:680px;display:grid;place-items:center}
+  .orbit-ring{position:absolute;top:50%;left:50%;width:calc(var(--R)*2);height:calc(var(--R)*2);
+    transform:translate(-50%,-50%);border:1.5px dashed rgba(46,82,229,.28);border-radius:50%}
+  .orbit-ring::after{content:"";position:absolute;inset:14%;border:1px solid rgba(46,82,229,.12);border-radius:50%}
+
+  .center-hub{position:relative;z-index:2;text-align:center;background:#fff;border-radius:50%;
+    width:230px;height:230px;display:grid;place-content:center;gap:.4rem;
+    box-shadow:0 30px 60px -25px rgba(10,20,48,.35),0 0 0 10px rgba(46,82,229,.06)}
+  .center-hub h2{font-weight:800;letter-spacing:-.03em;line-height:1;font-size:2.6rem;color:var(--navy)}
+  .center-hub .paren{color:var(--blue)}
+  .center-hub .tagline{font-weight:600;font-size:.85rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+
+  .spinner{position:absolute;inset:0;animation:spin 46s linear infinite}
+  .about-center:hover .spinner,
+  .about-center:hover .item-inner{animation-play-state:paused}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  /* each item: equal 60° gap */
+  .item{position:absolute;top:50%;left:50%;width:0;height:0;
+    transform:rotate(var(--a)) translateY(calc(var(--R)*-1))}
+  .item-inner{animation:counterspin 46s linear infinite}
+  @keyframes counterspin{
+    from{transform:rotate(calc(var(--a)*-1))}
+    to  {transform:rotate(calc(var(--a)*-1 - 360deg))}
+  }
+  .callout{position:absolute;transform:translate(-50%,-50%);width:150px;text-align:center;
+    transition:scale .35s cubic-bezier(.2,.7,.2,1)}
+  .callout:hover{scale:1.12}
+  .callout-bubble{width:58px;height:58px;border-radius:50%;background:#fff;margin:0 auto .55rem;
+    border:2px solid var(--blue-bright);display:grid;place-content:center;
+    font-weight:800;font-size:1.45rem;color:var(--blue);
+    box-shadow:0 10px 22px rgba(46,82,229,.28);transition:.3s}
+  .callout:hover .callout-bubble{background:var(--blue);color:#fff}
+  .callout-word{font-weight:600;font-size:.9rem;color:var(--navy);line-height:1.4;
+    background:#fff;border:1px solid var(--line);border-radius:999px;padding:.35rem .8rem;
+    display:inline-block;box-shadow:0 8px 18px -8px rgba(10,20,48,.18)}
+
+  /* ---------- Reveal ---------- */
+  [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+  [data-reveal].in{opacity:1;transform:none}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:1200px){.about-center{--R:215px;min-height:600px}
+    .center-hub{width:200px;height:200px}.center-hub h2{font-size:2.2rem}
+    .callout{width:130px}.callout-word{font-size:.8rem}}
+  @media (max-width:960px){
+    .about-grid{grid-template-columns:1fr;gap:4rem}
+    .media-frame{aspect-ratio:4/3}
+    .chip-a{left:12px}.chip-b{right:12px}
+  }
+  @media (max-width:640px){.about-center{--R:150px;min-height:480px}
+    .center-hub{width:150px;height:150px}.center-hub h2{font-size:1.6rem}
+    .center-hub .tagline{font-size:.6rem;letter-spacing:.2em}
+    .callout{width:96px}.callout-bubble{width:42px;height:42px;font-size:1.05rem}
+    .callout-word{font-size:.66rem;padding:.3rem .6rem}}
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    [data-reveal]{opacity:1;transform:none}
+    .item-inner{transform:rotate(calc(var(--a)*-1))} /* keep text upright while static */
+  }
+</style>
+</head>
+<body>
+
+<section class="about-section">
+  <div class="dots dots-tr" aria-hidden="true"></div>
+  <div class="dots dots-bl" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="about-grid">
+
+      <!-- LEFT : media -->
+      <div class="about-media" data-reveal>
+        <div class="media-frame">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1200&auto=format&fit=crop"
+               alt="Rem Assist agent smiling at her desk with headset">
+        </div>
+        <span class="media-chip chip-a"><i></i>Agents from $8/hr</span>
+        <span class="media-chip chip-b"><i></i>24/7 coverage</span>
+      </div>
+
+      <!-- RIGHT : rotating orbit -->
+      <div class="about-center" data-reveal data-delay="120">
+        <div class="orbit-ring" aria-hidden="true"></div>
+
+        <div class="center-hub">
+          <h2>Rem<span class="paren">(ote)</span></h2>
+          <span class="tagline">Assistant</span>
+        </div>
+
+        <div class="spinner">
+          <div class="item" style="--a:0deg"><div class="item-inner"><div class="callout">
+            <div class="callout-bubble">R</div><span class="callout-word">Results-driven</span>
+          </div></div></div>
+          <div class="item" style="--a:60deg"><div class="item-inner"><div class="callout">
+            <div class="callout-bubble">E</div><span class="callout-word">Efficient</span>
+          </div></div></div>
+          <div class="item" style="--a:120deg"><div class="item-inner"><div class="callout">
+            <div class="callout-bubble">M</div><span class="callout-word">Matching your culture</span>
+          </div></div></div>
+          <div class="item" style="--a:180deg"><div class="item-inner"><div class="callout">
+            <div class="callout-bubble">O</div><span class="callout-word">On target</span>
+          </div></div></div>
+          <div class="item" style="--a:240deg"><div class="item-inner"><div class="callout">
+            <div class="callout-bubble">T</div><span class="callout-word">Thoroughly excellent</span>
+          </div></div></div>
+          <div class="item" style="--a:300deg"><div class="item-inner"><div class="callout">
+            <div class="callout-bubble">E</div><span class="callout-word">Every time</span>
+          </div></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  const ro = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); }
+  }), {threshold:.15});
+  document.querySelectorAll('[data-reveal]').forEach(el => {
+    el.style.transitionDelay = (el.dataset.delay || 0) + 'ms';
+    ro.observe(el);
+  });
+</script>
+</body>
+</html>

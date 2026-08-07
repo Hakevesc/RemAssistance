@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Testimonials · Certifications · FAQ — Rem Assist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#000543; --royal:#326dda; --azure:#0085fe; --ocean:#0b8fd9;
+    --sky:#34bdf0; --slate:#667180; --bg:#f5f7fa; --white:#ffffff;
+    --tp:#00B67A; --line:rgba(0,5,67,.1);
+    --font:"Sora",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--bg);font-family:var(--font)}
+  ::selection{background:var(--azure);color:#fff}
+  .container{max-width:1400px;margin-inline:auto;padding-inline:clamp(1.25rem,4vw,3rem)}
+  [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+  [data-reveal].in{opacity:1;transform:none}
+  .dots{position:absolute;pointer-events:none;width:520px;height:420px;
+    background-image:radial-gradient(rgba(0,5,67,.12) 1.4px,transparent 1.5px);background-size:13px 13px}
+
+  /* ================= 1 · TESTIMONIALS ================= */
+  .reviews-section{position:relative;overflow:hidden;background:var(--bg);
+    padding:clamp(4rem,7vw,6.5rem) 0 clamp(3.5rem,6vw,5.5rem)}
+  .reviews-section .dots{top:0;right:0;
+    -webkit-mask-image:radial-gradient(ellipse at top right,#000 12%,transparent 72%);
+            mask-image:radial-gradient(ellipse at top right,#000 12%,transparent 72%)}
+  .reviews-title{text-align:center;margin-bottom:2.5rem;position:relative}
+  .reviews-title h2{color:var(--navy);font-weight:700;letter-spacing:-.02em;line-height:1.1;
+    font-size:clamp(2.2rem,4.2vw,3.5rem)}
+  .reviews-title p{margin:1rem auto 0;color:var(--slate);font-size:1rem;line-height:1.7;max-width:46ch}
+
+  .rating-banner{background:var(--navy);border-radius:18px;padding:1.8rem 2.5rem;display:flex;align-items:center;
+    gap:2rem;flex-wrap:wrap;justify-content:space-between;position:relative;overflow:hidden;
+    box-shadow:0 30px 60px -30px rgba(0,5,67,.5);margin-bottom:1.5rem}
+  .rating-banner::before{content:"";position:absolute;top:0;right:0;width:320px;height:100%;pointer-events:none;
+    background-image:radial-gradient(rgba(255,255,255,.06) 1.2px,transparent 1.3px);background-size:11px 11px;
+    -webkit-mask-image:radial-gradient(ellipse at right,#000 15%,transparent 70%);
+            mask-image:radial-gradient(ellipse at right,#000 15%,transparent 70%)}
+  .rb-left{display:flex;align-items:center;gap:1.8rem;flex-wrap:wrap}
+  .rb-excellent{color:#fff;font-weight:700;font-size:clamp(1.6rem,2.6vw,2.2rem);letter-spacing:-.01em}
+  .rb-stars svg{height:26px;width:auto;display:block}
+  .rb-divider{width:1px;height:40px;background:rgba(255,255,255,.2)}
+  .rb-right{display:flex;align-items:center;gap:1.6rem;flex-wrap:wrap}
+  .rb-right a{color:rgba(255,255,255,.75);font-size:.88rem;font-weight:500;text-decoration:none}
+  .rb-right a u{text-decoration-color:var(--sky);text-underline-offset:3px;color:#fff;font-weight:600}
+  .rb-right a:hover{color:var(--sky)}
+  .tp-logo{height:22px;width:auto;display:block;filter:brightness(0) invert(1)}
+  .rb-subtitle{color:rgba(255,255,255,.85);font-size:.92rem;font-weight:500;margin-left:auto}
+
+  .rail{display:flex;gap:1.5rem;overflow-x:auto;scroll-snap-type:x mandatory;cursor:grab;
+    padding:2.2rem .25rem 1.6rem;scrollbar-width:none;-ms-overflow-style:none}
+  .rail::-webkit-scrollbar{display:none}
+  .rail.dragging{cursor:grabbing;scroll-snap-type:none}
+  .review-card{flex:0 0 400px;scroll-snap-align:start;background:var(--white);border:1px solid rgba(0,5,67,.08);
+    border-radius:16px;padding:1.8rem;display:flex;flex-direction:column;gap:1rem;
+    transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s}
+  .review-card:hover{transform:translateY(-8px);box-shadow:0 30px 60px -28px rgba(0,5,67,.28)}
+  .rc-head{display:flex;align-items:center;gap:.9rem}
+  .rc-avatar{position:relative;flex:none;width:52px;height:52px;border-radius:50%;display:grid;place-content:center;
+    color:#fff;font-weight:700;font-size:1.05rem}
+  .review-card:nth-child(1) .rc-avatar{background:linear-gradient(140deg,var(--sky),var(--ocean))}
+  .review-card:nth-child(2) .rc-avatar{background:linear-gradient(140deg,var(--azure),var(--royal))}
+  .review-card:nth-child(3) .rc-avatar{background:linear-gradient(140deg,var(--royal),var(--navy))}
+  .rc-badge{position:absolute;right:-5px;bottom:-5px;width:20px;height:20px;border-radius:5px;background:var(--tp);
+    border:2px solid var(--white)}
+  .rc-badge svg{width:11px;height:11px;display:block;margin:auto}
+  .rc-head h3{color:var(--navy);font-weight:700;font-size:1rem}
+  .rc-head p{color:var(--slate);font-size:.78rem;margin-top:.15rem}
+  .rc-stars svg{height:19px;width:auto;display:block}
+  .rc-quote{color:var(--navy);font-weight:600;font-size:.98rem;line-height:1.5}
+  .rc-body{color:var(--slate);font-size:.88rem;line-height:1.75}
+  .rc-body mark{background:rgba(0,182,122,.16);color:inherit;padding:0 .18em;border-radius:3px}
+  .rc-link{margin-top:auto;display:inline-flex;align-items:center;gap:.5rem;color:var(--azure);font-weight:600;
+    font-size:.85rem;text-decoration:none;width:max-content;position:relative;padding-bottom:.25rem}
+  .rc-link::after{content:"";position:absolute;left:0;bottom:0;height:1.5px;width:100%;background:var(--azure);
+    transform:scaleX(0);transform-origin:left;transition:transform .35s}
+  .rc-link:hover::after{transform:scaleX(1)}
+  .rc-link svg{transition:transform .3s}
+  .rc-link:hover svg{transform:translateX(4px)}
+
+  /* ================= 2 · CERTIFICATIONS ================= */
+  .cert-section{position:relative;overflow:hidden;background:var(--white);padding:clamp(4rem,8vw,7rem) 0}
+  .cert-section .dots{bottom:0;left:0;
+    -webkit-mask-image:radial-gradient(ellipse at bottom left,#000 12%,transparent 72%);
+            mask-image:radial-gradient(ellipse at bottom left,#000 12%,transparent 72%)}
+  .banner{position:relative}
+  .banner-bg{display:grid;grid-template-columns:1.55fr 1fr;border-radius:28px;overflow:hidden;
+    box-shadow:0 50px 90px -45px rgba(0,5,67,.45)}
+  .panel-left{background:linear-gradient(160deg,#10205e,var(--navy) 70%);
+    padding:clamp(2.6rem,5vw,4.8rem);position:relative;overflow:hidden}
+  .panel-left::after{content:"";position:absolute;right:0;bottom:0;width:340px;height:280px;
+    background-image:radial-gradient(rgba(255,255,255,.1) 1.3px,transparent 1.4px);background-size:12px 12px;
+    -webkit-mask-image:radial-gradient(ellipse at bottom right,#000 10%,transparent 70%);
+            mask-image:radial-gradient(ellipse at bottom right,#000 10%,transparent 70%)}
+  .panel-right{background:linear-gradient(150deg,var(--sky),var(--azure) 75%);position:relative;min-height:460px}
+  .panel-right::after{content:"";position:absolute;inset:0;
+    background-image:radial-gradient(rgba(255,255,255,.16) 1.3px,transparent 1.4px);background-size:13px 13px;opacity:.5}
+  .eyebrow{display:flex;align-items:center;gap:.6rem;color:#B9C6F2;font-weight:500;font-size:.8rem;letter-spacing:.06em}
+  .eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--sky);animation:pulse 2.2s infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(52,189,240,.5)}55%{box-shadow:0 0 0 8px rgba(52,189,240,0)}}
+  .banner h2{margin-top:1.2rem;color:#fff;font-weight:700;letter-spacing:-.02em;line-height:1.12;
+    font-size:clamp(2.2rem,4.2vw,3.6rem);max-width:16ch}
+  .banner h2 .hl{color:var(--sky)}
+  .banner p{margin-top:1.3rem;color:#B9C6F2;font-size:1rem;line-height:1.75;max-width:46ch}
+  .verify-link{display:inline-flex;align-items:center;gap:.55rem;margin-top:2rem;color:#fff;font-weight:600;
+    font-size:.95rem;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);border-radius:999px;
+    padding:.8rem 1.4rem;transition:.3s}
+  .verify-link:hover{background:var(--azure);border-color:var(--azure);transform:translateY(-2px);
+    box-shadow:0 14px 28px -12px rgba(0,133,254,.7)}
+  .verify-link svg{transition:transform .3s}
+  .verify-link:hover svg{transform:translateX(4px)}
+
+  .badge{position:relative;filter:drop-shadow(0 22px 28px rgba(0,5,67,.38));
+    transition:transform .45s cubic-bezier(.2,.7,.2,1);animation:bob 6s ease-in-out infinite}
+  .badge:hover{animation-play-state:paused;transform:rotate(0) scale(1.05)}
+  @keyframes bob{0%,100%{translate:0 0}50%{translate:0 -12px}}
+  .badge-card{position:absolute;width:170px;left:-90px;top:-34px;transform:rotate(8deg);
+    background:#fff;border-radius:16px;border:6px solid var(--royal);overflow:hidden;z-index:3}
+  .bc-top{display:block;width:100%;background:linear-gradient(160deg,var(--sky),var(--azure))}
+  .bc-bottom{padding:.7rem .5rem .8rem;text-align:center}
+  .bc-bottom span{display:block;font-size:.62rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--slate)}
+  .bc-bottom b{display:block;margin-top:.15rem;font-size:1.15rem;font-weight:800;letter-spacing:.18em;color:var(--navy)}
+  .seal-group{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center}
+  .seal-slot{line-height:0}
+  .slot-27001{transform:translateY(-22px)}
+  .slot-9001{transform:translateY(30px);margin-left:-38px}
+  .badge-seal{width:250px;transform:rotate(-6deg)}
+  .seal-9001{width:215px;transform:rotate(7deg);animation-delay:1.2s}
+  .badge-seal svg{display:block;width:100%;height:auto}
+  .badge-seal text{font-family:var(--font)}
+
+  /* ================= 3 · FAQ ================= */
+  .faq-section{position:relative;overflow:hidden;background:var(--bg);padding:clamp(4rem,7vw,6.5rem) 0}
+  .faq-section .dots{bottom:0;left:0;
+    -webkit-mask-image:radial-gradient(ellipse at bottom left,#000 12%,transparent 72%);
+            mask-image:radial-gradient(ellipse at bottom left,#000 12%,transparent 72%)}
+  .faq-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(3rem,6vw,6rem);align-items:start;position:relative}
+  .faq-intro{position:sticky;top:110px}
+  .faq-intro h2{color:var(--navy);font-weight:700;letter-spacing:-.02em;line-height:1.12;
+    font-size:clamp(2.3rem,4.4vw,3.6rem)}
+  .faq-intro p{margin-top:1.3rem;color:var(--slate);font-size:1rem}
+  .faq-intro a{color:var(--azure);font-weight:600;text-decoration:none;position:relative;padding-bottom:.25rem}
+  .faq-intro a::after{content:"";position:absolute;left:0;bottom:0;height:1.5px;width:100%;background:var(--azure);
+    transform:scaleX(0);transform-origin:left;transition:transform .35s}
+  .faq-intro a:hover::after{transform:scaleX(1)}
+  .faq-list{border-top:1px solid var(--line)}
+  .faq-item{border-bottom:1px solid var(--line)}
+  .faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;background:none;border:0;
+    padding:1.5rem .25rem;cursor:pointer;text-align:left;font-family:var(--font)}
+  .faq-q .txt{color:var(--navy);font-weight:600;font-size:1.02rem;transition:color .3s}
+  .faq-q:hover .txt{color:var(--azure)}
+  .faq-icon{flex:none;width:40px;height:40px;border-radius:50%;background:var(--azure);color:#fff;
+    display:grid;place-content:center;transition:.35s cubic-bezier(.2,.7,.2,1)}
+  .faq-q:hover .faq-icon{background:var(--royal);transform:translateY(-2px)}
+  .faq-item.open .faq-icon{transform:rotate(180deg);background:var(--navy)}
+  .faq-q:focus-visible{outline:3px solid rgba(0,133,254,.4);outline-offset:4px;border-radius:8px}
+  .faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s cubic-bezier(.2,.7,.2,1)}
+  .faq-item.open .faq-a{grid-template-rows:1fr}
+  .faq-a-inner{overflow:hidden}
+  .faq-a p{color:var(--slate);font-size:.95rem;line-height:1.75;padding:0 .25rem 1.1rem;max-width:62ch}
+  .faq-a p b{color:var(--navy)}
+  .faq-a .last{padding-bottom:1.6rem}
+  .role-chips{display:flex;flex-wrap:wrap;gap:.6rem;padding:0 .25rem 1.6rem}
+  .role-chips span{background:var(--white);border:1px solid rgba(0,5,67,.08);border-radius:999px;padding:.5rem .95rem;
+    font-size:.78rem;font-weight:600;color:var(--navy);transition:.3s}
+  .role-chips span:hover{border-color:var(--azure);color:var(--azure);transform:translateY(-2px)}
+
+  /* ================= Responsive ================= */
+  @media (max-width:1020px){
+    .banner-bg{grid-template-columns:1fr}
+    .panel-right{min-height:400px}
+    .badge-card{left:6%;top:-40px}
+    .badge-seal{width:200px}
+    .seal-9001{width:170px}
+  }
+  @media (max-width:960px){
+    .faq-grid{grid-template-columns:1fr;gap:2.5rem}
+    .faq-intro{position:static}
+    .review-card{flex-basis:320px}
+    .rating-banner{flex-direction:column;align-items:flex-start;gap:1.5rem}
+    .rb-subtitle{margin-left:0}
+  }
+  @media (max-width:520px){
+    .badge-card{width:130px;left:4%}
+    .badge-seal{width:165px}
+    .seal-9001{width:140px;margin-left:-26px}
+    .rb-left,.rb-right{gap:1rem}
+    .rb-divider{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    [data-reveal]{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- reusable Trustpilot star assets -->
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+  <symbol id="tp-stars" viewBox="0 0 512 96">
+    <rect fill="#00B67A" x="0" y="0" width="96" height="96"/><rect fill="#00B67A" x="104" y="0" width="96" height="96"/><rect fill="#00B67A" x="208" y="0" width="96" height="96"/><rect fill="#00B67A" x="312" y="0" width="96" height="96"/><rect fill="#00B67A" x="416" y="0" width="96" height="96"/>
+    <path fill="#fff" d="M48,64.7 L62.6,61 L68.7,79.8 L48,64.7 Z M81.6,40.4 L55.9,40.4 L48,16.2 L40.1,40.4 L14.4,40.4 L35.2,55.4 L27.3,79.6 L48.1,64.6 L60.9,55.4 L81.6,40.4 Z"/><path fill="#fff" d="M152,64.7 L166.6,61 L172.7,79.8 L152,64.7 Z M185.6,40.4 L159.9,40.4 L152,16.2 L144.1,40.4 L118.4,40.4 L139.2,55.4 L131.3,79.6 L152.1,64.6 L164.9,55.4 L185.6,40.4 Z"/><path fill="#fff" d="M256,64.7 L270.6,61 L276.7,79.8 L256,64.7 Z M289.6,40.4 L263.9,40.4 L256,16.2 L248.1,40.4 L222.4,40.4 L243.2,55.4 L235.3,79.6 L256.1,64.6 L268.9,55.4 L289.6,40.4 Z"/><path fill="#fff" d="M360,64.7 L374.6,61 L380.7,79.8 L360,64.7 Z M393.6,40.4 L367.9,40.4 L360,16.2 L352.1,40.4 L326.4,40.4 L347.2,55.4 L339.3,79.6 L360.1,64.6 L372.9,55.4 L393.6,40.4 Z"/><path fill="#fff" d="M464,64.7 L478.6,61 L484.7,79.8 L464,64.7 Z M497.6,40.4 L471.9,40.4 L464,16.2 L456.1,40.4 L430.4,40.4 L451.2,55.4 L443.3,79.6 L464.1,64.6 L476.9,55.4 L497.6,40.4 Z"/>
+  </symbol>
+  <symbol id="tp-star" viewBox="0 0 96 96">
+    <path fill="#fff" d="M48,64.7 L62.6,61 L68.7,79.8 L48,64.7 Z M81.6,40.4 L55.9,40.4 L48,16.2 L40.1,40.4 L14.4,40.4 L35.2,55.4 L27.3,79.6 L48.1,64.6 L60.9,55.4 L81.6,40.4 Z"/>
+  </symbol>
+</svg>
+
+<!-- ================= 1 · TESTIMONIALS ================= -->
+<section class="reviews-section" id="reviews">
+  <div class="dots" aria-hidden="true"></div>
+  <div class="container">
+
+    <div class="reviews-title" data-reveal>
+      <h2>Our Satisfied Customers</h2>
+      <p>Real stories from businesses that scaled with Rem Assist — verified on Trustpilot.</p>
+    </div>
+
+    <div class="rating-banner" data-reveal data-delay="120">
+      <div class="rb-left">
+        <span class="rb-excellent">Excellent!</span>
+        <span class="rb-stars"><svg viewBox="0 0 512 96"><use href="#tp-stars"/></svg></span>
+        <span class="rb-divider"></span>
+        <div class="rb-right">
+          <a href="https://www.trustpilot.com/review/remassistance.com" target="_blank" rel="noopener">Based on <u>3 reviews</u></a>
+          <img class="tp-logo" src="images/trustpilot-logo.webp" alt="Trustpilot">
+        </div>
+      </div>
+      <span class="rb-subtitle">Real stories from businesses that scaled with Rem Assist</span>
+    </div>
+
+    <div class="rail" id="rail" data-reveal data-delay="180">
+      <article class="review-card">
+        <div class="rc-head">
+          <div class="rc-avatar">RP<span class="rc-badge"><svg viewBox="0 0 96 96"><use href="#tp-star"/></svg></span></div>
+          <div><h3>ROOFING PROS</h3><p>Ethiopia</p></div>
+        </div>
+        <div class="rc-stars"><svg viewBox="0 0 512 96"><use href="#tp-stars"/></svg></div>
+        <h4 class="rc-quote">Very convenient and easy to use.</h4>
+        <p class="rc-body">It has <mark>ease of access to create a portfolio and apply</mark>. Really nice job.</p>
+        <a class="rc-link" href="https://www.trustpilot.com/review/remassistance.com" target="_blank" rel="noopener">Read on Trustpilot
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+      </article>
+
+      <article class="review-card">
+        <div class="rc-head">
+          <div class="rc-avatar">N<span class="rc-badge"><svg viewBox="0 0 96 96"><use href="#tp-star"/></svg></span></div>
+          <div><h3>Naeem</h3><p>United Kingdom</p></div>
+        </div>
+        <div class="rc-stars"><svg viewBox="0 0 512 96"><use href="#tp-stars"/></svg></div>
+        <h4 class="rc-quote">A smooth and professional experience from start to finish.</h4>
+        <p class="rc-body"><mark>Communication was always prompt</mark>, and the attention to detail in handling tasks was impressive. They clearly understand the importance of reliability and quality support. <mark>Highly recommended</mark> for anyone looking to streamline their operations.</p>
+        <a class="rc-link" href="https://www.trustpilot.com/review/remassistance.com" target="_blank" rel="noopener">Read on Trustpilot
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+      </article>
+
+      <article class="review-card">
+        <div class="rc-head">
+          <div class="rc-avatar">TG<span class="rc-badge"><svg viewBox="0 0 96 96"><use href="#tp-star"/></svg></span></div>
+          <div><h3>TANO Group</h3><p>United States</p></div>
+        </div>
+        <div class="rc-stars"><svg viewBox="0 0 512 96"><use href="#tp-stars"/></svg></div>
+        <h4 class="rc-quote">They helped me with a virtual sales team and processed everything together quickly.</h4>
+        <p class="rc-body">I would <mark>recommend to any business owner</mark> that’s looking to grow their company quickly &amp; effectively.</p>
+        <a class="rc-link" href="https://www.trustpilot.com/review/remassistance.com" target="_blank" rel="noopener">Read on Trustpilot
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= 2 · CERTIFICATIONS ================= -->
+<section class="cert-section" id="certifications">
+  <div class="dots" aria-hidden="true"></div>
+  <div class="container">
+    <div class="banner" data-reveal>
+      <div class="banner-bg">
+
+        <div class="panel-left">
+          <span class="eyebrow"><i></i>Certifications</span>
+          <h2>Your peace of mind is our <span class="hl">priority</span></h2>
+          <p>Rem Assist maintains dual ISO certifications — quality and security are
+            embedded into every task we perform, for every partnership.</p>
+          <a class="verify-link" href="#" target="_blank" rel="noopener">Verify Here
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+        </div>
+
+        <div class="panel-right">
+          <div class="badge badge-card">
+            <svg class="bc-top" viewBox="0 0 120 100">
+              <g fill="#fff" opacity=".9">
+                <circle cx="98" cy="50" r="2.6"/><circle cx="92.9" cy="69" r="2.6"/><circle cx="79" cy="82.9" r="2.6"/>
+                <circle cx="60" cy="88" r="2.6"/><circle cx="41" cy="82.9" r="2.6"/><circle cx="27.1" cy="69" r="2.6"/>
+                <circle cx="22" cy="50" r="2.6"/><circle cx="27.1" cy="31" r="2.6"/><circle cx="41" cy="17.1" r="2.6"/>
+                <circle cx="60" cy="12" r="2.6"/><circle cx="79" cy="17.1" r="2.6"/><circle cx="92.9" cy="31" r="2.6"/>
+              </g>
+              <path d="M52 46v-7a8 8 0 0 1 16 0v7" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+              <rect x="46" y="46" width="28" height="21" rx="4" fill="#fff"/>
+              <circle cx="60" cy="55" r="3" fill="#0085fe"/>
+            </svg>
+            <div class="bc-bottom"><span>Certified</span><b>ACERTA</b></div>
+          </div>
+
+          <div class="seal-group">
+            <div class="seal-slot slot-27001">
+              <div class="badge badge-seal">
+                <svg viewBox="0 0 200 200">
+                  <defs>
+                    <linearGradient id="o1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1B2C5E"/><stop offset="1" stop-color="#000543"/></linearGradient>
+                    <linearGradient id="i1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34bdf0"/><stop offset="1" stop-color="#0085fe"/></linearGradient>
+                    <radialGradient id="s1" cx=".3" cy=".25" r=".9"><stop offset="0" stop-color="#fff" stop-opacity=".25"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/></radialGradient>
+                    <path id="t1" d="M 22 100 A 78 78 0 0 1 178 100"/><path id="b1" d="M 26 100 A 74 74 0 0 0 174 100"/>
+                  </defs>
+                  <circle cx="100" cy="100" r="96" fill="url(#o1)"/><circle cx="100" cy="100" r="96" fill="url(#s1)"/>
+                  <circle cx="100" cy="100" r="96" fill="none" stroke="rgba(255,255,255,.18)"/>
+                  <text font-size="13" font-weight="600" letter-spacing="4" fill="#C9D6FF"><textPath href="#t1" startOffset="50%" text-anchor="middle">CERTIFIED</textPath></text>
+                  <text font-size="13" font-weight="600" letter-spacing="5" fill="#C9D6FF"><textPath href="#b1" startOffset="50%" text-anchor="middle">ACERTA</textPath></text>
+                  <circle cx="100" cy="100" r="62" fill="url(#i1)" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
+                  <g fill="none" stroke="#fff" stroke-width="1.6"><circle cx="100" cy="76" r="15"/><path d="M85 76h30M100 61c4.6 4.3 7 9.3 7 15s-2.4 10.7-7 15c-4.6-4.3-7-9.3-7-15s2.4-10.7 7-15Z"/></g>
+                  <text x="100" y="122" text-anchor="middle" font-size="30" font-weight="800" fill="#fff">ISO</text>
+                  <text x="100" y="145" text-anchor="middle" font-size="17" font-weight="600" letter-spacing="2" fill="#fff">27001</text>
+                </svg>
+              </div>
+            </div>
+            <div class="seal-slot slot-9001">
+              <div class="badge badge-seal seal-9001">
+                <svg viewBox="0 0 200 200">
+                  <defs>
+                    <linearGradient id="o2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1B2C5E"/><stop offset="1" stop-color="#000543"/></linearGradient>
+                    <linearGradient id="i2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34bdf0"/><stop offset="1" stop-color="#0085fe"/></linearGradient>
+                    <radialGradient id="s2" cx=".3" cy=".25" r=".9"><stop offset="0" stop-color="#fff" stop-opacity=".25"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/></radialGradient>
+                    <path id="t2" d="M 22 100 A 78 78 0 0 1 178 100"/><path id="b2" d="M 26 100 A 74 74 0 0 0 174 100"/>
+                  </defs>
+                  <circle cx="100" cy="100" r="96" fill="url(#o2)"/><circle cx="100" cy="100" r="96" fill="url(#s2)"/>
+                  <circle cx="100" cy="100" r="96" fill="none" stroke="rgba(255,255,255,.18)"/>
+                  <text font-size="13" font-weight="600" letter-spacing="4" fill="#C9D6FF"><textPath href="#t2" startOffset="50%" text-anchor="middle">CERTIFIED</textPath></text>
+                  <text font-size="13" font-weight="600" letter-spacing="5" fill="#C9D6FF"><textPath href="#b2" startOffset="50%" text-anchor="middle">ACERTA</textPath></text>
+                  <circle cx="100" cy="100" r="62" fill="url(#i2)" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
+                  <g fill="none" stroke="#fff" stroke-width="1.6"><circle cx="100" cy="76" r="15"/><path d="M85 76h30M100 61c4.6 4.3 7 9.3 7 15s-2.4 10.7-7 15c-4.6-4.3-7-9.3-7-15s2.4-10.7 7-15Z"/></g>
+                  <text x="100" y="122" text-anchor="middle" font-size="30" font-weight="800" fill="#fff">ISO</text>
+                  <text x="100" y="145" text-anchor="middle" font-size="17" font-weight="600" letter-spacing="2" fill="#fff">9001</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3 · FAQ ================= -->
+<section class="faq-section" id="faq">
+  <div class="dots" aria-hidden="true"></div>
+  <div class="container">
+    <div class="faq-grid">
+
+      <div class="faq-intro" data-reveal>
+        <h2>Frequently<br>Asked Questions</h2>
+        <p>Still have questions? <a href="#contact">Chat with us.</a></p>
+      </div>
+
+      <div class="faq-list" data-reveal data-delay="120">
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="a1" id="q1">
+            <span class="txt">What types of roles can I fill offshore?</span>
+            <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-a" id="a1" role="region" aria-labelledby="q1">
+            <div class="faq-a-inner">
+              <p>We specialize in remote hires for:</p>
+              <div class="role-chips">
+                <span>Executive Assistants</span><span>Bookkeepers / AP–AR</span><span>Operations Associates</span>
+                <span>Customer Support</span><span>Sales (SDRs)</span><span>Data Entry / Reporting</span>
+                <span>Marketing Assistants</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="a2" id="q2">
+            <span class="txt">What if I don’t like any of the candidates?</span>
+            <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-a" id="a2" role="region" aria-labelledby="q2">
+            <div class="faq-a-inner">
+              <p class="last">No problem. If none of the vetted candidates feel like a fit, <b>you don’t pay anything</b>.
+                We’ll keep looking or part ways — no strings attached.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="a3" id="q3">
+            <span class="txt">How quickly can they start?</span>
+            <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-a" id="a3" role="region" aria-labelledby="q3">
+            <div class="faq-a-inner">
+              <p class="last">Most roles are filled within <b>7 to 21 days</b>. Once you choose a candidate,
+                they can typically start within a few business days.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="a4" id="q4">
+            <span class="txt">Do I have to pay upfront?</span>
+            <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-a" id="a4" role="region" aria-labelledby="q4">
+            <div class="faq-a-inner">
+              <p class="last">No. <b>You only pay if you hire.</b> There are no upfront fees or hidden costs —
+                zero risk until you find the right match.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  /* rail drag */
+  const rail = document.getElementById('rail');
+  let down = false, startX = 0, startScroll = 0;
+  rail.addEventListener('pointerdown', e => {
+    down = true; startX = e.clientX; startScroll = rail.scrollLeft;
+    rail.classList.add('dragging'); rail.setPointerCapture(e.pointerId);
+  });
+  rail.addEventListener('pointermove', e => { if (down) rail.scrollLeft = startScroll - (e.clientX - startX); });
+  ['pointerup','pointercancel','pointerleave'].forEach(ev =>
+    rail.addEventListener(ev, () => { down = false; rail.classList.remove('dragging'); }));
+
+  /* accordion — one open at a time */
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-q').setAttribute('aria-expanded','false');
+      });
+      if (!wasOpen){ item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+    });
+  });
+
+  /* reveal */
+  const ro = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); }
+  }), {threshold:.1});
+  document.querySelectorAll('[data-reveal]').forEach(el => {
+    el.style.transitionDelay = (el.dataset.delay || 0) + 'ms';
+    ro.observe(el);
+  });
+})();
+</script>
+</body>
+</html>

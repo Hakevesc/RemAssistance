@@ -7,41 +7,51 @@
 <meta name="description" content="Build dedicated remote teams at up to 80% lower hiring costs with REM Assistance.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0B1D2B;
-  --primary: #00A8E8;
-  --primary-dark: #0088C6;
-  --primary-light: #E6F7FC;
+  --bg: #f5f7fa;
+  --primary: #0085fe;
+  --primary-dark: #326dda;
+  --primary-light: #f5f7fa;
   --white: #ffffff;
-  --light: #F0F7FA;
-  --text: #0f172a;
-  --muted: #64748b;
+  --light: #f5f7fa;
+  --text: #000543;
+  --muted: #667180;
   --radius-sm: 14px;
   --radius-md: 22px;
   --radius-lg: 32px;
   --radius-pill: 60px;
-  --shadow: 0 25px 60px rgba(0,0,0,0.22);
-  --shadow-sm: 0 12px 35px rgba(0,0,0,0.12);
-  --shadow-pill: 0 4px 14px rgba(0,168,232,0.18);
-  --calc-ink:#0a211d; --calc-ink-2:#0d2a23;
-  --calc-moss:#7cf29c; --calc-green:#17a56b; --calc-green-deep:#0e5c3f;
-  --calc-paper:#f3efe4; --calc-text:#e9f2ec; --calc-muted:#9db8ac;
-  --calc-display:"Bricolage Grotesque",sans-serif;
-  --calc-body:"Instrument Sans",sans-serif;
-  --calc-mono:"IBM Plex Mono",monospace;
-  --cert-navy:#0E1B3D; --cert-navy-deep:#0A1430; --cert-navy-2:#15264F;
-  --cert-blue:#2E52E5; --cert-blue-bright:#4C6FFF; --cert-blue-soft:#C9D6FF;
-  --cert-bg:#F1F2F7; --cert-muted:#5C6584;
-  --cert-font:"Poppins",sans-serif;
+  --shadow: 0 25px 60px rgba(0,5,67,0.22);
+  --shadow-sm: 0 12px 35px rgba(0,5,67,0.12);
+  --shadow-pill: 0 4px 14px rgba(0,133,254,0.18);
+  --calc-ink:#000543; --calc-ink-2:#000543;
+  --calc-moss:#34bdf0; --calc-green:#0085fe; --calc-green-deep:#326dda;
+  --calc-paper:#f5f7fa; --calc-text:#000543; --calc-muted:#667180;
+  --calc-display:"Sora",sans-serif;
+  --calc-body:"Sora",sans-serif;
+  --calc-mono:"Sora",sans-serif;
+  --cert-navy:#000543; --cert-navy-deep:#000543; --cert-navy-2:#326dda;
+  --cert-blue:#326dda; --cert-blue-bright:#0085fe; --cert-blue-soft:#f5f7fa;
+  --cert-bg:#f5f7fa; --cert-muted:#667180;
+  --cert-font:"Sora",sans-serif;
+  --navy: #000543;
+  --royal: #326dda;
+  --azure: #0085fe;
+  --blue: #0085fe;
+  --ocean: #0b8fd9;
+  --sky: #34bdf0;
+  --slate: #667180;
+  --tp: #00B67A;
+  --line: rgba(0,5,67,.1);
+  --font:"Sora",sans-serif;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
   font-family: 'Sora', sans-serif;
-  background: linear-gradient(to bottom, #00A8E8 0%, #0088C6 50vh, var(--white) 50vh, var(--white) 100%);
+  background: linear-gradient(to bottom, #0085fe 0%, #326dda 50vh, var(--white) 50vh, var(--white) 100%);
   color: var(--text);
   line-height: 1.5;
   overflow-x: hidden;
@@ -150,19 +160,25 @@ img { display: block; max-width: 100%; }
   background: transparent;
 }
 
-.hero-card {
+.hero-card-wrapper {
   background: var(--white);
   border-radius: var(--radius-lg);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   overflow: hidden;
   box-shadow: var(--shadow);
+  margin-top: -30px;
+}
+
+.hero-card {
+  background: var(--white);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   width: 100%;
   height: 100%;
+  margin-bottom: 24px;
 }
 
 .hero-left {
-  padding: 50px 44px;
+  padding: 50px 44px 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -211,72 +227,138 @@ h1 {
   flex-wrap: wrap;
 }
 
-/* Trust Pills */
-.trust-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  margin-top: 10px;
-}
-
-.trust-pill {
-  background: var(--primary-light);
-  border: 1.5px solid rgba(0, 168, 232, 0.12);
-  padding: 12px 16px;
-  border-radius: var(--radius-sm);
-  font-weight: 600;
-  font-size: 14px;
-  color: var(--text);
+.hero .trustpilot-section {
   display: flex;
   align-items: center;
-  gap: 10px;
-  transition: all 0.3s ease;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 18px;
 }
 
-.trust-pill:hover {
-  border-color: var(--primary);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-pill);
-}
-
-.trust-pill .icon {
+.hero .tp-left {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  background: var(--primary);
-  color: white;
-  border-radius: 50%;
-  font-size: 13px;
-  flex-shrink: 0;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hero .tp-heading {
+  font-size: 20px;
   font-weight: 800;
+  color: var(--text);
+}
+
+.hero .tp-stars {
+  display: flex;
+  gap: 2px;
+}
+
+.hero .tp-star {
+  width: 18px;
+  height: 18px;
+}
+
+.hero .tp-star svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hero .tp-reviews {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.hero .tp-reviews a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.hero .tp-reviews a:hover {
+  text-decoration: underline;
+}
+
+.hero .tp-divider {
+  width: 1px;
+  height: 56px;
+  background: rgba(0, 5, 67, 0.1);
+}
+
+.hero .tp-logo {
+  width: 120px;
+  height: auto;
+  flex-shrink: 0;
+  filter: none;
+  background: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.hero .trust-items {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero .trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.hero .t-ico img {
+  height: 30px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.hero .t-top {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.hero .t-sub {
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.2;
 }
 
 /* Hero Right / Video */
 .hero-right {
   position: relative;
-  background: #07121a;
+  background: var(--white);
   height: 100%;
   min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
 }
 
 .video-wrapper {
   position: relative;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 3 / 2;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
 }
 
 .video-wrapper iframe {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   border: none;
+  object-fit: cover;
 }
 
 .video-overlay {
@@ -284,8 +366,8 @@ h1 {
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 40px;
-  background: linear-gradient(to top, rgba(0,168,232,0.95) 0%, rgba(0,136,198,0.5) 40%, transparent 100%);
+  padding: 24px;
+  background: linear-gradient(to top, rgba(0,133,254,0.95) 0%, rgba(50,109,218,0.5) 40%, transparent 100%);
   color: var(--white);
   z-index: 2;
   pointer-events: none;
@@ -295,7 +377,7 @@ h1 {
   font-size: 20px;
   margin-bottom: 10px;
   letter-spacing: 2px;
-  color: #FFD700;
+  color: var(--sky);
 }
 
 .video-overlay h4 {
@@ -312,55 +394,98 @@ h1 {
 
 /* Bottom Bar */
 .bottom-bar {
-  margin-top: 15px;
+  margin-top: 0;
   background: var(--white);
-  border-radius: var(--radius-md);
-  padding: 20px 36px;
+  border-radius: 0;
+  padding: 5px 36px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.bottom-bar-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  box-shadow: var(--shadow-sm);
+  gap: 32px;
+  width: 100%;
   flex-wrap: wrap;
 }
 
-.iso-badges {
+.trust-items {
   display: flex;
-  gap: 20px;
+  align-items: center;
+  gap: 16px;
   flex-wrap: wrap;
 }
 
-.iso-badge {
+.trust-item {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   font-weight: 600;
   font-size: 13px;
   color: var(--text);
-  background: var(--primary-light);
-  border: 1.5px solid rgba(0, 168, 232, 0.12);
-  padding: 10px 18px;
-  border-radius: var(--radius-sm);
-  transition: all 0.3s ease;
-  text-decoration: none;
+  white-space: nowrap;
 }
 
-.iso-badge:hover {
-  border-color: var(--primary);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-pill);
-}
-
-.iso-badge img {
-  height: 28px;
+.t-ico img {
+  height: 24px;
   width: auto;
   flex-shrink: 0;
 }
 
-.iso-badge svg {
-  width: 24px;
-  height: 24px;
+.t-top {
+  display: block;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.t-sub {
+  display: block;
+  font-weight: 500;
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.2;
+}
+
+.chips {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text);
+  white-space: nowrap;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid rgba(0, 5, 67, 0.16);
+  background: var(--white);
+  transition: all 0.3s ease;
+}
+
+.chip:hover {
+  border-color: var(--primary);
   color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-pill);
+}
+
+.chip svg {
+  width: 18px;
+  height: 18px;
   flex-shrink: 0;
 }
 
@@ -369,6 +494,56 @@ h1 {
   align-items: center;
   gap: 24px;
   flex-wrap: wrap;
+}
+
+.bottom-bar .trustpilot-section {
+  color: var(--text);
+  align-items: center;
+}
+
+.bottom-bar .tp-left {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.bottom-bar .tp-heading {
+  color: var(--text);
+  font-size: 14px;
+}
+
+.bottom-bar .tp-stars {
+  gap: 1px;
+}
+
+.bottom-bar .tp-star {
+  width: 14px;
+  height: 14px;
+}
+
+.bottom-bar .tp-star svg {
+  fill: #00B67A;
+}
+
+.bottom-bar .tp-reviews {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.bottom-bar .tp-reviews a {
+  color: var(--primary);
+}
+
+.bottom-bar .tp-divider {
+  width: 1px;
+  height: 32px;
+  background: rgba(0, 5, 67, 0.1);
+}
+
+.bottom-bar .tp-logo {
+  filter: none;
+  height: 24px;
+  width: auto;
 }
 
 .tp-left {
@@ -417,7 +592,7 @@ h1 {
 .tp-divider {
   width: 1px;
   height: 56px;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 5, 67, 0.1);
 }
 
 .tp-testimonial {
@@ -432,7 +607,7 @@ h1 {
   font-style: italic;
   display: -webkit-box;
   -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
+  -webkit-line-orient: vertical;
   overflow: hidden;
 }
 
@@ -515,7 +690,7 @@ h1 {
   border-radius: var(--radius-lg);
   padding: 32px;
   box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 5, 67, 0.06);
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   opacity: 0;
   transform: translateY(60px);
@@ -614,7 +789,7 @@ h1 {
   overflow: hidden;
   border: 2px solid var(--white);
   margin-left: -10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 5, 67, 0.1);
 }
 
 .professional-cards_candidates-image:first-child {
@@ -642,11 +817,17 @@ h1 {
 /* Responsive */
 @media (max-width: 1100px) {
   .bottom-bar {
-    padding: 20px 28px;
+    padding: 20px 24px;
     gap: 20px;
   }
-  .trustpilot-section {
+  .bottom-bar-inner {
+    gap: 20px;
+  }
+  .bottom-bar .trustpilot-section {
     gap: 16px;
+  }
+  .bottom-bar .tp-divider {
+    height: 44px;
   }
   .hero-left { padding: 48px 40px; }
   h1 { font-size: 42px; }
@@ -657,16 +838,40 @@ h1 {
 
 @media (max-width: 960px) {
   .bottom-bar {
+    padding: 20px 24px;
+  }
+  .bottom-bar-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .bottom-bar .trustpilot-section {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .bottom-bar .tp-left {
     flex-direction: column;
     align-items: flex-start;
   }
-  .trustpilot-section {
+  .bottom-bar .tp-divider {
     width: 100%;
-    justify-content: space-between;
+    height: 1px;
+  }
+  .bottom-bar .tp-left {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .bottom-bar .tp-divider {
+    width: 100%;
+    height: 1px;
   }
   .hero {
     min-height: auto;
     padding: 16px 0 40px;
+  }
+  .hero-card-wrapper {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
   }
   .hero-card {
     grid-template-columns: 1fr;
@@ -676,22 +881,22 @@ h1 {
     gap: 24px;
   }
   h1 { font-size: 40px; }
-  .hero-right { min-height: 380px; }
-  .video-wrapper { min-height: 380px; }
+  .hero-right {
+    padding: 24px;
+    min-height: auto;
+  }
+  .video-wrapper {
+  aspect-ratio: 3 / 2;
+  min-height: auto;
+  }
   .calc-case-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
-  .trustpilot-section {
+  .bottom-bar-inner {
     flex-direction: column;
     align-items: flex-start;
-  }
-  .tp-divider {
-    width: 100%;
-    height: 1px;
-  }
-  .tp-testimonial {
-    max-width: 100%;
+    gap: 14px;
   }
   .nav-links {
     display: none;
@@ -709,6 +914,18 @@ h1 {
   .nav-links.show { display: flex; }
   .menu-toggle { display: block; }
   .nav-actions .btn-primary { display: none; }
+  .bottom-bar .trustpilot-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .bottom-bar .tp-divider {
+    width: 100%;
+    height: 1px;
+  }
+  .bottom-bar .tp-testimonial {
+    max-width: 100%;
+  }
   .trust-grid { grid-template-columns: 1fr; }
   .video-overlay { padding: 32px 24px; }
   .video-overlay h4 { font-size: 20px; }
@@ -740,128 +957,352 @@ h1 {
   .btn { padding: 12px 22px; font-size: 14px; }
   .hero-buttons { flex-direction: column; }
   .trust-pill { font-size: 13px; padding: 12px 14px; }
-}
+ }
 
-/* Certifications Section */
-.cert-section{padding:clamp(4rem,8vw,7rem) 0;position:relative;overflow:hidden;background:var(--cert-bg)}
-.banner{position:relative}
-.banner-bg{display:grid;grid-template-columns:1.55fr 1fr;border-radius:28px;overflow:hidden;box-shadow:0 50px 90px -45px rgba(10,20,48,.45)}
-.panel-left{background:linear-gradient(160deg,var(--cert-navy-2),var(--cert-navy-deep) 70%);padding:clamp(2.6rem,5vw,4.8rem);position:relative;overflow:hidden}
-.panel-left::after{content:"";position:absolute;right:0;bottom:0;width:340px;height:280px;background-image:radial-gradient(rgba(255,255,255,.14) 1.3px,transparent 1.4px);background-size:12px 12px;-webkit-mask-image:radial-gradient(ellipse at bottom right,#000 10%,transparent 70%);mask-image:radial-gradient(ellipse at bottom right,#000 10%,transparent 70%)}
-.panel-right{background:linear-gradient(150deg,var(--cert-blue-bright),var(--cert-blue) 75%);position:relative;min-height:460px}
-.panel-right::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.16) 1.3px,transparent 1.4px);background-size:13px 13px;opacity:.5}
-.eyebrow{display:flex;align-items:center;gap:.6rem;color:#B9C6F2;font-weight:500;font-size:.8rem;letter-spacing:.06em}
-.eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--cert-blue-bright);animation:pulse 2.2s infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(76,111,255,.5)}55%{box-shadow:0 0 0 8px rgba(76,111,255,0)}}
-.panel-left h2{margin-top:1.2rem;color:#fff;font-weight:700;letter-spacing:-.02em;line-height:1.12;font-size:clamp(2.2rem,4.2vw,3.0rem);max-width:14ch;font-family:var(--cert-font)}
-.panel-left p{margin-top:1.3rem;color:#B9C6F2;font-size:1rem;line-height:1.75;max-width:46ch;font-family:var(--cert-font)}
-.verify-link{display:inline-flex;align-items:center;gap:.55rem;margin-top:2rem;color:#fff;font-weight:600;font-size:.95rem;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);border-radius:999px;padding:.8rem 1.4rem;transition:.3s;font-family:var(--cert-font)}
-.verify-link:hover{background:var(--cert-blue);border-color:var(--cert-blue);transform:translateY(-2px);box-shadow:0 14px 28px -12px rgba(46,82,229,.7)}
-.verify-link svg{transition:transform .3s}
-.verify-link:hover svg{transform:translateX(4px)}
-.badge{position:relative;filter:drop-shadow(0 22px 28px rgba(10,20,48,.38));transition:transform .45s cubic-bezier(.2,.7,.2,1);animation:bob 6s ease-in-out infinite}
-.badge:hover{animation-play-state:paused;transform:rotate(0deg) scale(1.05)}
-@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -12px}}
-.badge-card{position:absolute;width:170px;left:-90px;top:-34px;transform:rotate(8deg);background:#fff;border-radius:16px;border:6px solid #24409A;overflow:hidden;z-index:3}
-.bc-top{display:block;width:100%;background:linear-gradient(160deg,var(--cert-blue-bright),var(--cert-blue))}
-.bc-bottom{padding:.7rem .5rem .8rem;text-align:center}
-.bc-bottom span{display:block;font-size:.62rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--cert-muted);font-family:var(--cert-font)}
-.bc-bottom b{display:block;margin-top:.15rem;font-size:1.15rem;font-weight:800;letter-spacing:.18em;color:var(--cert-navy);font-family:var(--cert-font)}
-.seal-group{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center}
-.seal-slot{line-height:0}
-.slot-27001{transform:translateY(-22px)}
-.slot-9001{transform:translateY(30px);margin-left:-38px}
-.badge-seal{width:250px;transform:rotate(-6deg)}
-.seal-9001{width:215px;transform:rotate(7deg);animation-delay:1.2s}
-.badge-seal svg{display:block;width:100%;height:auto}
-.badge-seal text{font-family:var(--cert-font)}
-[data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
-[data-reveal].in{opacity:1;transform:none}
-@media (max-width:960px){.banner-bg{grid-template-columns:1fr}.panel-right{min-height:400px}.badge-card{left:6%;top:-40px}.badge-seal{width:200px}.seal-9001{width:170px}}
-@media (max-width:520px){.badge-card{width:130px;left:4%}.badge-seal{width:165px}.seal-9001{width:140px;margin-left:-26px}}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}[data-reveal]{opacity:1;transform:none}}
+  /* =============== CUT COST (one section) =============== */
+  .cost-section{position:relative;overflow:hidden;padding:clamp(3rem,6vw,4.75rem) 0}
+  .cost-section::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:radial-gradient(rgba(0,5,67,.1) 1.3px,transparent 1.4px);background-size:13px 13px;
+    -webkit-mask-image:radial-gradient(ellipse at 72% 30%,#000 15%,transparent 75%);
+            mask-image:radial-gradient(ellipse at 72% 30%,#000 15%,transparent 75%)}
+  .cost-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2.5rem,5vw,5rem);align-items:stretch;position:relative}
 
-/* ---- Replacement: Savings Calculator (navy/blue theme) ---- */
-.nb-section{position:relative;background:var(--cert-navy-deep);color:#E9EEF8;overflow:hidden}
-.nb-section::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(233,242,236,.05) 1.3px,transparent 1.4px);background-size:13px 13px;-webkit-mask-image:radial-gradient(ellipse at 68% 35%,#000 25%,transparent 78%);mask-image:radial-gradient(ellipse at 68% 35%,#000 25%,transparent 78%)}
-.nb-glow{position:absolute;top:50%;right:-12%;width:640px;height:640px;transform:translateY(-50%);background:radial-gradient(circle,rgba(76,111,255,.15),transparent 62%);pointer-events:none}
-.nb-wrap{max-width:1400px;margin-inline:auto;padding-inline:clamp(1.25rem,4vw,3rem);position:relative;z-index:1}
-.nb-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,6.5rem);align-items:stretch;padding:clamp(4rem,7vw,6rem) 0 clamp(5rem,9vw,8rem)}
-.nb-case{position:relative;display:flex;flex-direction:column;justify-content:center}
-.nb-case-ghost{position:absolute;top:-4.5rem;left:-2.5rem;z-index:0;font-family:var(--cert-font);font-weight:800;font-size:clamp(9rem,17vw,15rem);line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(76,111,255,.09);user-select:none;pointer-events:none}
-.nb-case-inner{position:relative;z-index:1}
-.nb-case h2{font-family:var(--cert-font);font-weight:700;font-size:clamp(2.5rem,4.8vw,4.1rem);line-height:1.03;letter-spacing:-.025em;color:#fff}
-.nb-case h2 .nb-hl{color:var(--cert-blue-bright);background:linear-gradient(transparent 66%,rgba(76,111,255,.22) 0);padding:0 .1em}
-.nb-case p{margin-top:1.4rem;max-width:56ch;color:#B9C6F2;font-size:1.05rem;line-height:1.7;font-family:var(--cert-font)}
-.nb-stats{display:flex;gap:clamp(1.6rem,3vw,3rem);margin-top:2.6rem;padding-top:2rem;border-top:1px solid rgba(233,242,236,.14)}
-.nb-stat + .nb-stat{padding-left:clamp(1.6rem,3vw,3rem);border-left:1px solid rgba(233,242,236,.14)}
-.nb-stat-num{font-family:var(--cert-font);font-weight:700;font-size:2.1rem;letter-spacing:-.02em;color:#fff;font-variant-numeric:tabular-nums;transition:color .3s}
-.nb-stat:hover .nb-stat-num{color:var(--cert-blue-bright)}
-.nb-stat.hero .nb-stat-num{font-size:clamp(2.8rem,4.2vw,3.7rem);color:var(--cert-blue-bright)}
-.nb-stat-label{margin-top:.45rem;font:500 .68rem var(--cert-font);letter-spacing:.16em;text-transform:uppercase;color:#B9C6F2}
-.nb-case-link{display:inline-flex;align-items:center;gap:.55rem;margin-top:2.4rem;color:var(--cert-blue-bright);font-weight:600;font-size:1rem;text-decoration:none;position:relative;padding-bottom:.3rem;font-family:var(--cert-font)}
-.nb-case-link::after{content:"";position:absolute;left:0;bottom:0;height:1.5px;width:100%;background:var(--cert-blue-bright);transform:scaleX(0);transform-origin:left;transition:transform .35s}
-.nb-case-link:hover::after{transform:scaleX(1)}
-.nb-case-link svg{transition:transform .3s}
-.nb-case-link:hover svg{transform:translateX(5px)}
-.nb-calc{position:relative;background:#fff;color:var(--cert-navy);border-radius:20px;padding:clamp(1.8rem,3vw,2.6rem);box-shadow:0 40px 80px -30px rgba(0,0,0,.55);transform:rotate(.6deg);transition:transform .5s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column;font-family:var(--cert-font)}
-.nb-calc:hover{transform:rotate(0)}
-.nb-calc::before{content:"";position:absolute;top:-13px;left:50%;transform:translateX(-50%) rotate(-2deg);width:120px;height:28px;background:var(--cert-blue-bright);border-radius:2px}
-.nb-calc h2{font-family:var(--cert-font);font-weight:700;letter-spacing:-.02em;font-size:clamp(1.8rem,2.8vw,2.4rem);color:var(--cert-navy)}
-.nb-role-label{margin:1.8rem 0 .55rem;font:600 .66rem var(--cert-font);letter-spacing:.18em;text-transform:uppercase;color:var(--cert-muted)}
-.nb-role-select{position:relative}
-.nb-role-btn{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;background:#fff;border:1.5px solid rgba(14,27,61,.16);border-radius:12px;padding:1rem 1.15rem;font:600 1.05rem var(--cert-font);color:var(--cert-navy);cursor:pointer;transition:border-color .25s,box-shadow .25s}
-.nb-role-btn:hover{border-color:rgba(14,27,61,.4)}
-.nb-role-select.open .nb-role-btn{border-color:var(--cert-navy);box-shadow:0 0 0 3px rgba(76,111,255,.4)}
-.nb-role-btn .nb-chev{transition:transform .3s;color:var(--cert-blue)}
-.nb-role-select.open .nb-chev{transform:rotate(180deg)}
-.nb-role-list{position:absolute;top:calc(100% + 8px);left:0;right:0;z-index:30;background:#fff;border:1px solid rgba(14,27,61,.12);border-radius:14px;box-shadow:0 24px 48px -14px rgba(14,27,61,.35);padding:.4rem;max-height:284px;overflow:auto;opacity:0;transform:translateY(-6px) scale(.985);pointer-events:none;transition:.25s ease}
-.nb-role-select.open .nb-role-list{opacity:1;transform:none;pointer-events:auto}
-.nb-role-option{display:flex;align-items:center;padding:.7rem .85rem;border-radius:9px;font-weight:500;font-size:1rem;cursor:pointer;transition:background .15s;color:var(--cert-navy)}
-.nb-role-option:hover,.nb-role-option.active{background:rgba(46,82,229,.08)}
-.nb-role-option .nb-sub{margin-left:auto;margin-right:.65rem;font:500 .58rem var(--cert-font);letter-spacing:.12em;color:var(--cert-muted);border:1px solid rgba(14,27,61,.14);padding:.18rem .45rem;border-radius:5px}
-.nb-role-option.selected{font-weight:700}
-.nb-role-option.selected::after{content:"✓";color:var(--cert-blue);font-weight:700}
-.nb-savings{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:1.9rem;padding-top:1.6rem;border-top:1px dashed rgba(14,27,61,.22);flex:1}
-.nb-sav-label{font:600 .66rem var(--cert-font);letter-spacing:.2em;text-transform:uppercase;color:var(--cert-muted)}
-.nb-sav-amount{display:inline-block;font-family:var(--cert-font);font-weight:800;line-height:1;font-size:clamp(3.2rem,5vw,4.2rem);letter-spacing:-.03em;color:var(--cert-navy);font-variant-numeric:tabular-nums;margin-top:.4rem}
-.nb-sav-amount.nb-bump{animation:nb-bump .5s ease}
-@keyframes nb-bump{35%{transform:scale(1.07)}}
-.nb-sav-sub{margin-top:.5rem;font:500 .66rem var(--cert-font);letter-spacing:.1em;color:var(--cert-muted)}
-.nb-dial{position:relative;width:104px;height:104px;flex:none}
-.nb-dial svg{transform:rotate(-90deg)}
-.nb-dial circle{fill:none;stroke-width:8;stroke-linecap:round}
-.nb-dial-track{stroke:rgba(14,27,61,.12)}
-.nb-dial-fill{stroke:var(--cert-blue);stroke-dasharray:213.6}
-.nb-dial-num{position:absolute;inset:0;display:grid;place-content:center;font:600 1.25rem var(--cert-font);color:var(--cert-navy)}
-.nb-dial-cap{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:.45rem;font:500 .56rem var(--cert-font);letter-spacing:.14em;text-transform:uppercase;color:var(--cert-muted);white-space:nowrap}
-.nb-costs{display:grid;gap:1.05rem;margin-top:2.1rem}
-.nb-cost-head{display:flex;justify-content:space-between;margin-bottom:.45rem;font:500 .68rem var(--cert-font);letter-spacing:.14em;text-transform:uppercase;color:var(--cert-muted)}
-.nb-cost-head b{color:var(--cert-navy);font-weight:600}
-.nb-cost-track{height:13px;border-radius:999px;background:rgba(14,27,61,.08);overflow:hidden}
-.nb-cost-fill{display:block;height:100%;border-radius:999px;transition:width .8s cubic-bezier(.2,.7,.2,1)}
-.nb-cost-fill.us{background:var(--cert-navy);width:100%}
-.nb-cost-fill.off{background:linear-gradient(90deg,var(--cert-blue),var(--cert-blue-bright))}
-.nb-tiers{margin-top:1.8rem;padding-top:1.4rem;border-top:1px dashed rgba(14,27,61,.22);display:grid;gap:.85rem}
-.nb-tier-row{display:grid;grid-template-columns:110px 1fr 52px;align-items:center;gap:1rem}
-.nb-tier-name{display:flex;align-items:center;gap:.45rem;font-weight:600;font-size:.9rem;color:var(--cert-navy)}
-.nb-tier-row.best .nb-tier-name::after{content:"BEST";font:600 .52rem var(--cert-font);letter-spacing:.1em;background:var(--cert-blue);color:#fff;padding:.16rem .4rem;border-radius:4px}
-.nb-tier-meter{height:9px;border-radius:99px;background:rgba(14,27,61,.08);overflow:hidden}
-.nb-tier-fill{display:block;height:100%;border-radius:99px;background:#A8B3D1;transition:width .8s cubic-bezier(.2,.7,.2,1),background .3s}
-.nb-tier-row.best .nb-tier-fill{background:var(--cert-blue)}
-.nb-tier-pct{font:600 .9rem var(--cert-font);text-align:right;color:var(--cert-navy)}
-.nb-cta{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;width:100%;margin-top:1.9rem;background:var(--cert-blue);color:#fff;font:600 1.02rem var(--cert-font);padding:1.1rem 1.4rem;border:0;border-radius:12px;cursor:pointer;transition:.3s}
-.nb-cta:hover{background:var(--cert-navy);transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(14,27,61,.55)}
-.nb-cta svg{transition:transform .3s}
-.nb-cta:hover svg{transform:translateX(4px)}
-.nb-cta:focus-visible,.nb-role-btn:focus-visible,.nb-role-option:focus-visible{outline:3px solid rgba(76,111,255,.5);outline-offset:2px}
-@media (max-width:1020px){.nb-grid{grid-template-columns:1fr;gap:4.5rem}.nb-calc{transform:none}.nb-case-ghost{font-size:8rem;top:-2.5rem;left:-1rem}}
-@media (max-width:560px){.nb-stats{flex-wrap:wrap;gap:1.2rem}.nb-tier-row{grid-template-columns:90px 1fr 46px}.nb-savings{flex-wrap:wrap}}
+  .case{position:relative;display:flex;flex-direction:column;justify-content:center}
+  .case-ghost{position:absolute;top:-3.5rem;left:-2rem;font-weight:800;font-size:clamp(7rem,13vw,11rem);line-height:1;
+    color:transparent;-webkit-text-stroke:1.5px rgba(0,133,254,.12);user-select:none;pointer-events:none}
+  .case h2{color:var(--navy);font-weight:700;letter-spacing:-.02em;line-height:1.08;font-size:clamp(1.9rem,3.4vw,2.9rem)}
+  .case h2 .hl{color:var(--blue)}
+  .case p{margin-top:1rem;color:var(--muted);font-size:.95rem;line-height:1.7;max-width:52ch}
+  .case-stats{display:flex;gap:clamp(1.3rem,2.5vw,2.2rem);margin-top:1.6rem;padding-top:1.4rem;border-top:1px solid var(--line)}
+  .case-stat + .case-stat{padding-left:clamp(1.3rem,2.5vw,2.2rem);border-left:1px solid var(--line)}
+  .stat-num{font-weight:700;font-size:1.7rem;color:var(--navy);font-variant-numeric:tabular-nums;transition:color .3s}
+  .case-stat:hover .stat-num{color:var(--blue)}
+  .case-stat.hero-stat .stat-num{font-size:clamp(2.1rem,3.4vw,2.7rem);color:var(--blue)}
+  .stat-label{margin-top:.3rem;font-size:.62rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .case-link{display:inline-flex;align-items:center;gap:.55rem;margin-top:1.6rem;color:var(--blue);
+    font-weight:600;font-size:.92rem;text-decoration:none;position:relative;padding-bottom:.3rem;width:max-content}
+  .case-link::after{content:"";position:absolute;left:0;bottom:0;height:1.5px;width:100%;background:var(--blue);
+    transform:scaleX(0);transform-origin:left;transition:transform .35s}
+  .case-link:hover::after{transform:scaleX(1)}
+  .case-link svg{transition:transform .3s}
+  .case-link:hover svg{transform:translateX(5px)}
+
+  .calc{position:relative;background:#fff;color:var(--navy);border-radius:22px;border:1px solid rgba(0,5,67,.06);
+    padding:clamp(1.5rem,2.6vw,2.2rem);box-shadow:0 35px 70px -30px rgba(0,5,67,.22);
+    display:flex;flex-direction:column;transform:rotate(.5deg);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+  .calc:hover{transform:rotate(0)}
+  .calc h2{font-weight:700;letter-spacing:-.02em;font-size:clamp(1.45rem,2.2vw,1.9rem)}
+  .role-label{margin:1.2rem 0 .5rem;font-weight:600;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .role-select{position:relative}
+  .role-btn{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;background:#fff;
+    border:1.5px solid var(--line);border-radius:12px;padding:.85rem 1.05rem;font:600 .98rem var(--font);
+    color:var(--navy);cursor:pointer;transition:.25s}
+  .role-btn:hover{border-color:rgba(0,5,67,.4)}
+  .role-select.open .role-btn{border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,133,254,.18)}
+  .role-btn .chev{transition:transform .3s;color:var(--blue)}
+  .role-select.open .chev{transform:rotate(180deg)}
+  .role-list{position:absolute;top:calc(100% + 8px);left:0;right:0;z-index:30;background:#fff;border:1px solid var(--line);
+    border-radius:14px;box-shadow:0 24px 48px -14px rgba(0,5,67,.25);padding:.4rem;max-height:264px;overflow:auto;
+    opacity:0;transform:translateY(-6px) scale(.985);pointer-events:none;transition:.25s ease}
+  .role-select.open .role-list{opacity:1;transform:none;pointer-events:auto}
+  .role-option{display:flex;align-items:center;padding:.62rem .8rem;border-radius:9px;font-weight:500;font-size:.94rem;
+    cursor:pointer;transition:background .15s;color:var(--navy)}
+  .role-option:hover,.role-option.active{background:rgba(0,133,254,.08)}
+  .role-option.selected{font-weight:700}
+  .role-option.selected::after{content:"✓";margin-left:auto;color:var(--blue);font-weight:700}
+
+  .savings{display:flex;justify-content:space-between;align-items:center;gap:1.2rem;
+    margin-top:1.4rem;padding-top:1.2rem;border-top:1px dashed rgba(0,5,67,.18)}
+  .sav-label{font-weight:600;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .sav-amount{font-weight:800;line-height:1;font-size:clamp(2.3rem,3.6vw,3rem);letter-spacing:-.03em;color:var(--navy);
+    font-variant-numeric:tabular-nums;white-space:nowrap;margin-top:.35rem}
+  .sav-amount.bump{animation:bump .5s ease}
+  @keyframes bump{35%{transform:scale(1.07)}}
+  .sav-sub{margin-top:.4rem;font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .dial{position:relative;width:100px;height:100px;flex:none}
+  .dial svg{transform:rotate(-90deg)}
+  .dial circle{fill:none;stroke-width:9;stroke-linecap:round}
+  .dial-track{stroke:rgba(0,5,67,.1)}
+  .dial-fill{stroke:var(--blue);stroke-dasharray:238.76}
+  .dial-num{position:absolute;inset:0;display:grid;place-content:center;text-align:center;
+    font-weight:700;font-size:1rem;color:var(--navy);line-height:1.05}
+  .dial-num small{display:block;font-size:.55rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted);margin-top:.2rem}
+
+  .costs{display:grid;gap:.85rem;margin-top:1.4rem}
+  .cost-head{display:flex;justify-content:space-between;margin-bottom:.4rem;font-weight:600;font-size:.64rem;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .cost-head b{color:var(--navy);font-weight:700;font-variant-numeric:tabular-nums}
+  .cost-track{height:11px;border-radius:999px;background:rgba(0,5,67,.07);overflow:hidden}
+  .cost-fill{display:block;height:100%;border-radius:999px;transition:width .8s cubic-bezier(.2,.7,.2,1)}
+  .cost-fill.us{background:var(--navy);width:100%}
+  .cost-fill.off{background:linear-gradient(90deg,var(--blue),rgba(0,133,254,.55))}
+
+  .tiers{margin-top:1.3rem;padding-top:1.1rem;border-top:1px dashed rgba(0,5,67,.18);display:grid;gap:.7rem}
+  .tier-row{display:grid;grid-template-columns:100px 1fr 48px;align-items:center;gap:1rem}
+  .tier-name{display:flex;align-items:center;gap:.45rem;font-weight:600;font-size:.85rem;color:var(--navy)}
+  .tier-row.best .tier-name::after{content:"BEST";font-size:.5rem;font-weight:700;letter-spacing:.12em;
+    background:var(--blue);color:#fff;padding:.18rem .42rem;border-radius:4px}
+  .tier-meter{height:8px;border-radius:99px;background:rgba(0,5,67,.07);overflow:hidden}
+  .tier-fill{display:block;height:100%;border-radius:99px;background:rgba(0,5,67,.28);
+    transition:width .8s cubic-bezier(.2,.7,.2,1),background .3s}
+  .tier-row.best .tier-fill{background:var(--blue)}
+  .tier-pct{font-weight:700;font-size:.88rem;text-align:right;color:var(--navy);font-variant-numeric:tabular-nums}
+
+  .calc-cta{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;width:100%;margin-top:1.4rem;
+    background:var(--blue);color:#fff;font:600 .98rem var(--font);padding:1rem 1.4rem;border:0;border-radius:12px;
+    cursor:pointer;transition:.3s;box-shadow:0 14px 28px -12px rgba(0,133,254,.45)}
+  .calc-cta:hover{background:var(--navy);transform:translateY(-2px)}
+  .calc-cta svg{transition:transform .3s}
+  .calc-cta:hover svg{transform:translateX(4px)}
+  .calc-cta:focus-visible,.role-btn:focus-visible{outline:3px solid rgba(0,133,254,.5);outline-offset:2px}
+
+  @media (max-width:1020px){
+    .cost-grid{grid-template-columns:1fr}
+    .calc{transform:none}
+  }
+  @media (max-width:640px){
+    .case-stats{flex-wrap:wrap;gap:1.2rem}
+    .tier-row{grid-template-columns:86px 1fr 44px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    [data-reveal]{opacity:1;transform:none}
+  }
+
+  /* ================= 1 · TESTIMONIALS ================= */
+  .reviews-section{position:relative;overflow:hidden;background:#f5f7fa;
+    padding:clamp(4rem,7vw,6.5rem) 0 clamp(3.5rem,6vw,5.5rem)}
+  .reviews-section .dots{top:0;right:0;
+    -webkit-mask-image:radial-gradient(ellipse at top right,#000 12%,transparent 72%);
+            mask-image:radial-gradient(ellipse at top right,#000 12%,transparent 72%)}
+  .reviews-title{text-align:center;margin-bottom:2.5rem;position:relative}
+  .reviews-title h2{color:var(--navy);font-weight:700;letter-spacing:-.02em;line-height:1.1;
+    font-size:clamp(2.2rem,4.2vw,3.5rem)}
+  .reviews-title p{margin:1rem auto 0;color:var(--slate);font-size:1rem;line-height:1.7;max-width:46ch}
+
+  .rating-banner{background:var(--navy);border-radius:18px;padding:1.8rem 2.5rem;display:flex;align-items:center;
+    gap:2rem;flex-wrap:wrap;justify-content:space-between;position:relative;overflow:hidden;
+    box-shadow:0 30px 60px -30px rgba(0,5,67,.5);margin-bottom:1.5rem}
+  .rating-banner::before{content:"";position:absolute;top:0;right:0;width:320px;height:100%;pointer-events:none;
+    background-image:radial-gradient(rgba(255,255,255,.06) 1.2px,transparent 1.3px);background-size:11px 11px;
+    -webkit-mask-image:radial-gradient(ellipse at right,#000 15%,transparent 70%);
+            mask-image:radial-gradient(ellipse at right,#000 15%,transparent 70%)}
+  .rb-left{display:flex;align-items:center;gap:1.8rem;flex-wrap:wrap}
+  .rb-excellent{color:#fff;font-weight:700;font-size:clamp(1.6rem,2.6vw,2.2rem);letter-spacing:-.01em}
+  .rb-stars svg{height:26px;width:auto;display:block}
+  .rb-divider{width:1px;height:40px;background:rgba(255,255,255,.2)}
+  .rb-right{display:flex;align-items:center;gap:1.6rem;flex-wrap:wrap}
+  .rb-right a{color:rgba(255,255,255,.75);font-size:.88rem;font-weight:500;text-decoration:none}
+  .rb-right a u{text-decoration-color:var(--sky);text-underline-offset:3px;color:#fff;font-weight:600}
+  .rb-right a:hover{color:var(--sky)}
+  .tp-logo{height:22px;width:auto;display:block;filter:brightness(0) invert(1)}
+  .rb-subtitle{color:rgba(255,255,255,.85);font-size:.92rem;font-weight:500;margin-left:auto}
+
+  .rail{display:flex;gap:1.5rem;overflow-x:auto;scroll-snap-type:x mandatory;cursor:grab;
+    padding:2.2rem .25rem 1.6rem;scrollbar-width:none;-ms-overflow-style:none}
+  .rail::-webkit-scrollbar{display:none}
+  .rail.dragging{cursor:grabbing;scroll-snap-type:none}
+  .review-card{flex:0 0 400px;scroll-snap-align:start;background:var(--white);border:1px solid rgba(0,5,67,.08);
+    border-radius:16px;padding:1.8rem;display:flex;flex-direction:column;gap:1rem;
+    transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s}
+  .review-card:hover{transform:translateY(-8px);box-shadow:0 30px 60px -28px rgba(0,5,67,.28)}
+  .rc-head{display:flex;align-items:center;gap:.9rem}
+  .rc-avatar{position:relative;flex:none;width:52px;height:52px;border-radius:50%;display:grid;place-content:center;
+    color:#fff;font-weight:700;font-size:1.05rem}
+  .review-card:nth-child(1) .rc-avatar{background:linear-gradient(140deg,var(--sky),var(--ocean))}
+  .review-card:nth-child(2) .rc-avatar{background:linear-gradient(140deg,var(--azure),var(--royal))}
+  .review-card:nth-child(3) .rc-avatar{background:linear-gradient(140deg,var(--royal),var(--navy))}
+  .rc-badge{position:absolute;right:-5px;bottom:-5px;width:20px;height:20px;border-radius:5px;background:var(--tp);
+    border:2px solid var(--white)}
+  .rc-badge svg{width:11px;height:11px;display:block;margin:auto}
+  .rc-head h3{color:var(--navy);font-weight:700;font-size:1rem}
+  .rc-head p{color:var(--slate);font-size:.78rem;margin-top:.15rem}
+  .rc-stars svg{height:19px;width:auto;display:block}
+  .rc-quote{color:var(--navy);font-weight:600;font-size:.98rem;line-height:1.5}
+  .rc-body{color:var(--slate);font-size:.88rem;line-height:1.75}
+.rc-body mark{background:rgba(52,189,240,.16);color:inherit;padding:0 .18em;border-radius:3px}
+  .rc-link{margin-top:auto;display:inline-flex;align-items:center;gap:.5rem;color:var(--azure);font-weight:600;
+    font-size:.85rem;text-decoration:none;width:max-content;position:relative;padding-bottom:.25rem}
+  .rc-link::after{content:"";position:absolute;left:0;bottom:0;height:1.5px;width:100%;background:var(--azure);
+    transform:scaleX(0);transform-origin:left;transition:transform .35s}
+  .rc-link:hover::after{transform:scaleX(1)}
+  .rc-link svg{transition:transform .3s}
+  .rc-link:hover svg{transform:translateX(4px)}
+
+  /* ================= 2 · CERTIFICATIONS ================= */
+  .cert-section{position:relative;overflow:hidden;background:var(--white);padding:clamp(4rem,8vw,7rem) 0}
+  .cert-section .dots{bottom:0;left:0;
+    -webkit-mask-image:radial-gradient(ellipse at bottom left,#000 12%,transparent 72%);
+            mask-image:radial-gradient(ellipse at bottom left,#000 12%,transparent 72%)}
+  .banner{position:relative}
+  .banner-bg{display:grid;grid-template-columns:1.55fr 1fr;border-radius:28px;overflow:hidden;
+    box-shadow:0 50px 90px -45px rgba(0,5,67,.45)}
+.panel-left{background:linear-gradient(160deg,#326dda,var(--navy) 70%);
+    padding:clamp(2.6rem,5vw,4.8rem);position:relative;overflow:hidden}
+  .panel-left::after{content:"";position:absolute;right:0;bottom:0;width:340px;height:280px;
+    background-image:radial-gradient(rgba(255,255,255,.1) 1.3px,transparent 1.4px);background-size:12px 12px;
+    -webkit-mask-image:radial-gradient(ellipse at bottom right,#000 10%,transparent 70%);
+            mask-image:radial-gradient(ellipse at bottom right,#000 10%,transparent 70%)}
+  .panel-right{background:linear-gradient(150deg,var(--sky),var(--azure) 75%);position:relative;min-height:460px}
+  .panel-right::after{content:"";position:absolute;inset:0;
+    background-image:radial-gradient(rgba(255,255,255,.16) 1.3px,transparent 1.4px);background-size:13px 13px;opacity:.5}
+.eyebrow{display:flex;align-items:center;gap:.6rem;color:rgba(255,255,255,.8);font-weight:500;font-size:.8rem;letter-spacing:.06em}
+  .eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--sky);animation:pulse 2.2s infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(52,189,240,.5)}55%{box-shadow:0 0 0 8px rgba(52,189,240,0)}}
+  .banner h2{margin-top:1.2rem;color:#fff;font-weight:700;letter-spacing:-.02em;line-height:1.12;
+    font-size:clamp(2.2rem,4.2vw,3.6rem);max-width:16ch}
+  .banner h2 .hl{color:var(--sky)}
+.banner p{margin-top:1.3rem;color:rgba(255,255,255,.8);font-size:1rem;line-height:1.75;max-width:46ch}
+  .verify-link{display:inline-flex;align-items:center;gap:.55rem;margin-top:2rem;color:#fff;font-weight:600;
+    font-size:.95rem;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);border-radius:999px;
+    padding:.8rem 1.4rem;transition:.3s}
+  .verify-link:hover{background:var(--azure);border-color:var(--azure);transform:translateY(-2px);
+    box-shadow:0 14px 28px -12px rgba(0,133,254,.7)}
+  .verify-link svg{transition:transform .3s}
+  .verify-link:hover svg{transform:translateX(4px)}
+
+  .badge{position:relative;filter:drop-shadow(0 22px 28px rgba(0,5,67,.38));
+    transition:transform .45s cubic-bezier(.2,.7,.2,1);animation:bob 6s ease-in-out infinite}
+  .badge:hover{animation-play-state:paused;transform:rotate(0) scale(1.05)}
+  @keyframes bob{0%,100%{translate:0 0}50%{translate:0 -12px}}
+.badge-card{position:absolute;width:170px;left:-90px;top:-34px;transform:rotate(45deg);
+    background:#fff;border-radius:16px;border:6px solid var(--royal);overflow:hidden;z-index:3}
+  .bc-top{display:block;width:100%;background:linear-gradient(160deg,var(--sky),var(--azure))}
+  .bc-bottom{padding:.7rem .5rem .8rem;text-align:center}
+  .bc-bottom span{display:block;font-size:.62rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--slate)}
+  .bc-bottom b{display:block;margin-top:.15rem;font-size:1.15rem;font-weight:800;letter-spacing:.18em;color:var(--navy)}
+  .seal-group{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center}
+  .seal-slot{line-height:0}
+  .slot-27001{transform:translateY(-22px)}
+  .slot-9001{transform:translateY(30px);margin-left:-38px}
+  .badge-seal{width:250px;transform:rotate(-6deg)}
+  .seal-9001{width:215px;transform:rotate(7deg);animation-delay:1.2s}
+  .badge-seal svg{display:block;width:100%;height:auto}
+  .badge-seal text{font-family:var(--font)}
+
+  /* ================= 3 · FAQ ================= */
+  .faq-section{position:relative;overflow:hidden;background:#f5f7fa;padding:clamp(4rem,7vw,6.5rem) 0}
+  .faq-section .dots{bottom:0;left:0;
+    -webkit-mask-image:radial-gradient(ellipse at bottom left,#000 12%,transparent 72%);
+            mask-image:radial-gradient(ellipse at bottom left,#000 12%,transparent 72%)}
+  .faq-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(3rem,6vw,6rem);align-items:start;position:relative}
+  .faq-intro{position:sticky;top:110px}
+  .faq-intro h2{color:var(--navy);font-weight:700;letter-spacing:-.02em;line-height:1.12;
+    font-size:clamp(2.3rem,4.4vw,3.6rem)}
+  .faq-intro p{margin-top:1.3rem;color:var(--slate);font-size:1rem}
+  .faq-intro a{color:var(--azure);font-weight:600;text-decoration:none;position:relative;padding-bottom:.25rem}
+  .faq-intro a::after{content:"";position:absolute;left:0;bottom:0;height:1.5px;width:100%;background:var(--azure);
+    transform:scaleX(0);transform-origin:left;transition:transform .35s}
+  .faq-intro a:hover::after{transform:scaleX(1)}
+  .faq-list{border-top:1px solid var(--line)}
+  .faq-item{border-bottom:1px solid var(--line)}
+  .faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1.5rem;background:none;border:0;
+    padding:1.5rem .25rem;cursor:pointer;text-align:left;font-family:var(--font)}
+  .faq-q .txt{color:var(--navy);font-weight:600;font-size:1.02rem;transition:color .3s}
+  .faq-q:hover .txt{color:var(--azure)}
+  .faq-icon{flex:none;width:40px;height:40px;border-radius:50%;background:var(--azure);color:#fff;
+    display:grid;place-content:center;transition:.35s cubic-bezier(.2,.7,.2,1)}
+  .faq-q:hover .faq-icon{background:var(--royal);transform:translateY(-2px)}
+  .faq-item.open .faq-icon{transform:rotate(180deg);background:var(--navy)}
+  .faq-q:focus-visible{outline:3px solid rgba(0,133,254,.4);outline-offset:4px;border-radius:8px}
+  .faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s cubic-bezier(.2,.7,.2,1)}
+  .faq-item.open .faq-a{grid-template-rows:1fr}
+  .faq-a-inner{overflow:hidden}
+  .faq-a p{color:var(--slate);font-size:.95rem;line-height:1.75;padding:0 .25rem 1.1rem;max-width:62ch}
+  .faq-a p b{color:var(--navy)}
+  .faq-a .last{padding-bottom:1.6rem}
+  .role-chips{display:flex;flex-wrap:wrap;gap:.6rem;padding:0 .25rem 1.6rem}
+  .role-chips span{background:var(--white);border:1px solid rgba(0,5,67,.08);border-radius:999px;padding:.5rem .95rem;
+    font-size:.78rem;font-weight:600;color:var(--navy);transition:.3s}
+  .role-chips span:hover{border-color:var(--azure);color:var(--azure);transform:translateY(-2px)}
+
+  /* ================= Responsive ================= */
+  @media (max-width:1020px){
+    .banner-bg{grid-template-columns:1fr}
+    .panel-right{min-height:400px}
+    .badge-card{left:6%;top:-40px;transform:rotate(45deg)}
+    .badge-seal{width:200px}
+    .seal-9001{width:170px}
+  }
+  @media (max-width:960px){
+    .faq-grid{grid-template-columns:1fr;gap:2.5rem}
+    .faq-intro{position:static}
+    .review-card{flex-basis:320px}
+    .rating-banner{flex-direction:column;align-items:flex-start;gap:1.5rem}
+    .rb-subtitle{margin-left:0}
+  }
+  @media (max-width:520px){
+    .badge-card{width:130px;left:4%}
+    .badge-seal{width:165px}
+    .seal-9001{width:140px;margin-left:-26px}
+    .rb-left,.rb-right{gap:1rem}
+    .rb-divider{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){re
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    [data-reveal]{opacity:1;transform:none}
+  }
+
+  /* ================= MEET OUR TEAM ================= */
+  .team-section{position:relative;overflow:hidden;padding:clamp(4.5rem,8vw,7.5rem) 0 clamp(3.5rem,6vw,5.5rem)}
+  .team-section .dots{position:absolute;width:520px;height:420px;pointer-events:none;
+    background-image:radial-gradient(rgba(0,5,67,.14) 1.4px,transparent 1.5px);background-size:13px 13px}
+  .team-section .dots-tr{top:0;right:0;-webkit-mask-image:radial-gradient(ellipse at top right,#000 12%,transparent 72%);
+    mask-image:radial-gradient(ellipse at top right,#000 12%,transparent 72%)}
+  .team-section .container{max-width:1400px;margin-inline:auto;padding-inline:clamp(1.25rem,4vw,3rem);position:relative;z-index:1}
+  .team-section .eyebrow{display:flex;align-items:center;gap:.6rem;
+    font-weight:600;font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--blue)}
+  .team-section .eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--blue);animation:pulse 2.2s infinite}
+  .team-head{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(2rem,5vw,5rem);align-items:end;margin-top:1.2rem}
+  .team-head h2{font-weight:700;letter-spacing:-.02em;line-height:1.08;color:var(--navy);
+    font-size:clamp(2.3rem,4.6vw,3.9rem)}
+  .team-head h2 .hl{color:var(--blue)}
+  .team-head p{color:var(--muted);font-size:1rem;line-height:1.75;max-width:46ch;padding-bottom:.4rem}
+  .team-section .rail{display:flex;gap:1.5rem;overflow-x:auto;scroll-snap-type:x mandatory;
+    padding:2.2rem .25rem 1.6rem;margin-top:.5rem;cursor:grab;
+    scrollbar-width:none;-ms-overflow-style:none}
+  .team-section .rail::-webkit-scrollbar{display:none}
+  .team-section .rail.dragging{cursor:grabbing;scroll-snap-type:none}
+  .member-card{flex:0 0 320px;scroll-snap-align:start;background:#fff;border:1px solid var(--line);
+    border-radius:18px;overflow:hidden;transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s}
+  .member-card:hover{transform:translateY(-8px);box-shadow:0 30px 60px -25px rgba(0,5,67,.25)}
+  .member-photo{position:relative;height:300px;overflow:hidden;
+    background:
+      radial-gradient(circle at 82% 10%,rgba(0,5,67,.4),transparent 58%),
+      radial-gradient(circle at 50% 74%,#8ec9ff 0%,#3ba0ff 34%,var(--blue) 62%,#0047b3 100%)}
+  .member-photo .initials{position:absolute;inset:0;display:grid;place-content:center;
+    font-weight:800;font-size:4.2rem;color:rgba(255,255,255,.3);letter-spacing:-.02em}
+  .member-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%;
+    transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+  .member-card:hover .member-photo img{transform:scale(1.06)}
+  .member-body{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;
+    padding:1.25rem 1.3rem 1.1rem}
+  .member-body h3{font-weight:700;font-size:1.12rem;color:var(--navy);line-height:1.25}
+  .member-body .role{margin-top:.25rem;font-size:.78rem;font-weight:500;color:var(--muted)}
+  .li-btn{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-content:center;
+    background:rgba(0,133,254,.1);color:var(--blue);transition:.3s}
+  .li-btn:hover{background:var(--blue);color:#fff;transform:translateY(-3px);
+    box-shadow:0 12px 22px -8px rgba(0,133,254,.55)}
+  .member-foot{border-top:1px solid var(--line);background:#fbfcfe;padding:1rem 1.3rem 1.2rem}
+  .member-foot p{font-size:.8rem;color:var(--muted);line-height:1.65;text-align:center}
+  .team-section .controls{display:flex;align-items:center;gap:1.2rem;margin-top:1rem}
+  .team-section .progress{flex:1;height:2px;border-radius:2px;background:rgba(0,5,67,.08);position:relative;overflow:hidden}
+  .team-section .progress-fill{position:absolute;inset:0 auto 0 0;width:8%;background:var(--blue);border-radius:2px;transition:width .25s}
+  .team-section .nav-btn{width:52px;height:52px;border-radius:50%;border:0;background:var(--blue);color:#fff;cursor:pointer;
+    display:grid;place-content:center;transition:.3s}
+  .team-section .nav-btn:hover{background:var(--navy);transform:translateY(-2px)}
+  .team-section .nav-btn:disabled{opacity:.3;pointer-events:none}
+  @media (max-width:900px){
+    .team-head{grid-template-columns:1fr;align-items:start;gap:1rem}
+    .member-card{flex-basis:280px}
+    .member-photo{height:260px}
+  }
 
 /* Footer */
 .footer {
-  background: var(--bg);
-  color: var(--white);
+  background: linear-gradient(90deg, #326dda 0%, #000543 40%, #000543 100%);
+  color: #ffffff;
   padding: 80px 0 40px;
   position: relative;
   overflow: hidden;
@@ -911,7 +1352,7 @@ h1 {
 }
 
 .footer-social-top:hover {
-  background: var(--primary);
+  background: #0085FE;
   transform: translateY(-2px);
 }
 
@@ -931,7 +1372,7 @@ h1 {
 .footer-col h4 {
   font-size: 16px;
   font-weight: 700;
-  color: var(--white);
+  color: #ffffff;
   margin-bottom: 20px;
 }
 
@@ -950,7 +1391,7 @@ h1 {
 }
 
 .footer-col ul li a:hover {
-  color: var(--primary);
+  color: #0085FE;
 }
 
 .footer-watermark {
@@ -1072,9 +1513,276 @@ h1 {
   }
 }
 </style>
+<style>
+  :root {
+    --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+    --anim-large: 820ms;
+    --anim-card: 640ms;
+    --anim-fast: 280ms;
+    --shadow-premium: 0 18px 55px rgba(15, 23, 42, 0.14);
+    --shadow-premium-soft: 0 10px 35px rgba(15, 23, 42, 0.10);
+  }
+
+  html.anim-ready .reveal,
+  html.anim-ready .reveal-card,
+  html.anim-ready .reveal-scale,
+  html.anim-ready .reveal-nav {
+    transition-property: opacity, transform, filter;
+    transition-duration: var(--anim-duration, var(--anim-large));
+    transition-timing-function: var(--ease-premium);
+    transition-delay: var(--anim-delay, 0ms);
+    will-change: opacity, transform;
+  }
+
+  html.anim-ready .reveal:not(.is-visible) {
+    opacity: 0;
+    transform: translate3d(0, 32px, 0);
+  }
+
+  html.anim-ready .reveal-card:not(.is-visible) {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+  }
+
+  html.anim-ready .reveal-scale:not(.is-visible) {
+    opacity: 0;
+    transform: scale(0.96) translate3d(0, 16px, 0);
+  }
+
+  html.anim-ready .reveal-nav:not(.is-visible) {
+    opacity: 0;
+    transform: translate3d(0, -22px, 0);
+  }
+
+  html.anim-ready .is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  /* Premium card hover */
+  .premium-card {
+    transform: translate3d(0, 0, 0) scale(1);
+    transition:
+      transform 220ms var(--ease-premium),
+      box-shadow 220ms var(--ease-premium),
+      border-color 220ms var(--ease-premium),
+      background-color 220ms var(--ease-premium);
+    will-change: transform;
+  }
+
+  .premium-card:hover {
+    transform: translate3d(0, -8px, 0) scale(1.02);
+    box-shadow: var(--shadow-premium);
+  }
+
+  /* Premium buttons */
+  .premium-button {
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+    transition:
+      transform 260ms var(--ease-premium),
+      box-shadow 260ms var(--ease-premium),
+      opacity 260ms var(--ease-premium),
+      background-color 260ms var(--ease-premium);
+    will-change: transform;
+  }
+
+  .premium-button:hover {
+    transform: translate3d(0, -3px, 0);
+    box-shadow: var(--shadow-premium-soft);
+  }
+
+  .premium-button:active {
+    transform: translate3d(0, -1px, 0) scale(0.985);
+  }
+
+  .premium-button::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    transform: translate3d(-120%, 0, 0) skewX(-18deg);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.34),
+      transparent
+    );
+    pointer-events: none;
+  }
+
+  .premium-button:hover::after {
+    animation: premiumShine 850ms var(--ease-premium);
+  }
+
+  @keyframes premiumShine {
+    to {
+      transform: translate3d(120%, 0, 0) skewX(-18deg);
+    }
+  }
+
+  /* Links */
+  .premium-link {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 1px;
+    transition:
+      background-size 260ms var(--ease-premium),
+      opacity 260ms var(--ease-premium);
+  }
+
+  .premium-link:hover {
+    background-size: 100% 1px;
+  }
+
+  /* Badges */
+  .premium-badge {
+    animation: premiumBadgePulse 4.8s ease-in-out infinite;
+  }
+
+  @keyframes premiumBadgePulse {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+      transform: translate3d(0, -1px, 0) scale(1.015);
+    }
+  }
+
+  /* Icons */
+  .premium-icon-float {
+    animation: premiumIconFloat 5.5s ease-in-out infinite;
+  }
+
+  @keyframes premiumIconFloat {
+    0%, 100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -5px, 0);
+    }
+  }
+
+  /* Subtle decorative movement */
+  .premium-decor {
+    animation: premiumDecorMove 16s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+
+  @keyframes premiumDecorMove {
+    0% {
+      transform: translate3d(-6px, -4px, 0) scale(1);
+    }
+    100% {
+      transform: translate3d(8px, 6px, 0) scale(1.03);
+    }
+  }
+
+  /* Progress bars: GPU-friendly fill using scaleX */
+  .premium-progress-fill {
+    transform-origin: left center;
+    transform: scaleX(0);
+    transition: transform 850ms var(--ease-premium);
+    will-change: transform;
+  }
+
+  .premium-progress-fill.is-filled {
+    transform: scaleX(1);
+  }
+
+  /* Circular indicators */
+  .premium-circle {
+    transition: stroke-dashoffset 900ms var(--ease-premium);
+  }
+
+  /* Testimonials carousel */
+  .premium-marquee {
+    display: flex;
+    width: max-content;
+    gap: inherit;
+    animation: premiumMarquee var(--marquee-duration, 42s) linear infinite;
+    will-change: transform;
+  }
+
+  .premium-marquee:hover,
+  .premium-marquee:focus-within {
+    animation-play-state: paused;
+  }
+
+  @keyframes premiumMarquee {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  /* FAQ accordion */
+  .premium-faq-answer {
+    overflow: hidden;
+    height: 0;
+    opacity: 0;
+    transition:
+      height 360ms var(--ease-premium),
+      opacity 260ms var(--ease-premium);
+  }
+
+  .premium-faq-answer.is-open {
+    opacity: 1;
+  }
+
+  .premium-faq-icon {
+    transition: transform 260ms var(--ease-premium);
+  }
+
+  .premium-faq-icon.is-open {
+    transform: rotate(45deg);
+  }
+
+  /* Dial / gauge */
+  .premium-dial {
+    transition: transform 480ms var(--ease-premium);
+    will-change: transform;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.001ms !important;
+      transition-delay: 0ms !important;
+    }
+
+    html.anim-ready .reveal,
+    html.anim-ready .reveal-card,
+    html.anim-ready .reveal-scale,
+    html.anim-ready .reveal-nav {
+      opacity: 1 !important;
+      transform: none !important;
+      filter: none !important;
+    }
+  }
+</style>
 <base target="_blank">
 </head>
 <body>
+
+<!-- reusable Trustpilot star assets -->
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+  <symbol id="tp-stars" viewBox="0 0 512 96">
+    <rect fill="#00B67A" x="0" y="0" width="96" height="96"/><rect fill="#00B67A" x="104" y="0" width="96" height="96"/><rect fill="#00B67A" x="208" y="0" width="96" height="96"/><rect fill="#00B67A" x="312" y="0" width="96" height="96"/><rect fill="#00B67A" x="416" y="0" width="96" height="96"/>
+    <path fill="#fff" d="M48,64.7 L62.6,61 L68.7,79.8 L48,64.7 Z M81.6,40.4 L55.9,40.4 L48,16.2 L40.1,40.4 L14.4,40.4 L35.2,55.4 L27.3,79.6 L48.1,64.6 L60.9,55.4 L81.6,40.4 Z"/><path fill="#fff" d="M152,64.7 L166.6,61 L172.7,79.8 L152,64.7 Z M185.6,40.4 L159.9,40.4 L152,16.2 L144.1,40.4 L118.4,40.4 L139.2,55.4 L131.3,79.6 L152.1,64.6 L164.9,55.4 L185.6,40.4 Z"/><path fill="#fff" d="M256,64.7 L270.6,61 L276.7,79.8 L256,64.7 Z M289.6,40.4 L263.9,40.4 L256,16.2 L248.1,40.4 L222.4,40.4 L243.2,55.4 L235.3,79.6 L256.1,64.6 L268.9,55.4 L289.6,40.4 Z"/><path fill="#fff" d="M360,64.7 L374.6,61 L380.7,79.8 L360,64.7 Z M393.6,40.4 L367.9,40.4 L360,16.2 L352.1,40.4 L326.4,40.4 L347.2,55.4 L339.3,79.6 L360.1,64.6 L372.9,55.4 L393.6,40.4 Z"/><path fill="#fff" d="M464,64.7 L478.6,61 L484.7,79.8 L464,64.7 Z M497.6,40.4 L471.9,40.4 L464,16.2 L456.1,40.4 L430.4,40.4 L451.2,55.4 L443.3,79.6 L464.1,64.6 L476.9,55.4 L497.6,40.4 Z"/>
+  </symbol>
+  <symbol id="tp-star" viewBox="0 0 96 96">
+    <path fill="#fff" d="M48,64.7 L62.6,61 L68.7,79.8 L48,64.7 Z M81.6,40.4 L55.9,40.4 L48,16.2 L40.1,40.4 L14.4,40.4 L35.2,55.4 L27.3,79.6 L48.1,64.6 L60.9,55.4 L81.6,40.4 Z"/>
+  </symbol>
+</svg>
 
 <header class="header">
   <div class="container">
@@ -1090,7 +1798,7 @@ h1 {
         <li><a href="#">Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="#" class="btn btn-primary">Build My Team</a>
+        <a href="#" class="btn btn-primary">Book a Free Strategy Call</a>
         <button class="menu-toggle" aria-label="Open menu">☰</button>
       </div>
     </nav>
@@ -1100,92 +1808,79 @@ h1 {
 <main>
   <section class="hero">
     <div class="container">
-      <div class="hero-card">
-        <div class="hero-left">
-          <h1>
-            Build a Remote Team You Can <span class="underline">Actually Rely On</span>.
-          </h1>
-          <p class="lead">
-            REM builds dedicated professionals at up to <span class="underline">80% less</span> than traditional U.S. hiring costs—handling everything from sourcing and onboarding to ongoing management.
-          </p>
-          <p class="sub">
-            Stop running your business at half capacity. Start taking on more opportunities with confidence.
-          </p>
-          <div class="hero-buttons">
-            <a href="#" class="btn btn-primary">Build My Team</a>
-            <a href="#" class="btn btn-secondary">See How It Works</a>
+      <div class="hero-card-wrapper">
+        <div class="hero-card">
+          <div class="hero-left">
+            <h1>
+              Build a Remote Team You Can <span class="underline">Actually Rely On</span>.
+            </h1>
+            <p class="lead">
+              REM builds dedicated professionals at up to <span class="underline">80% less</span> than traditional U.S. hiring costs—handling everything from sourcing and onboarding to ongoing management.
+            </p>
+            <p class="sub">
+              Stop running your business at half capacity. Start taking on more opportunities with confidence.
+            </p>
+            <div class="hero-buttons">
+              <a href="#" class="btn btn-primary">Book a Free Strategy Call</a>
+              <a href="#" class="btn btn-secondary">Watch Success Story</a>
+            </div>
+            <div class="trustpilot-section">
+              <div class="tp-left">
+                <div class="tp-heading">Excellent!</div>
+                <div class="tp-stars">
+                  <div class="tp-star"><svg viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg></div>
+                  <div class="tp-star"><svg viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg></div>
+                  <div class="tp-star"><svg viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg></div>
+                  <div class="tp-star"><svg viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg></div>
+                  <div class="tp-star"><svg viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg></div>
+                </div>
+                <div class="tp-reviews">Based on <a href="https://www.trustpilot.com/review/remassistance.com">3 reviews</a></div>
+              </div>
+
+              <div class="tp-divider"></div>
+
+              <img class="tp-logo" src="images/trustpilot-logo.webp" alt="Trustpilot">
+
+              <div class="tp-divider"></div>
+
+              <div class="trust-items">
+                <div class="trust-item">
+                  <span class="t-ico"><img src="images/ISO_9001-2015.svg" alt="ISO 9001 Certified"></span>
+                  <span><span class="t-top">ISO 9001</span><span class="t-sub">Certified</span></span>
+                </div>
+                <div class="trust-item">
+                  <span class="t-ico"><img src="images/ISO_27001-2022.svg" alt="ISO 27001 Certified"></span>
+                  <span><span class="t-top">ISO 27001</span><span class="t-sub">Certified</span></span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="trust-grid">
-            <div class="trust-pill">
-              <span class="icon">✓</span>
-              U.S. Time Zone Coverage
-            </div>
-            <div class="trust-pill">
-              <span class="icon">✓</span>
-              Neutral English Accent
-            </div>
-            <div class="trust-pill">
-              <span class="icon">✓</span>
-              Dedicated Teams
-            </div>
-            <div class="trust-pill">
-              <span class="icon">✓</span>
-              Up to 80% Cost Savings
+          <div class="hero-right">
+            <div class="video-wrapper">
+              <iframe 
+                src="https://www.youtube.com/embed/u1dVeHu0pTI?autoplay=1&mute=1&loop=1&playlist=u1dVeHu0pTI&rel=0&modestbranding=1&playsinline=1" 
+                title="REM Assistance - Outsourcing Company Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+              </iframe>
+              <div class="video-overlay">
+                <div class="rating">★★★★★</div>
+                <h4>Trusted by Growing U.S. Businesses</h4>
+                <p>See how REM helped companies scale without increasing hiring costs.</p>
+              </div>
             </div>
           </div>
         </div>
-        <div class="hero-right">
-          <div class="video-wrapper">
-            <iframe 
-              src="https://www.youtube.com/embed/u1dVeHu0pTI?autoplay=1&mute=1&loop=1&playlist=u1dVeHu0pTI&rel=0&modestbranding=1&playsinline=1" 
-              title="REM Assistance - Outsourcing Company Video"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              allowfullscreen>
-            </iframe>
-            <div class="video-overlay">
-              <div class="rating">★★★★★</div>
-              <h4>Trusted by Growing U.S. Businesses</h4>
-              <p>See how REM helped companies scale without increasing hiring costs.</p>
+
+        <div class="bottom-bar">
+          <div class="bottom-bar-inner">
+            <div class="chips in" data-reveal="" data-delay="310" style="transition-delay: 310ms;">
+              <span class="chip"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#0085fe"></circle><path d="M6 10.2l2.6 2.6L14 7.4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"></path></svg>U.S. Time Zone</span>
+              <span class="chip"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#0085fe"></circle><path d="M6 10.2l2.6 2.6L14 7.4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"></path></svg>Dedicated Staff</span>
+              <span class="chip"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#0085fe"></circle><path d="M6 10.2l2.6 2.6L14 7.4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"></path></svg>English Speaking</span>
+              <span class="chip"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#0085fe"></circle><path d="M6 10.2l2.6 2.6L14 7.4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"></path></svg>80% Lower Hiring Cost</span>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div class="bottom-bar">
-        <div class="iso-badges">
-          <a href="#" class="iso-badge">
-            <img src="images/ISO_9001-2015.svg" alt="ISO 9001 Certified">
-            ISO 9001 Certified
-          </a>
-          <a href="#" class="iso-badge">
-            <img src="images/ISO_27001-2022.svg" alt="ISO 27001 Certified">
-            ISO 27001 Certified
-          </a>
-        </div>
-
-        <div class="trustpilot-section">
-          <div class="tp-left">
-            <div class="tp-heading">Excellent!</div>
-            <div class="tp-stars">
-              <div class="tp-star"><svg viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg></div>
-              <div class="tp-star"><svg viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg></div>
-              <div class="tp-star"><svg viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg></div>
-              <div class="tp-star"><svg viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg></div>
-              <div class="tp-star"><svg viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg></div>
-            </div>
-            <div class="tp-reviews">Based on <a href="https://www.trustpilot.com/review/remassistance.com">3 reviews</a></div>
-          </div>
-
-          <div class="tp-divider"></div>
-
-          <div class="tp-testimonial">
-            <p class="tp-testimonial-text">"They helped me with a virtual sales team and processed everything together quickly. I would recommend to any business owner that's looking to grow their company quickly & effectively."</p>
-            <div class="tp-testimonial-author">— TANO Group, United States</div>
-          </div>
-
-          <div class="tp-divider"></div>
-
-          <img class="tp-logo" src="images/trustpilot-logo.webp" alt="Trustpilot">
         </div>
       </div>
     </div>
@@ -1401,89 +2096,432 @@ h1 {
   cards.forEach(card => observer.observe(card));
 </script>
 
-<section class="nb-section" id="nb-savings">
-  <div class="nb-glow" aria-hidden="true"></div>
-  <div class="nb-wrap">
-    <div class="nb-grid">
-      <article class="nb-case">
-        <div class="nb-case-ghost" aria-hidden="true">80%</div>
-        <div class="nb-case-inner">
-          <h2 data-reveal>Cut your costs<br>up to <span class="nb-hl">80%</span></h2>
-          <p data-reveal data-delay="80">REM partnered with Locate &amp; Move to improve lead generation and inbound call handling for apartment seekers. By introducing an AI-assisted qualification system and refining workflows, we increased qualified leads by 42% and cut response time by 60% in 3 months — driving more conversions while reducing support overhead.</p>
-          <div class="nb-stats" data-reveal data-delay="160">
-            <div class="nb-stat hero">
-              <div class="nb-stat-num" data-count="42" data-prefix="+" data-suffix="%">+42%</div>
-              <div class="nb-stat-label">Qualified leads</div>
+<!-- =============== CUT COST (single section) =============== -->
+<section class="cost-section" id="savings">
+  <div class="container">
+    <div class="cost-grid">
+
+      <article class="case">
+        <div class="case-ghost" aria-hidden="true">80%</div>
+        <div>
+          <h2 data-reveal>Cut your costs<br>up to <span class="hl">80%</span></h2>
+          <p data-reveal data-delay="80">REM partnered with Locate &amp; Move to improve lead generation and inbound
+            call handling for apartment seekers. By introducing an AI-assisted qualification system and refining
+            workflows, we increased qualified leads by 42% and cut response time by 60% in 3 months.</p>
+
+          <div class="case-stats" data-reveal data-delay="160">
+            <div class="case-stat hero-stat">
+              <div class="stat-num" data-count="42" data-prefix="+" data-suffix="%">+42%</div>
+              <div class="stat-label">Qualified leads</div>
             </div>
-            <div class="nb-stat">
-              <div class="nb-stat-num" data-count="60" data-prefix="−" data-suffix="%">−60%</div>
-              <div class="nb-stat-label">Response time</div>
+            <div class="case-stat">
+              <div class="stat-num" data-count="60" data-prefix="−" data-suffix="%">−60%</div>
+              <div class="stat-label">Response time</div>
             </div>
-            <div class="nb-stat">
-              <div class="nb-stat-num">3 mo</div>
-              <div class="nb-stat-label">Timeframe</div>
+            <div class="case-stat">
+              <div class="stat-num">3 mo</div>
+              <div class="stat-label">Timeframe</div>
             </div>
           </div>
-          <a class="nb-case-link" href="#" data-reveal data-delay="240">Read the full story
+
+          <a class="case-link" href="#" data-reveal data-delay="240">Read the full story
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
           </a>
         </div>
       </article>
-      <aside class="nb-calc" data-reveal data-delay="120">
+
+      <aside class="calc" data-reveal data-delay="120">
         <h2>How much you can save</h2>
-        <div class="nb-role-label">Select role</div>
-        <div class="nb-role-select" id="nbRoleSelect">
-          <button type="button" class="nb-role-btn" id="nbRoleBtn" aria-haspopup="listbox" aria-expanded="false">
-            <span id="nbRoleValue">Frontend Developer</span>
-            <svg class="nb-chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+
+        <div class="role-label">Select role</div>
+        <div class="role-select" id="roleSelect">
+          <button type="button" class="role-btn" id="roleBtn" aria-haspopup="listbox" aria-expanded="false">
+            <span id="roleValue">Frontend Developer</span>
+            <svg class="chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
           </button>
-          <div class="nb-role-list" id="nbRoleList" role="listbox" aria-label="Role">
-            <div class="nb-role-option selected" role="option" aria-selected="true" data-role="Frontend Developer" tabindex="-1">Frontend Developer<span class="nb-sub">ENG</span></div>
-            <div class="nb-role-option" role="option" aria-selected="false" data-role="Backend Developer" tabindex="-1">Backend Developer<span class="nb-sub">ENG</span></div>
-            <div class="nb-role-option" role="option" aria-selected="false" data-role="Full Stack Developer" tabindex="-1">Full Stack Developer<span class="nb-sub">ENG</span></div>
-            <div class="nb-role-option" role="option" aria-selected="false" data-role="DevOps Engineer" tabindex="-1">DevOps Engineer<span class="nb-sub">OPS</span></div>
-            <div class="nb-role-option" role="option" aria-selected="false" data-role="UI/UX Designer" tabindex="-1">UI/UX Designer<span class="nb-sub">DESIGN</span></div>
-            <div class="nb-role-option" role="option" aria-selected="false" data-role="QA Engineer" tabindex="-1">QA Engineer<span class="nb-sub">ENG</span></div>
-            <div class="nb-role-option" role="option" aria-selected="false" data-role="Data Analyst" tabindex="-1">Data Analyst<span class="nb-sub">DATA</span></div>
-            <div class="nb-role-option" role="option" aria-selected="false" data-role="Customer Support" tabindex="-1">Customer Support<span class="nb-sub">GTM</span></div>
-            <div class="nb-role-option" role="option" aria-selected="false" data-role="Sales Representative" tabindex="-1">Sales Representative<span class="nb-sub">GTM</span></div>
+          <div class="role-list" id="roleList" role="listbox" aria-label="Role">
+            <div class="role-option selected" role="option" aria-selected="true" data-role="Frontend Developer" tabindex="-1">Frontend Developer</div>
+            <div class="role-option" role="option" aria-selected="false" data-role="Backend Developer" tabindex="-1">Backend Developer</div>
+            <div class="role-option" role="option" aria-selected="false" data-role="Full Stack Developer" tabindex="-1">Full Stack Developer</div>
+            <div class="role-option" role="option" aria-selected="false" data-role="DevOps Engineer" tabindex="-1">DevOps Engineer</div>
+            <div class="role-option" role="option" aria-selected="false" data-role="UI/UX Designer" tabindex="-1">UI/UX Designer</div>
+            <div class="role-option" role="option" aria-selected="false" data-role="QA Engineer" tabindex="-1">QA Engineer</div>
+            <div class="role-option" role="option" aria-selected="false" data-role="Data Analyst" tabindex="-1">Data Analyst</div>
+            <div class="role-option" role="option" aria-selected="false" data-role="Customer Support" tabindex="-1">Customer Support</div>
+            <div class="role-option" role="option" aria-selected="false" data-role="Sales Representative" tabindex="-1">Sales Representative</div>
           </div>
         </div>
-        <div class="nb-savings">
+
+        <div class="savings">
           <div>
-            <div class="nb-sav-label">Save up to</div>
-            <div class="nb-sav-amount" id="nbSavAmount">$<span id="nbSavNum">0</span>K</div>
-            <div class="nb-sav-sub">per hire · per year</div>
+            <div class="sav-label">Save up to</div>
+            <div class="sav-amount" id="savAmount">$<span id="savNum">0</span>K</div>
+            <div class="sav-sub">per hire · per year</div>
           </div>
-          <div class="nb-dial">
-            <svg viewBox="0 0 80 80" width="104" height="104">
-              <circle class="nb-dial-track" cx="40" cy="40" r="34"/>
-              <circle class="nb-dial-fill" id="nbDialFill" cx="40" cy="40" r="34" stroke-dashoffset="213.6"/>
+          <div class="dial">
+            <svg viewBox="0 0 86 86" width="100" height="100">
+              <circle class="dial-track" cx="43" cy="43" r="38"/>
+              <circle class="dial-fill" id="dialFill" cx="43" cy="43" r="38" stroke-dashoffset="238.76"/>
             </svg>
-            <div class="nb-dial-num"><span id="nbDialPct">0</span>%</div>
-            <div class="nb-dial-cap">peak saving</div>
+            <div class="dial-num"><span id="dialPct">0</span>%<small>peak saving</small></div>
           </div>
         </div>
-        <div class="nb-costs">
+
+        <div class="costs">
           <div>
-            <div class="nb-cost-head"><span>US onshore</span><b id="nbUsCost">$140K</b></div>
-            <div class="nb-cost-track"><span class="nb-cost-fill us"></span></div>
+            <div class="cost-head"><span>US onshore</span><b id="usCost">$140K</b></div>
+            <div class="cost-track"><span class="cost-fill us"></span></div>
           </div>
           <div>
-            <div class="nb-cost-head"><span>With REM offshore</span><b id="nbOffCost">$53K</b></div>
-            <div class="nb-cost-track"><span class="nb-cost-fill off" id="nbOffBar" style="width:0%"></span></div>
+            <div class="cost-head"><span>With REM offshore</span><b id="offCost">$53K</b></div>
+            <div class="cost-track"><span class="cost-fill off" id="offBar" style="width:0%"></span></div>
           </div>
         </div>
-        <div class="nb-tiers" id="nbTiers">
-          <div class="nb-tier-row"><span class="nb-tier-name">Junior</span><span class="nb-tier-meter"><span class="nb-tier-fill" style="width:0%"></span></span><span class="nb-tier-pct">0%</span></div>
-          <div class="nb-tier-row"><span class="nb-tier-name">Mid-level</span><span class="nb-tier-meter"><span class="nb-tier-fill" style="width:0%"></span></span><span class="nb-tier-pct">0%</span></div>
-          <div class="nb-tier-row"><span class="nb-tier-name">Senior</span><span class="nb-tier-meter"><span class="nb-tier-fill" style="width:0%"></span></span><span class="nb-tier-pct">0%</span></div>
+
+        <div class="tiers" id="tiers">
+          <div class="tier-row"><span class="tier-name">Junior</span><span class="tier-meter"><span class="tier-fill" style="width:0%"></span></span><span class="tier-pct">0%</span></div>
+          <div class="tier-row"><span class="tier-name">Mid-level</span><span class="tier-meter"><span class="tier-fill" style="width:0%"></span></span><span class="tier-pct">0%</span></div>
+          <div class="tier-row"><span class="tier-name">Senior</span><span class="tier-meter"><span class="tier-fill" style="width:0%"></span></span><span class="tier-pct">0%</span></div>
         </div>
-        <button class="nb-cta" type="button">Get a tailored quote
+
+        <button class="calc-cta" type="button">Get a tailored quote
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
         </button>
       </aside>
+
     </div>
+  </div>
+</section>
+
+<!-- ================= 1 · TESTIMONIALS ================= -->
+<section class="reviews-section" id="reviews">
+  <div class="dots" aria-hidden="true"></div>
+  <div class="container">
+
+    <div class="reviews-title" data-reveal>
+      <h2>Our Satisfied Customers</h2>
+      <p>Real stories from businesses that scaled with Rem Assist — verified on Trustpilot.</p>
+    </div>
+
+    <div class="rating-banner" data-reveal data-delay="120">
+      <div class="rb-left">
+        <span class="rb-excellent">Excellent!</span>
+        <span class="rb-stars"><svg viewBox="0 0 512 96"><use href="#tp-stars"/></svg></span>
+        <span class="rb-divider"></span>
+        <div class="rb-right">
+          <a href="https://www.trustpilot.com/review/remassistance.com" target="_blank" rel="noopener">Based on <u>3 reviews</u></a>
+          <img class="tp-logo" src="images/trustpilot-logo.webp" alt="Trustpilot">
+        </div>
+      </div>
+      <span class="rb-subtitle">Real stories from businesses that scaled with Rem Assist</span>
+    </div>
+
+    <div class="rail" id="rail" data-reveal data-delay="180">
+      <article class="review-card">
+        <div class="rc-head">
+          <div class="rc-avatar">RP<span class="rc-badge"><svg viewBox="0 0 96 96"><use href="#tp-star"/></svg></span></div>
+          <div><h3>ROOFING PROS</h3><p>Ethiopia</p></div>
+        </div>
+        <div class="rc-stars"><svg viewBox="0 0 512 96"><use href="#tp-stars"/></svg></div>
+        <h4 class="rc-quote">Very convenient and easy to use.</h4>
+        <p class="rc-body">It has <mark>ease of access to create a portfolio and apply</mark>. Really nice job.</p>
+        <a class="rc-link" href="https://www.trustpilot.com/review/remassistance.com" target="_blank" rel="noopener">Read on Trustpilot
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+      </article>
+
+      <article class="review-card">
+        <div class="rc-head">
+          <div class="rc-avatar">N<span class="rc-badge"><svg viewBox="0 0 96 96"><use href="#tp-star"/></svg></span></div>
+          <div><h3>Naeem</h3><p>United Kingdom</p></div>
+        </div>
+        <div class="rc-stars"><svg viewBox="0 0 512 96"><use href="#tp-stars"/></svg></div>
+        <h4 class="rc-quote">A smooth and professional experience from start to finish.</h4>
+        <p class="rc-body"><mark>Communication was always prompt</mark>, and the attention to detail in handling tasks was impressive. They clearly understand the importance of reliability and quality support. <mark>Highly recommended</mark> for anyone looking to streamline their operations.</p>
+        <a class="rc-link" href="https://www.trustpilot.com/review/remassistance.com" target="_blank" rel="noopener">Read on Trustpilot
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+      </article>
+
+      <article class="review-card">
+        <div class="rc-head">
+          <div class="rc-avatar">TG<span class="rc-badge"><svg viewBox="0 0 96 96"><use href="#tp-star"/></svg></span></div>
+          <div><h3>TANO Group</h3><p>United States</p></div>
+        </div>
+        <div class="rc-stars"><svg viewBox="0 0 512 96"><use href="#tp-stars"/></svg></div>
+        <h4 class="rc-quote">They helped me with a virtual sales team and processed everything together quickly.</h4>
+        <p class="rc-body">I would <mark>recommend to any business owner</mark> that’s looking to grow their company quickly &amp; effectively.</p>
+        <a class="rc-link" href="https://www.trustpilot.com/review/remassistance.com" target="_blank" rel="noopener">Read on Trustpilot
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= 2 · CERTIFICATIONS ================= -->
+<section class="cert-section" id="certifications">
+  <div class="dots" aria-hidden="true"></div>
+  <div class="container">
+    <div class="banner" data-reveal>
+      <div class="banner-bg">
+
+        <div class="panel-left">
+          <span class="eyebrow"><i></i>Certifications</span>
+          <h2>Your peace of mind is our <span class="hl">priority</span></h2>
+          <p>Rem Assist maintains dual ISO certifications — quality and security are
+            embedded into every task we perform, for every partnership.</p>
+          <a class="verify-link" href="#" target="_blank" rel="noopener">Verify Here
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+        </div>
+
+        <div class="panel-right">
+          <div class="badge badge-card">
+            <svg class="bc-top" viewBox="0 0 120 100">
+              <g fill="#fff" opacity=".9">
+                <circle cx="98" cy="50" r="2.6"/><circle cx="92.9" cy="69" r="2.6"/><circle cx="79" cy="82.9" r="2.6"/>
+                <circle cx="60" cy="88" r="2.6"/><circle cx="41" cy="82.9" r="2.6"/><circle cx="27.1" cy="69" r="2.6"/>
+                <circle cx="22" cy="50" r="2.6"/><circle cx="27.1" cy="31" r="2.6"/><circle cx="41" cy="17.1" r="2.6"/>
+                <circle cx="60" cy="12" r="2.6"/><circle cx="79" cy="17.1" r="2.6"/><circle cx="92.9" cy="31" r="2.6"/>
+              </g>
+              <path d="M52 46v-7a8 8 0 0 1 16 0v7" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+              <rect x="46" y="46" width="28" height="21" rx="4" fill="#fff"/>
+              <circle cx="60" cy="55" r="3" fill="#0085fe"/>
+            </svg>
+<div class="bc-bottom"><span>Certified by</span><b>ACERTA</b></div>
+          </div>
+
+          <div class="seal-group">
+            <div class="seal-slot slot-27001">
+              <div class="badge badge-seal">
+                <svg viewBox="0 0 200 200">
+                  <defs>
+                    <linearGradient id="o1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1B2C5E"/><stop offset="1" stop-color="#000543"/></linearGradient>
+                    <linearGradient id="i1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34bdf0"/><stop offset="1" stop-color="#0085fe"/></linearGradient>
+                    <radialGradient id="s1" cx=".3" cy=".25" r=".9"><stop offset="0" stop-color="#fff" stop-opacity=".25"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/></radialGradient>
+                    <path id="t1" d="M 22 100 A 78 78 0 0 1 178 100"/><path id="b1" d="M 26 100 A 74 74 0 0 0 174 100"/>
+                  </defs>
+                  <circle cx="100" cy="100" r="96" fill="url(#o1)"/><circle cx="100" cy="100" r="96" fill="url(#s1)"/>
+                  <circle cx="100" cy="100" r="96" fill="none" stroke="rgba(255,255,255,.18)"/>
+                  <text font-size="13" font-weight="600" letter-spacing="4" fill="#C9D6FF"><textPath href="#t1" startOffset="50%" text-anchor="middle">CERTIFIED</textPath></text>
+                  <text font-size="13" font-weight="600" letter-spacing="5" fill="#C9D6FF"><textPath href="#b1" startOffset="50%" text-anchor="middle">ACERTA</textPath></text>
+                  <circle cx="100" cy="100" r="62" fill="url(#i1)" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
+                  <g fill="none" stroke="#fff" stroke-width="1.6"><circle cx="100" cy="76" r="15"/><path d="M85 76h30M100 61c4.6 4.3 7 9.3 7 15s-2.4 10.7-7 15c-4.6-4.3-7-9.3-7-15s2.4-10.7 7-15Z"/></g>
+                  <text x="100" y="122" text-anchor="middle" font-size="30" font-weight="800" fill="#fff">ISO</text>
+                  <text x="100" y="145" text-anchor="middle" font-size="17" font-weight="600" letter-spacing="2" fill="#fff">27001</text>
+                </svg>
+              </div>
+            </div>
+            <div class="seal-slot slot-9001">
+              <div class="badge badge-seal seal-9001">
+                <svg viewBox="0 0 200 200">
+                  <defs>
+                    <linearGradient id="o2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1B2C5E"/><stop offset="1" stop-color="#000543"/></linearGradient>
+                    <linearGradient id="i2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34bdf0"/><stop offset="1" stop-color="#0085fe"/></linearGradient>
+                    <radialGradient id="s2" cx=".3" cy=".25" r=".9"><stop offset="0" stop-color="#fff" stop-opacity=".25"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/></radialGradient>
+                    <path id="t2" d="M 22 100 A 78 78 0 0 1 178 100"/><path id="b2" d="M 26 100 A 74 74 0 0 0 174 100"/>
+                  </defs>
+                  <circle cx="100" cy="100" r="96" fill="url(#o2)"/><circle cx="100" cy="100" r="96" fill="url(#s2)"/>
+                  <circle cx="100" cy="100" r="96" fill="none" stroke="rgba(255,255,255,.18)"/>
+                  <text font-size="13" font-weight="600" letter-spacing="4" fill="#C9D6FF"><textPath href="#t2" startOffset="50%" text-anchor="middle">CERTIFIED</textPath></text>
+                  <text font-size="13" font-weight="600" letter-spacing="5" fill="#C9D6FF"><textPath href="#b2" startOffset="50%" text-anchor="middle">ACERTA</textPath></text>
+                  <circle cx="100" cy="100" r="62" fill="url(#i2)" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
+                  <g fill="none" stroke="#fff" stroke-width="1.6"><circle cx="100" cy="76" r="15"/><path d="M85 76h30M100 61c4.6 4.3 7 9.3 7 15s-2.4 10.7-7 15c-4.6-4.3-7-9.3-7-15s2.4-10.7 7-15Z"/></g>
+                  <text x="100" y="122" text-anchor="middle" font-size="30" font-weight="800" fill="#fff">ISO</text>
+                  <text x="100" y="145" text-anchor="middle" font-size="17" font-weight="600" letter-spacing="2" fill="#fff">9001</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3 · FAQ ================= -->
+<section class="faq-section" id="faq">
+  <div class="dots" aria-hidden="true"></div>
+  <div class="container">
+    <div class="faq-grid">
+
+      <div class="faq-intro" data-reveal>
+        <h2>Frequently<br>Asked Questions</h2>
+        <p>Still have questions? <a href="#contact">Chat with us.</a></p>
+      </div>
+
+      <div class="faq-list" data-reveal data-delay="120">
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="a1" id="q1">
+            <span class="txt">What types of roles can I fill offshore?</span>
+            <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-a" id="a1" role="region" aria-labelledby="q1">
+            <div class="faq-a-inner">
+              <p>We specialize in remote hires for:</p>
+              <div class="role-chips">
+                <span>Executive Assistants</span><span>Bookkeepers / AP–AR</span><span>Operations Associates</span>
+                <span>Customer Support</span><span>Sales (SDRs)</span><span>Data Entry / Reporting</span>
+                <span>Marketing Assistants</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="a2" id="q2">
+            <span class="txt">What if I don’t like any of the candidates?</span>
+            <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-a" id="a2" role="region" aria-labelledby="q2">
+            <div class="faq-a-inner">
+              <p class="last">No problem. If none of the vetted candidates feel like a fit, <b>you don’t pay anything</b>.
+                We’ll keep looking or part ways — no strings attached.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="a3" id="q3">
+            <span class="txt">How quickly can they start?</span>
+            <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-a" id="a3" role="region" aria-labelledby="q3">
+            <div class="faq-a-inner">
+              <p class="last">Most roles are filled within <b>7 to 21 days</b>. Once you choose a candidate,
+                they can typically start within a few business days.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="a4" id="q4">
+            <span class="txt">Do I have to pay upfront?</span>
+            <span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-a" id="a4" role="region" aria-labelledby="q4">
+            <div class="faq-a-inner">
+              <p class="last">No. <b>You only pay if you hire.</b> There are no upfront fees or hidden costs —
+                zero risk until you find the right match.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MEET OUR TEAM ================= -->
+<section class="team-section">
+  <div class="dots dots-tr" aria-hidden="true"></div>
+  <div class="container">
+
+    <span class="eyebrow" data-reveal><i></i>Our Team</span>
+    <div class="team-head">
+      <h2 data-reveal data-delay="60">Meet the minds<br>behind <span class="hl">Rem Assist</span></h2>
+      <p data-reveal data-delay="140">Our work is powered by a team that values quality, creativity, and
+        collaboration in everything we do.</p>
+    </div>
+
+    <div class="rail" id="teamRail" data-reveal data-delay="180">
+
+      <article class="member-card">
+        <div class="member-photo"><span class="initials">JZ</span>
+          <img src="images/teams/Johnathan.png" alt="Johnathan Zemene"></div>
+        <div class="member-body">
+          <div><h3>Johnathan Zemene</h3><p class="role">Chief Executive Officer</p></div>
+          <a class="li-btn" href="https://www.linkedin.com/in/johnathan-zemene-20b5bb199/" target="_blank" rel="noopener" aria-label="Johnathan Zemene on LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          </a>
+        </div>
+        <div class="member-foot"><p>Driving the strategic vision and architecting the future of our organization.</p></div>
+      </article>
+
+      <article class="member-card">
+        <div class="member-photo"><span class="initials">MS</span>
+          <img src="images/teams/Minassie.png" alt="Minassie Sora"></div>
+        <div class="member-body">
+          <div><h3>Minassie Sora</h3><p class="role">Chief Operations Officer</p></div>
+          <a class="li-btn" href="https://www.linkedin.com/in/minassie-sora-9a39a7160/" target="_blank" rel="noopener" aria-label="Minassie Sora on LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          </a>
+        </div>
+        <div class="member-foot"><p>Leading operational efficiency across borders to deliver consistent business results.</p></div>
+      </article>
+
+      <article class="member-card">
+        <div class="member-photo"><span class="initials">YB</span>
+          <img src="images/teams/Yonas.png" alt="Yonas Berisa"></div>
+        <div class="member-body">
+          <div><h3>Yonas Berisa</h3><p class="role">Chief Design Officer</p></div>
+          <a class="li-btn" href="https://www.linkedin.com/in/yonas-berisa/" target="_blank" rel="noopener" aria-label="Yonas Berisa on LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          </a>
+        </div>
+        <div class="member-foot"><p>Leading the visual direction and crafting beautiful interface experiences.</p></div>
+      </article>
+
+      <article class="member-card">
+        <div class="member-photo"><span class="initials">BD</span>
+          <img src="images/teams/Bezamariam.png" alt="Bezamariam Demeke"></div>
+        <div class="member-body">
+          <div><h3>Bezamariam Demeke</h3><p class="role">HR Manager</p></div>
+          <a class="li-btn" href="https://www.linkedin.com/in/bezamariam-d/" target="_blank" rel="noopener" aria-label="Bezamariam Demeke on LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          </a>
+        </div>
+        <div class="member-foot"><p>Cultivating a high-performance culture and empowering the people who drive the vision.</p></div>
+      </article>
+
+      <article class="member-card">
+        <div class="member-photo"><span class="initials">YM</span>
+          <img src="images/teams/Yismaw.png" alt="Yismaw Mulaw"></div>
+        <div class="member-body">
+          <div><h3>Yismaw Mulaw</h3><p class="role">IT Admin / Cyber-Specialist</p></div>
+          <a class="li-btn" href="https://www.linkedin.com/in/yismaw-mulaw-285016188/" target="_blank" rel="noopener" aria-label="Yismaw Mulaw on LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          </a>
+        </div>
+        <div class="member-foot"><p>Defending the digital frontier and ensuring the integrity of every byte.</p></div>
+      </article>
+
+      <article class="member-card">
+        <div class="member-photo"><span class="initials">KY</span>
+          <img src="images/teams/Kalkidan.png" alt="Kalkidan Yilkal T."></div>
+        <div class="member-body">
+          <div><h3>Kalkidan Yilkal T.</h3><p class="role">Business Process Manager</p></div>
+          <a class="li-btn" href="https://www.linkedin.com/in/kalkidan-yilkal-t-613a76283/" target="_blank" rel="noopener" aria-label="Kalkidan Yilkal on LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          </a>
+        </div>
+        <div class="member-foot"><p>Unlocking operational potential and engineering sustainable growth pathways.</p></div>
+      </article>
+
+      <article class="member-card">
+        <div class="member-photo"><span class="initials">TS</span>
+          <img src="images/teams/Tinsae.png" alt="Tinsae Seifu"></div>
+        <div class="member-body">
+          <div><h3>Tinsae Seifu</h3><p class="role">Legal Expert</p></div>
+          <a class="li-btn" href="https://www.linkedin.com/in/tinsae-seifu-2b208667" target="_blank" rel="noopener" aria-label="Tinsae Seifu on LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          </a>
+        </div>
+        <div class="member-foot"><p>Navigating complex regulatory landscapes and protecting the integrity of the mission.</p></div>
+      </article>
+
+    </div>
+
+    <div class="controls" data-reveal data-delay="240">
+      <div class="progress"><span class="progress-fill" id="teamProgressFill"></span></div>
+      <button class="nav-btn" id="teamPrevBtn" aria-label="Scroll team left">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M19 12H5m6 6-6-6 6-6"/></svg>
+      </button>
+      <button class="nav-btn" id="teamNextBtn" aria-label="Scroll team right">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+      </button>
+    </div>
+
   </div>
 </section>
 
@@ -1598,7 +2636,6 @@ h1 {
 </footer>
 
 <script>
-// Navy/Blue Savings Calculator (replacing cert section)
 (function(){
   const ROLES = {
     "Frontend Developer":   {us:140, off:53, t:[62,67,58]},
@@ -1613,102 +2650,183 @@ h1 {
   };
   const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const $ = s => document.querySelector(s);
-  function tween(from, to, cb, dur = 700){
-    if (REDUCED || from === to){ cb(to); return; }
+
+  function tween(from,to,cb,dur=700){
+    if (REDUCED || from===to){ cb(to); return; }
     const t0 = performance.now();
     (function step(now){
-      const p = Math.min(1, (now - t0) / dur);
-      cb(from + (to - from) * (1 - Math.pow(1 - p, 3)));
-      if (p < 1) requestAnimationFrame(step);
+      const p = Math.min(1,(now-t0)/dur);
+      cb(from+(to-from)*(1-Math.pow(1-p,3)));
+      if (p<1) requestAnimationFrame(step);
     })(t0);
   }
-  const section = document.querySelector('.nb-section');
-  if (!section) return;
-  const ro = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); }
-  }), {threshold:.15});
-  section.querySelectorAll('[data-reveal]').forEach(el => {
-    el.style.transitionDelay = (el.dataset.delay || 0) + 'ms';
-    ro.observe(el);
+
+  const ro = new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}
+  }),{threshold:.15});
+  document.querySelectorAll('[data-reveal]').forEach(el=>{
+    el.style.transitionDelay=(el.dataset.delay||0)+'ms';ro.observe(el);
   });
-  const so = new IntersectionObserver(es => es.forEach(e => {
-    if (!e.isIntersecting) return;
-    const el = e.target, pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
-    tween(0, +el.dataset.count, v => el.textContent = pre + Math.round(v) + suf, 950);
+
+  const so = new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target,pre=el.dataset.prefix||'',suf=el.dataset.suffix||'';
+    tween(0,+el.dataset.count,v=>el.textContent=pre+Math.round(v)+suf,950);
     so.unobserve(el);
-  }), {threshold:.6});
-  section.querySelectorAll('.nb-stat-num[data-count]').forEach(el => so.observe(el));
-  const savNum = $('#nbSavNum'), savAmount = $('#nbSavAmount'),
-        dialFill = $('#nbDialFill'), dialPct = $('#nbDialPct'),
-        usCost = $('#nbUsCost'), offCost = $('#nbOffCost'), offBar = $('#nbOffBar'),
-        tierRows = [...document.querySelectorAll('.nb-tier-row')],
-        tierFills = tierRows.map(r => r.querySelector('.nb-tier-fill')),
-        tierPcts  = tierRows.map(r => r.querySelector('.nb-tier-pct'));
-  const C = 213.6;
-  const state = {sav:0, peak:0, pcts:[0,0,0]};
+  }),{threshold:.6});
+  document.querySelectorAll('.stat-num[data-count]').forEach(el=>so.observe(el));
+
+  const savNum=$('#savNum'),savAmount=$('#savAmount'),dialFill=$('#dialFill'),dialPct=$('#dialPct'),
+        usCost=$('#usCost'),offCost=$('#offCost'),offBar=$('#offBar'),
+        tierRows=[...document.querySelectorAll('.tier-row')],
+        tierFills=tierRows.map(r=>r.querySelector('.tier-fill')),
+        tierPcts=tierRows.map(r=>r.querySelector('.tier-pct'));
+  const C=238.76, state={sav:0,peak:0,pcts:[0,0,0]};
+
   function render(role){
-    const d = ROLES[role], sav = d.us - d.off, peak = Math.max(...d.t);
-    tween(state.sav, sav,  v => savNum.textContent = Math.round(v));
-    tween(state.peak, peak, v => {
-      dialPct.textContent = Math.round(v);
-      dialFill.style.strokeDashoffset = C * (1 - v / 100);
-    });
-    usCost.textContent  = '$' + d.us + 'K';
-    offCost.textContent = '$' + d.off + 'K';
-    offBar.style.width  = (d.off / d.us * 100).toFixed(1) + '%';
-    d.t.forEach((p, i) => {
-      tween(state.pcts[i], p, v => tierPcts[i].textContent = Math.round(v) + '%');
-      tierFills[i].style.width = p + '%';
-    });
-    const best = d.t.indexOf(peak);
-    tierRows.forEach((r, i) => r.classList.toggle('best', i === best));
-    Object.assign(state, {sav, peak, pcts:[...d.t]});
-    savAmount.classList.remove('nb-bump'); void savAmount.offsetWidth;
-    savAmount.classList.add('nb-bump');
+    const d=ROLES[role],sav=d.us-d.off,peak=Math.max(...d.t);
+    tween(state.sav,sav,v=>savNum.textContent=Math.round(v));
+    tween(state.peak,peak,v=>{dialPct.textContent=Math.round(v);dialFill.style.strokeDashoffset=C*(1-v/100);});
+    usCost.textContent='$'+d.us+'K'; offCost.textContent='$'+d.off+'K';
+    offBar.style.width=(d.off/d.us*100).toFixed(1)+'%';
+    d.t.forEach((p,i)=>{tween(state.pcts[i],p,v=>tierPcts[i].textContent=Math.round(v)+'%');tierFills[i].style.width=p+'%';});
+    const best=d.t.indexOf(peak);
+    tierRows.forEach((r,i)=>r.classList.toggle('best',i===best));
+    Object.assign(state,{sav,peak,pcts:[...d.t]});
+    savAmount.classList.remove('bump');void savAmount.offsetWidth;savAmount.classList.add('bump');
   }
-  const sel = $('#nbRoleSelect'), btn = $('#nbRoleBtn'),
-        valueEl = $('#nbRoleValue'), opts = [...section.querySelectorAll('.nb-role-option')];
-  let open = false, active = -1;
-  function setOpen(v){
-    open = v;
-    sel.classList.toggle('open', v);
-    btn.setAttribute('aria-expanded', v);
-    if (v){ setActive(opts.findIndex(o => o.classList.contains('selected'))); }
-    else  { active = -1; opts.forEach(o => o.classList.remove('active')); }
-  }
-  function setActive(i){
-    active = i;
-    opts.forEach((o, k) => o.classList.toggle('active', k === i));
-    if (opts[i]) opts[i].scrollIntoView({block:'nearest'});
-  }
-  function select(role){
-    opts.forEach(o => {
-      const on = o.dataset.role === role;
-      o.classList.toggle('selected', on);
-      o.setAttribute('aria-selected', on);
-    });
-    valueEl.textContent = role;
-    setOpen(false);
-    render(role);
-  }
-  btn.addEventListener('click', () => setOpen(!open));
-  opts.forEach(o => o.addEventListener('click', () => select(o.dataset.role)));
-  document.addEventListener('click', e => { if (!sel.contains(e.target)) setOpen(false); });
-  sel.addEventListener('keydown', e => {
-    if (e.key === 'Escape'){ setOpen(false); btn.focus(); return; }
-    if (!open && ['ArrowDown','Enter',' '].includes(e.key)){
-      e.preventDefault(); setOpen(true); return;
-    }
-    if (!open) return;
-    if (e.key === 'ArrowDown'){ e.preventDefault(); setActive(Math.min(active + 1, opts.length - 1)); }
-    else if (e.key === 'ArrowUp'){ e.preventDefault(); setActive(Math.max(active - 1, 0)); }
-    else if (e.key === 'Home'){ e.preventDefault(); setActive(0); }
-    else if (e.key === 'End'){ e.preventDefault(); setActive(opts.length - 1); }
-    else if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); if (active > -1) select(opts[active].dataset.role); }
+
+  const sel=$('#roleSelect'),btn=$('#roleBtn'),valueEl=$('#roleValue'),opts=[...document.querySelectorAll('.role-option')];
+  let open=false,active=-1;
+  function setOpen(v){open=v;sel.classList.toggle('open',v);btn.setAttribute('aria-expanded',v);
+    if(v){setActive(opts.findIndex(o=>o.classList.contains('selected')));}else{active=-1;opts.forEach(o=>o.classList.remove('active'));}}
+  function setActive(i){active=i;opts.forEach((o,k)=>o.classList.toggle('active',k===i));if(opts[i])opts[i].scrollIntoView({block:'nearest'});}
+  function select(role){opts.forEach(o=>{const on=o.dataset.role===role;o.classList.toggle('selected',on);o.setAttribute('aria-selected',on);});
+    valueEl.textContent=role;setOpen(false);render(role);}
+  btn.addEventListener('click',()=>setOpen(!open));
+  opts.forEach(o=>o.addEventListener('click',()=>select(o.dataset.role)));
+  document.addEventListener('click',e=>{if(!sel.contains(e.target))setOpen(false);});
+  sel.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){setOpen(false);btn.focus();return;}
+    if(!open&&['ArrowDown','Enter',' '].includes(e.key)){e.preventDefault();setOpen(true);return;}
+    if(!open)return;
+    if(e.key==='ArrowDown'){e.preventDefault();setActive(Math.min(active+1,opts.length-1));}
+    else if(e.key==='ArrowUp'){e.preventDefault();setActive(Math.max(active-1,0));}
+    else if(e.key==='Home'){e.preventDefault();setActive(0);}
+    else if(e.key==='End'){e.preventDefault();setActive(opts.length-1);}
+    else if(e.key==='Enter'||e.key===' '){e.preventDefault();if(active>-1)select(opts[active].dataset.role);}
   });
+
   render('Frontend Developer');
 })();
 </script>
+
+<script>
+(function(){
+  /* rail drag */
+  const rail = document.getElementById('rail');
+  let down = false, startX = 0, startScroll = 0;
+  rail.addEventListener('pointerdown', e => {
+    down = true; startX = e.clientX; startScroll = rail.scrollLeft;
+    rail.classList.add('dragging'); rail.setPointerCapture(e.pointerId);
+  });
+  rail.addEventListener('pointermove', e => { if (down) rail.scrollLeft = startScroll - (e.clientX - startX); });
+  ['pointerup','pointercancel','pointerleave'].forEach(ev =>
+    rail.addEventListener(ev, () => { down = false; rail.classList.remove('dragging'); }));
+
+  /* accordion — one open at a time */
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-q').setAttribute('aria-expanded','false');
+      });
+      if (!wasOpen){ item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+    });
+  });
+
+  /* reveal */
+  const ro = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); }
+  }), {threshold:.1});
+  document.querySelectorAll('[data-reveal]').forEach(el => {
+    el.style.transitionDelay = (el.dataset.delay || 0) + 'ms';
+    ro.observe(el);
+  });
+})();
+</script>
+
+<script>
+(function(){
+  const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const rail = document.getElementById('teamRail'),
+        prev = document.getElementById('teamPrevBtn'),
+        next = document.getElementById('teamNextBtn'),
+        fill = document.getElementById('teamProgressFill');
+
+  if (!rail || !prev || !next || !fill) return;
+
+  const step = () => rail.querySelector('.member-card').offsetWidth + 24;
+
+  /* ---------- auto-scroll loop ---------- */
+  const STEP_EVERY = 3000;
+  const HOLD_AFTER = 5000;
+  let paused = false, holdTimer = null;
+
+  function hold(ms){
+    paused = true;
+    clearTimeout(holdTimer);
+    holdTimer = setTimeout(() => paused = false, ms);
+  }
+
+  if (!REDUCED){
+    setInterval(() => {
+      if (paused || document.hidden) return;
+      const max = rail.scrollWidth - rail.clientWidth;
+      if (rail.scrollLeft >= max - 4){
+        rail.scrollTo({left:0, behavior:'smooth'});
+      } else {
+        rail.scrollBy({left: step(), behavior:'smooth'});
+      }
+    }, STEP_EVERY);
+  }
+
+  rail.addEventListener('pointerenter', () => paused = true);
+  rail.addEventListener('pointerleave', () => { if (!down) paused = false; });
+  rail.addEventListener('wheel', () => hold(HOLD_AFTER), {passive:true});
+
+  prev.addEventListener('click', () => { hold(HOLD_AFTER); rail.scrollBy({left:-step(), behavior:'smooth'}); });
+  next.addEventListener('click', () => { hold(HOLD_AFTER); rail.scrollBy({left: step(), behavior:'smooth'}); });
+
+  function update(){
+    const max = rail.scrollWidth - rail.clientWidth;
+    fill.style.width = Math.max(8, (rail.scrollLeft / max) * 100 || 0) + '%';
+    prev.disabled = rail.scrollLeft <= 4;
+    next.disabled = rail.scrollLeft >= max - 4;
+  }
+  rail.addEventListener('scroll', update);
+  window.addEventListener('resize', update);
+  update();
+
+  let down = false, startX = 0, startScroll = 0;
+  rail.addEventListener('pointerdown', e => {
+    down = true; startX = e.clientX; startScroll = rail.scrollLeft;
+    rail.classList.add('dragging'); rail.setPointerCapture(e.pointerId);
+  });
+  rail.addEventListener('pointermove', e => {
+    if (!down) return;
+    rail.scrollLeft = startScroll - (e.clientX - startX);
+  });
+  ['pointerup','pointercancel'].forEach(ev =>
+    rail.addEventListener(ev, () => {
+      down = false; rail.classList.remove('dragging'); hold(HOLD_AFTER);
+    }));
+})();
+</script>
+
+<script src="animations.js"></script>
 
 </body>
 </html>

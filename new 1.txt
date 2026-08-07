@@ -1,0 +1,110 @@
+Below are **Google Flow cinematic prompts** designed to maintain a consistent premium corporate look across the entire video. For scenes featuring African professionals, the prompts explicitly specify **Ethiopian professionals**.
+
+---
+
+# Scene 1 (0–10s)
+
+### The Outsourcing Market is Changing
+
+**Prompt**
+
+> A cinematic corporate office in 2026 where business leaders monitor global operations on large digital screens. Modern workstations, glowing data visualizations, remote teams collaborating across continents, premium lighting, minimal luxury office design, dynamic camera dolly forward with slow parallax movement, subtle blue and orange accent lighting, shallow depth of field, highly realistic, 4K, commercial advertisement quality, no text, no logos.
+
+---
+
+# Scene 2 (10–20s)
+
+### Smarter, Faster, More Reliable
+
+**Prompt**
+
+> Inside a modern operations center where professionals use AI-assisted dashboards to manage customer support and business operations. Multiple monitors display intelligent analytics, automation workflows, and customer conversations. Camera slowly moves sideways past workstations with smooth cinematic motion. Premium technology office, realistic reflections, warm natural lighting, ultra realistic, 4K, no text or branding.
+
+---
+
+# Scene 3 (20–30s)
+
+### AI-Powered Outsourcing
+
+**Prompt**
+
+> An Ethiopian customer support professional wearing a modern business headset works alongside an intelligent AI interface. Transparent holographic dashboards assist with customer conversations while the employee remains the focus. The AI enhances productivity rather than replacing people. Cinematic close-up followed by slow orbit camera movement, premium corporate environment, realistic lighting, photorealistic, 4K, no text.
+
+---
+
+# Scene 4 (30–40s)
+
+### Humans + AI
+
+**Prompt**
+
+> Diverse Ethiopian professionals collaborate confidently while AI tools automate repetitive tasks in the background. One employee assists a customer while another reviews AI-generated insights on a large monitor. Camera gently pushes forward creating a sense of optimism and innovation. Modern office with natural daylight, premium commercial quality, highly realistic, 4K.
+
+---
+
+# Scene 5 (40–50s)
+
+### Africa is Becoming a Global Talent Hub
+
+**Prompt**
+
+> A modern Ethiopian technology office filled with talented young Ethiopian professionals collaborating on laptops, customer support, software development, and business consulting. Bright collaborative workspace with glass walls, contemporary furniture, confident professionals discussing projects. Slow cinematic tracking shot through the office, premium corporate commercial style, ultra realistic, 4K.
+
+---
+
+# Scene 6 (50–60s)
+
+### Ethiopia's Growth Story
+
+**Prompt**
+
+> Drone shot of Addis Ababa skyline during golden hour transitioning into a modern Ethiopian innovation hub where young Ethiopian professionals work inside a state-of-the-art office. Contemporary architecture, technology screens, collaborative workspaces, optimistic atmosphere, smooth cinematic transition, premium business advertisement quality, photorealistic, 4K, no visible company logos.
+
+---
+
+# Scene 7 (60–70s)
+
+### Real-Time Collaboration
+
+**Prompt**
+
+> Ethiopian professionals collaborate live with international clients through large video conference screens inside a modern office. Team members exchange ideas, update digital dashboards, and communicate naturally across time zones. Camera slowly circles the meeting table with cinematic movement. Premium office, realistic expressions, natural interaction, ultra realistic, 4K.
+
+---
+
+# Scene 8 (70–80s)
+
+### Results-Based Partnerships
+
+**Prompt**
+
+> Modern business analytics displayed on elegant digital dashboards showing customer satisfaction improvements, faster response times, and business growth while Ethiopian professionals celebrate successful project outcomes. Camera glides across dashboards before revealing smiling team members discussing results. Corporate commercial look, realistic lighting, premium office environment, 4K.
+
+---
+
+# Scene 9 (80–90s)
+
+### Specialized Teams & Closing
+
+**Prompt**
+
+> A confident team of Ethiopian professionals representing customer support, virtual assistance, operations, administration, finance, and technology stands together inside a bright modern office overlooking Addis Ababa. The team smiles confidently toward the camera while continuing professional work. Camera slowly pulls back revealing a collaborative environment filled with energy and optimism. Premium corporate advertisement, cinematic lighting, highly realistic, 4K, no logos, no text.
+
+---
+
+## Style Settings (Use for Every Prompt)
+
+Append these settings (or their equivalent in Google Flow) to keep all clips visually consistent:
+
+* **Length:** 10 seconds
+* **Aspect Ratio:** 16:9 (or 9:16 if creating for Reels/Shorts)
+* **Style:** Premium corporate commercial
+* **Quality:** Photorealistic, cinematic, 4K
+* **Camera:** Smooth dolly, slider, orbit, or gimbal movements only
+* **Lighting:** Natural daylight with subtle blue/orange corporate accents
+* **Depth of Field:** Shallow, cinematic
+* **Frame Rate:** 24 fps
+* **Mood:** Professional, optimistic, innovative
+* **Negative Prompt:** No text, subtitles, watermarks, logos, distorted hands, extra fingers, deformed faces, low resolution, blurry visuals, cartoon style, exaggerated AI artifacts.
+
+These prompts will produce a cohesive, high-end corporate video while clearly emphasizing Ethiopian talent in the Africa-focused scenes.

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meet Our Team — Rem Assist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#0085FE;
+    --navy:#000543;
+    --bg:#f5f7fa;
+    --muted:#5b6478;
+    --line:rgba(0,5,67,.1);
+    --font:"Sora",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--bg);font-family:var(--font)}
+  ::selection{background:var(--blue);color:#fff}
+
+  .team-section{position:relative;overflow:hidden;padding:clamp(4.5rem,8vw,7.5rem) 0 clamp(3.5rem,6vw,5.5rem)}
+  .dots{position:absolute;width:520px;height:420px;pointer-events:none;
+    background-image:radial-gradient(rgba(0,5,67,.14) 1.4px,transparent 1.5px);background-size:13px 13px}
+  .dots-tr{top:0;right:0;-webkit-mask-image:radial-gradient(ellipse at top right,#000 12%,transparent 72%);
+    mask-image:radial-gradient(ellipse at top right,#000 12%,transparent 72%)}
+  .container{max-width:1400px;margin-inline:auto;padding-inline:clamp(1.25rem,4vw,3rem);position:relative;z-index:1}
+
+  /* ---------- Header ---------- */
+  .eyebrow{display:flex;align-items:center;gap:.6rem;
+    font-weight:600;font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--blue)}
+  .eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--blue);animation:pulse 2.2s infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,133,254,.45)}55%{box-shadow:0 0 0 8px rgba(0,133,254,0)}}
+  .team-head{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(2rem,5vw,5rem);align-items:end;margin-top:1.2rem}
+  .team-head h2{font-weight:700;letter-spacing:-.02em;line-height:1.08;color:var(--navy);
+    font-size:clamp(2.3rem,4.6vw,3.9rem)}
+  .team-head h2 .hl{color:var(--blue)}
+  .team-head p{color:var(--muted);font-size:1rem;line-height:1.75;max-width:46ch;padding-bottom:.4rem}
+
+  /* ---------- Rail ---------- */
+  .rail{display:flex;gap:1.5rem;overflow-x:auto;scroll-snap-type:x mandatory;
+    padding:2.2rem .25rem 1.6rem;margin-top:.5rem;cursor:grab;
+    scrollbar-width:none;-ms-overflow-style:none}
+  .rail::-webkit-scrollbar{display:none}
+  .rail.dragging{cursor:grabbing;scroll-snap-type:none}
+
+  .member-card{flex:0 0 320px;scroll-snap-align:start;background:#fff;border:1px solid var(--line);
+    border-radius:18px;overflow:hidden;transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s}
+  .member-card:hover{transform:translateY(-8px);box-shadow:0 30px 60px -25px rgba(0,5,67,.25)}
+
+  /* BLUE studio glow behind portraits */
+  .member-photo{position:relative;height:300px;overflow:hidden;
+    background:
+      radial-gradient(circle at 82% 10%,rgba(0,5,67,.4),transparent 58%),
+      radial-gradient(circle at 50% 74%,#8ec9ff 0%,#3ba0ff 34%,var(--blue) 62%,#0047b3 100%)}
+  .member-photo .initials{position:absolute;inset:0;display:grid;place-content:center;
+    font-weight:800;font-size:4.2rem;color:rgba(255,255,255,.3);letter-spacing:-.02em}
+  .member-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%;
+    transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+  .member-card:hover .member-photo img{transform:scale(1.06)}
+
+  .member-body{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;
+    padding:1.25rem 1.3rem 1.1rem}
+  .member-body h3{font-weight:700;font-size:1.12rem;color:var(--navy);line-height:1.25}
+  .member-body .role{margin-top:.25rem;font-size:.78rem;font-weight:500;color:var(--muted)}
+  .li-btn{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-content:center;
+    background:rgba(0,133,254,.1);color:var(--blue);transition:.3s}
+  .li-btn:hover{background:var(--blue);color:#fff;transform:translateY(-3px);
+    box-shadow:0 12px 22px -8px rgba(0,133,254,.55)}
+
+  .member-foot{border-top:1px solid var(--line);background:#fbfcfe;padding:1rem 1.3rem 1.2rem}
+  .member-foot p{font-size:.8rem;color:var(--muted);line-height:1.65;text-align:center}
+
+  /* ---------- Controls ---------- */
+  .controls{display:flex;align-items:center;gap:1.2rem;margin-top:1rem}
+  .progress{flex:1;height:2px;border-radius:2px;background:rgba(0,5,67,.08);position:relative;overflow:hidden}
+  .progress-fill{position:absolute;inset:0 auto 0 0;width:8%;background:var(--blue);border-radius:2px;transition:width .25s}
+  .nav-btn{width:52px;height:52px;border-radius:50%;border:0;background:var(--blue);color:#fff;cursor:pointer;
+    display:grid;place-content:center;transition:.3s}
+  .nav-btn:hover{background:var(--navy);transform:translateY(-2px)}
+  .nav-btn:disabled{opacity:.3;pointer-events:none}
+
+  /* ---------- Reveal ---------- */
+  [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+  [data-reveal].in{opacity:1;transform:none}
+
+  @media (max-width:900px){
+    .team-head{grid-template-columns:1fr;align-items:start;gap:1rem}
+    .member-card{flex-basis:280px}
+    .member-photo{height:260px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    [data-reveal]{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<section class="team-section">
+  <div class="dots dots-tr" aria-hidden="true"></div>
+  <div class="container">
+
+    <span class="eyebrow" data-reveal><i></i>Our Team</span>
+    <div class="team-head">
+      <h2 data-reveal data-delay="60">Meet the minds<br>behind <span class="hl">Rem Assist</span></h2>
+      <p data-reveal data-delay="140">Our work is powered by a team that values quality, creativity, and
+        collaboration in everything we do.</p>
+    </div>
+
+    <div class="rail" id="rail" data-reveal data-delay="180">
+
+      <article class="member-card">
+        <div class="member-photo"><span class="initials">JZ</span>
+          <img src="images/teams/Johnathan.png" alt="Johnathan Zemene"></div>
+        <div class="member-body">
+          <div><h3>Johnathan Zemene</h3><p class="role">Chief Executive Officer</p></div>
+          <a class="li-btn" href="https://www.linkedin.com/in/johnathan-zemene-20b5bb199/" target="_blank" rel="noopener" aria-label="Johnathan Zemene on LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          </a>
+        </div>
+        <div class="member-foot"><p>Driving the strategic vision and architecting the future of our organization.</p></div>
+      </article>
+
+      <article class="member-card">
+        <div class="member-photo"><span class="initials">MS</span>
+          <img src="images/teams/Minassie.png" alt="Minassie Sora"></div>
+        <div class="member-body">
+          <div><h3>Minassie Sora</h3><p class="role">Chief Operations Officer</p></div>
+          <a class="li-btn" href="https://www.linkedin.com/in/minassie-sora-9a39a7160/" target="_blank" rel="noopener" aria-label="Minassie Sora on LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          </a>
+        </div>
+        <div class="member-foot"><p>Leading operational efficiency across borders to deliver consistent business results.</p></div>
+      </article>
+
+      <article class="member-card">
+        <div class="member-photo"><span class="initials">YB</span>
+          <img src="images/teams/Yonas.png" alt="Yonas Berisa"></div>
+        <div class="member-body">
+          <div><h3>Yonas Berisa</h3><p class="role">Chief Design Officer</p></div>
+          <a class="li-btn" href="https://www.linkedin.com/in/yonas-berisa/" target="_blank" rel="noopener" aria-label="Yonas Berisa on LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          </a>
+        </div>
+        <div class="member-foot"><p>Leading the visual direction and crafting beautiful interface experiences.</p></div>
+      </article>
+
+      <article class="member-card">
+        <div class="member-photo"><span class="initials">BD</span>
+          <img src="images/teams/Bezamariam.png" alt="Bezamariam Demeke"></div>
+        <div class="member-body">
+          <div><h3>Bezamariam Demeke</h3><p class="role">HR Manager</p></div>
+          <a class="li-btn" href="https://www.linkedin.com/in/bezamariam-d/" target="_blank" rel="noopener" aria-label="Bezamariam Demeke on LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          </a>
+        </div>
+        <div class="member-foot"><p>Cultivating a high-performance culture and empowering the people who drive the vision.</p></div>
+      </article>
+
+      <article class="member-card">
+        <div class="member-photo"><span class="initials">YM</span>
+          <img src="images/teams/Yismaw.png" alt="Yismaw Mulaw"></div>
+        <div class="member-body">
+          <div><h3>Yismaw Mulaw</h3><p class="role">IT Admin / Cyber-Specialist</p></div>
+          <a class="li-btn" href="https://www.linkedin.com/in/yismaw-mulaw-285016188/" target="_blank" rel="noopener" aria-label="Yismaw Mulaw on LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          </a>
+        </div>
+        <div class="member-foot"><p>Defending the digital frontier and ensuring the integrity of every byte.</p></div>
+      </article>
+
+      <article class="member-card">
+        <div class="member-photo"><span class="initials">KY</span>
+          <img src="images/teams/Kalkidan.png" alt="Kalkidan Yilkal T."></div>
+        <div class="member-body">
+          <div><h3>Kalkidan Yilkal T.</h3><p class="role">Business Process Manager</p></div>
+          <a class="li-btn" href="https://www.linkedin.com/in/kalkidan-yilkal-t-613a76283/" target="_blank" rel="noopener" aria-label="Kalkidan Yilkal on LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          </a>
+        </div>
+        <div class="member-foot"><p>Unlocking operational potential and engineering sustainable growth pathways.</p></div>
+      </article>
+
+      <article class="member-card">
+        <div class="member-photo"><span class="initials">TS</span>
+          <img src="images/teams/Tinsae.png" alt="Tinsae Seifu"></div>
+        <div class="member-body">
+          <div><h3>Tinsae Seifu</h3><p class="role">Legal Expert</p></div>
+          <a class="li-btn" href="https://www.linkedin.com/in/tinsae-seifu-2b208667" target="_blank" rel="noopener" aria-label="Tinsae Seifu on LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          </a>
+        </div>
+        <div class="member-foot"><p>Navigating complex regulatory landscapes and protecting the integrity of the mission.</p></div>
+      </article>
+
+    </div>
+
+    <div class="controls" data-reveal data-delay="240">
+      <div class="progress"><span class="progress-fill" id="progressFill"></span></div>
+      <button class="nav-btn" id="prevBtn" aria-label="Scroll team left">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M19 12H5m6 6-6-6 6-6"/></svg>
+      </button>
+      <button class="nav-btn" id="nextBtn" aria-label="Scroll team right">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function(){
+  const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const rail = document.getElementById('rail'),
+        prev = document.getElementById('prevBtn'),
+        next = document.getElementById('nextBtn'),
+        fill = document.getElementById('progressFill');
+
+  const step = () => rail.querySelector('.member-card').offsetWidth + 24;
+
+  /* ---------- auto-scroll loop ---------- */
+  const STEP_EVERY = 3000;  // advance one card every 3s
+  const HOLD_AFTER = 5000;  // pause after user interaction (ms)
+  let paused = false, holdTimer = null;
+
+  function hold(ms){
+    paused = true;
+    clearTimeout(holdTimer);
+    holdTimer = setTimeout(() => paused = false, ms);
+  }
+
+  if (!REDUCED){
+    setInterval(() => {
+      if (paused || document.hidden) return;
+      const max = rail.scrollWidth - rail.clientWidth;
+      if (rail.scrollLeft >= max - 4){
+        rail.scrollTo({left:0, behavior:'smooth'});   // reached the end → back to first
+      } else {
+        rail.scrollBy({left: step(), behavior:'smooth'});
+      }
+    }, STEP_EVERY);
+  }
+
+  /* pause while visitor interacts */
+  rail.addEventListener('pointerenter', () => paused = true);
+  rail.addEventListener('pointerleave', () => { if (!down) paused = false; });
+  rail.addEventListener('wheel', () => hold(HOLD_AFTER), {passive:true});
+
+  /* ---------- arrows ---------- */
+  prev.addEventListener('click', () => { hold(HOLD_AFTER); rail.scrollBy({left:-step(), behavior:'smooth'}); });
+  next.addEventListener('click', () => { hold(HOLD_AFTER); rail.scrollBy({left: step(), behavior:'smooth'}); });
+
+  /* ---------- progress + disabled states ---------- */
+  function update(){
+    const max = rail.scrollWidth - rail.clientWidth;
+    fill.style.width = Math.max(8, (rail.scrollLeft / max) * 100 || 0) + '%';
+    prev.disabled = rail.scrollLeft <= 4;
+    next.disabled = rail.scrollLeft >= max - 4;
+  }
+  rail.addEventListener('scroll', update);
+  window.addEventListener('resize', update);
+  update();
+
+  /* ---------- drag to scroll ---------- */
+  let down = false, startX = 0, startScroll = 0;
+  rail.addEventListener('pointerdown', e => {
+    down = true; startX = e.clientX; startScroll = rail.scrollLeft;
+    rail.classList.add('dragging'); rail.setPointerCapture(e.pointerId);
+  });
+  rail.addEventListener('pointermove', e => {
+    if (!down) return;
+    rail.scrollLeft = startScroll - (e.clientX - startX);
+  });
+  ['pointerup','pointercancel'].forEach(ev =>
+    rail.addEventListener(ev, () => {
+      down = false; rail.classList.remove('dragging'); hold(HOLD_AFTER);
+    }));
+
+  /* ---------- reveal ---------- */
+  const ro = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); }
+  }), {threshold:.1});
+  document.querySelectorAll('[data-reveal]').forEach(el => {
+    el.style.transitionDelay = (el.dataset.delay || 0) + 'ms';
+    ro.observe(el);
+  });
+})();
+</script>
+</body>
+</html>
